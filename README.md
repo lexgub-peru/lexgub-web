@@ -1,1 +1,3 @@
-# lexgub-web
+# LEXGUB PERÚ
+
+Sitio institucional en desarrollo.
