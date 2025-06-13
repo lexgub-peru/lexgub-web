@@ -6,7 +6,7 @@ export default function Home() {
       <Navbar />
       <main style={{ padding: '2rem', textAlign: 'center' }}>
         <h2>Bienvenido a LEXGUB PERÚ</h2>
-        <p>Tu plataforma jurídica de consulta, normativa y análisis legal.</p>
+        <p>Tu plataforma jurídica de consulta, normativa y análisis legal. MEGR</p>
       </main>
     </>
   );
