@@ -1,4 +1,3 @@
 # LEXGUB PERÚ
 
-Sitio institucional en desarrollo.
-# LEXGUB PERÚ - Actualización de prueba
+### Última actualización de prueba - 13/06/2025
