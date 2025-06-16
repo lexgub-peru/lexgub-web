@@ -1,4 +1,5 @@
 import './globals.css';
+
 export const metadata = {
   title: 'LEXGUB PERÚ',
   description: 'Plataforma jurídica y de control gubernamental',
@@ -21,7 +22,20 @@ export default function RootLayout({
         flexDirection: 'column',
         justifyContent: 'space-between'
       }}>
-        {children}
+        <header style={{
+          padding: '1rem',
+          backgroundColor: '#1a202c',
+          color: 'white',
+          textAlign: 'center'
+        }}>
+          <h1>LEXGUB PERÚ</h1>
+          <p>Plataforma institucional.</p>
+        </header>
+
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+
         <footer style={{
           backgroundColor: '#1a202c',
           color: '#fff',
