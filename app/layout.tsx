@@ -1,5 +1,4 @@
 import './globals.css';
-
 export const metadata = {
   title: 'LEXGUB PERÚ',
   description: 'Plataforma jurídica y de control gubernamental',
