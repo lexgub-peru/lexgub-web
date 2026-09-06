@@ -1,9 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { IconClose, IconMenu, IconShield } from './icons';
+import { IconClose, IconMenu } from './icons';
 
 const links = [
   { href: '/control-gubernamental', label: 'Control Gubernamental' },
@@ -35,9 +36,15 @@ export default function Navbar() {
     <>
       <a className="skipLink" href="#contenido">Saltar al contenido</a>
       <nav className="navbar" aria-label="Navegación principal">
-        <Link className="brand" href="/">
-          <IconShield className="brandIcon" />
-          <span className="brandWord">LEXGUB <span className="brandAccent">PERÚ</span></span>
+        <Link className="brand navBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
+          <Image
+            src="/lexgub-logo.webp"
+            alt=""
+            width={420}
+            height={164}
+            priority
+            className="navBrandLogo"
+          />
         </Link>
 
         <div className="navlinks" data-state={open ? 'open' : 'closed'}>
