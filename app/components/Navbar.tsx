@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -37,12 +36,12 @@ export default function Navbar() {
       <a className="skipLink" href="#contenido">Saltar al contenido</a>
       <nav className="navbar" aria-label="Navegación principal">
         <Link className="brand navBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
-          <Image
+          <img
             src="/lexgub-logo.webp"
             alt=""
-            width={420}
-            height={164}
-            priority
+            width="420"
+            height="164"
+            loading="eager"
             className="navBrandLogo"
           />
         </Link>
