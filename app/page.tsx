@@ -95,7 +95,7 @@ export default function Home() {
               desplaza parte del énfasis hacia la responsabilidad de la entidad y los controles simultáneo y posterior.
             </p>
             <div className="homeFeaturedAuthor">
-              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
+              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="640" />
               <div>
                 <strong>Marvyn Enrique Gallo Rojas</strong>
                 <span>Abogado · Columna LexGub</span>
@@ -134,44 +134,19 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </section>
-
-      <section className="homeAuthorSection">
-        <div className="homeAuthorInner">
-          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
-          <div className="homeAuthorCopy">
-            <span className="sectionKicker">AUTOR · PRÁCTICA PROFESIONAL</span>
-            <h2>Marvyn Enrique Gallo Rojas</h2>
-            <p>
-              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo.
-              LexGub reúne análisis, herramientas y una práctica profesional sustentada en evidencia, temporalidad normativa y revisión crítica.
-            </p>
-          </div>
-          <div className="homeAuthorActions">
-            <a className="primaryButton" href="/columna">Ver publicaciones</a>
-            <a className="authorOutlineButton" href="/servicios">Perfil y servicios</a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section softSection">
-        <div className="sectionHeading">
-          <span>ACCESO RÁPIDO</span>
-          <h2>Lo que más se consulta</h2>
-        </div>
-        <div className="quickGrid">
+        <nav className="quickGrid" aria-label="Accesos rápidos">
           {quickLinks.map(([label, href, Icon]) => (
             <a key={href} href={href} className="quickCard">
               <Icon />
               <strong>{label}</strong>
             </a>
           ))}
-        </div>
+        </nav>
       </section>
 
-      <section className="section methodologySection">
+      <section className="section softSection methodologySection">
         <div className="methodologyCopy">
-          <span className="eyebrow">MÉTODO LEXGUB</span>
+          <span className="sectionKicker">MÉTODO LEXGUB</span>
           <h2>Antes de concluir, reconstruye.</h2>
           <p>Una revisión sólida empieza identificando qué ocurrió, cuándo ocurrió, quién intervino, qué evidencia lo demuestra y qué norma era exigible en ese momento.</p>
         </div>
@@ -182,6 +157,37 @@ export default function Home() {
           <li><strong>Contraste</strong><span>Explica la diferencia entre lo acreditado y lo exigido.</span></li>
           <li><strong>Consecuencia</strong><span>Evalúa efecto, riesgo, causalidad y participación sin anticipar responsabilidad.</span></li>
         </ol>
+      </section>
+
+      <section className="homeAuthorSection">
+        <div className="homeAuthorInner">
+          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="640" />
+          <div className="homeAuthorCopy">
+            <span className="sectionKicker">AUTOR</span>
+            <h2>Marvyn Enrique Gallo Rojas</h2>
+            <p>
+              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo.
+            </p>
+          </div>
+          <div className="homeAuthorActions">
+            <a className="authorOutlineButton" href="/columna">Publicaciones</a>
+            <a className="authorOutlineButton" href="/servicios">Perfil</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="homeServicesBand">
+          <div>
+            <span className="eyebrow">SERVICIOS</span>
+            <h2>Acompañamiento jurídico especializado</h2>
+            <p>
+              Revisión de informes de control, análisis de expedientes de contratación, evaluación de comentarios y
+              sustento jurídico para procedimientos ante el Sistema Nacional de Control.
+            </p>
+          </div>
+          <a className="primaryButton" href="/servicios">Ver servicios</a>
+        </div>
       </section>
     </>
   );

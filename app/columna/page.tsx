@@ -33,7 +33,7 @@ export default function ColumnaPage() {
         </div>
       </section>
 
-      <main className="columnLanding editorialColumnLanding">
+      <div className="columnLanding editorialColumnLanding">
         <a className="editorialFeaturedStory" href="/columna/oxi-informe-previo-el-nino-2026">
           <div className="editorialFeaturedStoryCopy">
             <span>ACTUALIDAD NORMATIVA · 06 SEPTIEMBRE 2026</span>
@@ -60,7 +60,7 @@ export default function ColumnaPage() {
             </article>
           ))}
         </section>
-      </main>
+      </div>
     </>
   );
 }

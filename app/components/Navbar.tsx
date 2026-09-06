@@ -6,13 +6,21 @@ import { useEffect, useState } from 'react';
 import LexGubBrand from './Brand';
 import { IconClose, IconMenu } from './icons';
 
-const links = [
+/** Navegación principal: idéntica en escritorio y móvil. */
+const primary = [
   { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Normativa' },
   { href: '/columna', label: 'Columna' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/contacto', label: 'Contacto' },
+];
+
+/** Material de consulta: secundario, agrupado bajo su propio rótulo. */
+const consulta = [
+  { href: '/guias', label: 'Guías' },
+  { href: '/herramientas', label: 'Herramientas' },
+  { href: '/glosario', label: 'Glosario' },
 ];
 
 export default function Navbar() {
@@ -32,25 +40,31 @@ export default function Navbar() {
     return href === '/' ? pathname === '/' : pathname.startsWith(href);
   }
 
+  function navLink(link: { href: string; label: string }, inDrawer = false) {
+    return (
+      <Link
+        key={link.href}
+        href={link.href}
+        aria-current={isActive(link.href) ? 'page' : undefined}
+        className={isActive(link.href) ? 'navActive' : undefined}
+        tabIndex={inDrawer && !open ? -1 : undefined}
+      >
+        {link.label}
+      </Link>
+    );
+  }
+
   return (
     <>
       <a className="skipLink" href="#contenido">Saltar al contenido</a>
-      <nav className="navbar editorialNavbar" aria-label="Navegación principal">
+
+      <nav className="navbar" aria-label="Navegación principal">
         <Link className="lexgubNavBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
           <LexGubBrand compact tone="dark" />
         </Link>
 
-        <div className="navlinks editorialNavlinks" data-state={open ? 'open' : 'closed'}>
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? 'page' : undefined}
-              className={isActive(link.href) ? 'navActive' : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="navlinks">
+          {primary.map((link) => navLink(link))}
         </div>
 
         <button
@@ -65,30 +79,19 @@ export default function Navbar() {
         </button>
       </nav>
 
-      <div
-        id="mobile-nav"
-        className="navDrawer"
-        data-state={open ? 'open' : 'closed'}
-        aria-hidden={!open}
-      >
+      <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
         <div className="navDrawerLinks">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? 'page' : undefined}
-              className={isActive(link.href) ? 'navActive' : undefined}
-              tabIndex={open ? 0 : -1}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/guias" tabIndex={open ? 0 : -1}>Guías</Link>
-          <Link href="/herramientas" tabIndex={open ? 0 : -1}>Herramientas</Link>
-          <Link href="/glosario" tabIndex={open ? 0 : -1}>Glosario</Link>
+          {primary.map((link) => navLink(link, true))}
+        </div>
+        <div className="navDrawerGroup">
+          <span>Consulta</span>
+          <div className="navDrawerChips">
+            {consulta.map((link) => navLink(link, true))}
+          </div>
         </div>
         <p className="navDrawerNote">LexGub Perú · análisis jurídico independiente, control gubernamental y derecho público.</p>
       </div>
+
       <button
         type="button"
         className="navScrim"

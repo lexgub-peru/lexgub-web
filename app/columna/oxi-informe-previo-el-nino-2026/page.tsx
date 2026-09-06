@@ -11,8 +11,8 @@ export default function ArticlePage() {
     <article className="editorialArticlePage">
       <header className="articleMasthead">
         <div className="articleMastheadInner">
-          <span>ANÁLISIS JURÍDICO PARA UN MEJOR CONTROL PÚBLICO</span>
-          <small>Ideas · Normativa · Control · Gestión pública</small>
+          <span>COLUMNA LEXGUB</span>
+          <small>Análisis jurídico independiente · Control gubernamental</small>
         </div>
       </header>
 
