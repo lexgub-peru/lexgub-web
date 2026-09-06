@@ -1,4 +1,3 @@
-import LexGubBrand from './components/Brand';
 import PildoraLexGub from './components/PildoraLexGub';
 import {
   IconAlert,
@@ -70,62 +69,59 @@ const quickLinks = [
 export default function Home() {
   return (
     <>
-      <section className="hero portalHero">
-        <div className="lexgubHeroIdentity">
-          <LexGubBrand tone="dark" />
+      <section className="editorialHomeHero">
+        <div className="editorialHomeHeroInner">
+          <div className="editorialHomeCopy">
+            <div className="eyebrow">LEXGUB PERÚ · PLATAFORMA JURÍDICA INDEPENDIENTE</div>
+            <h1>Análisis jurídico para un mejor control público.</h1>
+            <p>
+              Control gubernamental, auditoría, contrataciones públicas y derecho administrativo explicados con fuente oficial,
+              evidencia y una lectura crítica orientada a problemas reales de la gestión pública peruana.
+            </p>
+            <div className="heroActions">
+              <a className="primaryButton" href="/control-gubernamental">Centro de control</a>
+              <a className="secondaryButton" href="/columna">Leer la columna</a>
+            </div>
+            <div className="editorialHeroTopics" aria-label="Áreas principales">
+              <span>Control</span><span>Auditoría</span><span>Contrataciones</span><span>Gestión pública</span>
+            </div>
+          </div>
+
+          <a className="homeFeaturedArticle" href="/columna/oxi-informe-previo-el-nino-2026">
+            <span className="homeFeaturedLabel">EN PORTADA · ACTUALIDAD NORMATIVA</span>
+            <h2>Excepción al informe previo en Obras por Impuestos: rapidez, control y riesgos.</h2>
+            <p>
+              La excepción temporal introducida para determinadas intervenciones ante El Niño no elimina el control gubernamental:
+              desplaza parte del énfasis hacia la responsabilidad de la entidad y los controles simultáneo y posterior.
+            </p>
+            <div className="homeFeaturedAuthor">
+              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
+              <div>
+                <strong>Marvyn Enrique Gallo Rojas</strong>
+                <span>Abogado · Columna LexGub</span>
+              </div>
+            </div>
+            <strong className="homeFeaturedLink">Leer análisis <IconArrowRight /></strong>
+          </a>
         </div>
-        <div className="eyebrow">PLATAFORMA JURÍDICA INDEPENDIENTE · CONTROL GUBERNAMENTAL</div>
-        <h1>Derecho, control y evidencia para trabajar con criterio.</h1>
-        <p>
-          Plataforma jurídica independiente especializada en control gubernamental peruano. Reúne normativa oficial,
-          rutas de análisis, guías prácticas y herramientas para auditores, abogados, servidores y gestores públicos.
-        </p>
-        <div className="heroActions">
-          <a className="primaryButton" href="/control-gubernamental">Entrar al centro de control</a>
-          <a className="secondaryButton" href="/normativa">Consultar normativa</a>
-        </div>
-        <div className="heroNote">Contenido informativo especializado. La conclusión jurídica depende siempre del caso concreto, la evidencia y la norma vigente aplicable.</div>
       </section>
 
-      <section className="statStrip" aria-label="Principios LexGub">
+      <section className="homePrinciples" aria-label="Principios LexGub">
         <article><IconDocument /><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
-        <article><IconClock /><strong>Temporalidad</strong><span>La regla aplicable se determina por la fecha del hecho.</span></article>
-        <article><IconEvidence /><strong>Evidencia</strong><span>Se distingue hecho acreditado, indicio e inferencia.</span></article>
+        <article><IconClock /><strong>Temporalidad</strong><span>La regla se determina por la fecha del hecho.</span></article>
+        <article><IconEvidence /><strong>Evidencia</strong><span>Hecho, indicio e inferencia no son lo mismo.</span></article>
         <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
 
       <PildoraLexGub />
 
-      <section className="editorialSection">
-        <div className="editorialSplit">
-          <div className="editorialLead">
-            <span className="sectionKicker">LEXGUB COMO VOZ Y PRÁCTICA PROFESIONAL</span>
-            <h2>Análisis público, debate jurídico y servicios especializados.</h2>
-            <p>
-              LexGub no será solo una biblioteca. También será un espacio para publicar posiciones argumentadas sobre cambios normativos,
-              jurisprudencia y noticias de control, y una carta de presentación profesional para asesoría y capacitación especializada.
-            </p>
-          </div>
-          <div className="editorialActions">
-            <a className="editorialActionCard" href="/columna">
-              <span>Columna LexGub</span>
-              <strong>Actualidad, debate normativo, jurisprudencia y análisis.</strong>
-            </a>
-            <a className="editorialActionCard" href="/servicios">
-              <span>Perfil profesional</span>
-              <strong>Control gubernamental, auditoría y revisión jurídica especializada.</strong>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section portalSection">
+      <section className="section portalSection homeLibrarySection">
         <div className="sectionHeading splitHeading">
           <div>
-            <span>ÁREAS DE TRABAJO</span>
-            <h2>Una biblioteca pensada para casos reales</h2>
+            <span>CENTRO DE CONSULTA</span>
+            <h2>Una biblioteca jurídica pensada para casos reales.</h2>
           </div>
-          <p>Empieza por el tipo de actuación o la materia que necesitas revisar.</p>
+          <p>Empieza por el servicio de control o la materia que necesitas revisar.</p>
         </div>
         <div className="moduleGrid areaGrid">
           {areas.map((area) => (
@@ -137,6 +133,24 @@ export default function Home() {
               <strong className="cardLink">Abrir guía <IconArrowRight /></strong>
             </a>
           ))}
+        </div>
+      </section>
+
+      <section className="homeAuthorSection">
+        <div className="homeAuthorInner">
+          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
+          <div className="homeAuthorCopy">
+            <span className="sectionKicker">AUTOR · PRÁCTICA PROFESIONAL</span>
+            <h2>Marvyn Enrique Gallo Rojas</h2>
+            <p>
+              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo.
+              LexGub reúne análisis, herramientas y una práctica profesional sustentada en evidencia, temporalidad normativa y revisión crítica.
+            </p>
+          </div>
+          <div className="homeAuthorActions">
+            <a className="primaryButton" href="/columna">Ver publicaciones</a>
+            <a className="authorOutlineButton" href="/servicios">Perfil y servicios</a>
+          </div>
         </div>
       </section>
 
@@ -159,14 +173,14 @@ export default function Home() {
         <div className="methodologyCopy">
           <span className="eyebrow">MÉTODO LEXGUB</span>
           <h2>Antes de concluir, reconstruye.</h2>
-          <p>Una revisión sólida no empieza buscando una infracción. Empieza identificando qué ocurrió, cuándo ocurrió, quién intervino, qué evidencia lo demuestra y qué norma era exigible en ese momento.</p>
+          <p>Una revisión sólida empieza identificando qué ocurrió, cuándo ocurrió, quién intervino, qué evidencia lo demuestra y qué norma era exigible en ese momento.</p>
         </div>
         <ol className="methodSteps">
           <li><strong>Hecho</strong><span>Delimita conducta, tiempo, lugar, operación y participantes.</span></li>
           <li><strong>Evidencia</strong><span>Verifica autenticidad, suficiencia, pertinencia y consistencia.</span></li>
           <li><strong>Criterio</strong><span>Determina la obligación jurídica específica y temporalmente aplicable.</span></li>
           <li><strong>Contraste</strong><span>Explica la diferencia entre lo acreditado y lo exigido.</span></li>
-          <li><strong>Consecuencia</strong><span>Evalúa efecto, riesgo, causalidad y eventual participación sin anticipar responsabilidad.</span></li>
+          <li><strong>Consecuencia</strong><span>Evalúa efecto, riesgo, causalidad y participación sin anticipar responsabilidad.</span></li>
         </ol>
       </section>
     </>

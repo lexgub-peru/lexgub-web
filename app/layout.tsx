@@ -3,6 +3,7 @@ import './globals.css';
 import './lexgub-brand.css';
 import './lexgub-editorial.css';
 import './lexgub-identity-v2.css';
+import './lexgub-revamp.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -25,7 +26,7 @@ export const metadata = {
     default: 'LEXGUB PERÚ | Control gubernamental y derecho público',
     template: '%s | LEXGUB PERÚ',
   },
-  description: 'Plataforma jurídica independiente especializada en control gubernamental peruano, auditoría de cumplimiento, control simultáneo, control posterior, denuncias y gestión pública.',
+  description: 'Plataforma jurídica independiente especializada en control gubernamental peruano, auditoría de cumplimiento, control simultáneo, control posterior, contrataciones públicas y gestión pública.',
 };
 
 export const viewport = {

@@ -7,12 +7,12 @@ import LexGubBrand from './Brand';
 import { IconClose, IconMenu } from './icons';
 
 const links = [
-  { href: '/control-gubernamental', label: 'Control Gubernamental' },
-  { href: '/guias', label: 'Guías' },
+  { href: '/', label: 'Inicio' },
+  { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Normativa' },
-  { href: '/herramientas', label: 'Herramientas' },
   { href: '/columna', label: 'Columna' },
   { href: '/servicios', label: 'Servicios' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 export default function Navbar() {
@@ -35,12 +35,12 @@ export default function Navbar() {
   return (
     <>
       <a className="skipLink" href="#contenido">Saltar al contenido</a>
-      <nav className="navbar" aria-label="Navegación principal">
+      <nav className="navbar editorialNavbar" aria-label="Navegación principal">
         <Link className="lexgubNavBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
           <LexGubBrand compact tone="dark" />
         </Link>
 
-        <div className="navlinks" data-state={open ? 'open' : 'closed'}>
+        <div className="navlinks editorialNavlinks" data-state={open ? 'open' : 'closed'}>
           {links.map((link) => (
             <Link
               key={link.href}
@@ -83,10 +83,11 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link href="/guias" tabIndex={open ? 0 : -1}>Guías</Link>
+          <Link href="/herramientas" tabIndex={open ? 0 : -1}>Herramientas</Link>
           <Link href="/glosario" tabIndex={open ? 0 : -1}>Glosario</Link>
-          <Link href="/contacto" tabIndex={open ? 0 : -1}>Contacto</Link>
         </div>
-        <p className="navDrawerNote">Plataforma jurídica independiente especializada en control gubernamental peruano.</p>
+        <p className="navDrawerNote">LexGub Perú · análisis jurídico independiente, control gubernamental y derecho público.</p>
       </div>
       <button
         type="button"

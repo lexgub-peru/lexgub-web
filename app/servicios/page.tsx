@@ -1,3 +1,5 @@
+import AuthorCard from '../components/AuthorCard';
+
 export const metadata = {
   title: 'Perfil y servicios profesionales',
   description: 'Servicios jurídicos especializados en control gubernamental, auditoría, contrataciones públicas y revisión legal de actuaciones de gestión pública.',
@@ -27,7 +29,7 @@ const services = [
   {
     tag: 'Capacitación',
     title: 'Talleres y formación especializada',
-    text: 'Capacitación práctica para equipos legales, órganos de control, servidores y profesionales sobre control, evidencia, redacción y razonamiento jurídico.',
+    text: 'Capacitación práctica para equipos legales, servidores y profesionales sobre control, evidencia, redacción y razonamiento jurídico.',
   },
   {
     tag: 'Revisión crítica',
@@ -39,16 +41,25 @@ const services = [
 export default function ServiciosPage() {
   return (
     <>
-      <section className="pageHero compactHero">
-        <div className="eyebrow">PERFIL PROFESIONAL · SERVICIOS</div>
-        <h1>Especialización jurídica aplicada al control gubernamental y la auditoría.</h1>
-        <p>
-          LEXGUB PERÚ también funciona como carta de presentación profesional para asesoría, revisión jurídica,
-          capacitación y análisis especializado en materias de control y gestión pública.
-        </p>
+      <section className="servicesEditorialHero">
+        <div className="servicesEditorialHeroInner">
+          <div>
+            <div className="eyebrow">PERFIL PROFESIONAL · SERVICIOS</div>
+            <h1>Especialización jurídica aplicada al control gubernamental y la auditoría.</h1>
+            <p>
+              LexGub Perú también funciona como carta de presentación profesional para asesoría, revisión jurídica,
+              capacitación y análisis especializado en materias de control y gestión pública.
+            </p>
+            <div className="heroActions">
+              <a className="primaryButton" href="mailto:lexgub.peru@gmail.com">Escribir a LexGub</a>
+              <a className="secondaryButton" href="/columna">Ver publicaciones</a>
+            </div>
+          </div>
+          <AuthorCard compact />
+        </div>
       </section>
 
-      <section className="professionalLanding">
+      <section className="professionalLanding editorialProfessionalLanding">
         <div className="professionalIntro">
           <div>
             <span className="sectionKicker">PRÁCTICA PROFESIONAL</span>
@@ -87,13 +98,13 @@ export default function ServiciosPage() {
         <div className="professionalCta">
           <p>
             Para consultas profesionales, propuestas de capacitación, revisión de documentos o colaboración académica y editorial,
-            puede escribirse directamente a LEXGUB PERÚ.
+            puede escribirse directamente a LexGub Perú.
           </p>
           <a className="primaryButton" href="mailto:lexgub.peru@gmail.com">Contactar</a>
         </div>
 
         <p className="ethicsNote">
-          LEXGUB PERÚ es una iniciativa jurídica independiente. La aceptación de cualquier encargo profesional queda sujeta a la
+          LexGub Perú es una iniciativa jurídica independiente. La aceptación de cualquier encargo profesional queda sujeta a la
           normativa de incompatibilidades, impedimentos, deberes éticos y conflictos de interés aplicables a los profesionales involucrados.
         </p>
       </section>

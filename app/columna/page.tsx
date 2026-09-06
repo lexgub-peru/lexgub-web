@@ -6,41 +6,52 @@ export const metadata = {
 const topics = [
   ['Actualidad y debate', 'Cambios normativos y decisiones públicas que merecen una lectura crítica desde el control gubernamental.'],
   ['Jurisprudencia comentada', 'Criterios de tribunales y resoluciones relevantes explicados desde sus hechos, regla y consecuencias prácticas.'],
-  ['Pastilla LexGub', 'Datos breves, curiosidades jurídicas, fragmentos normativos y recordatorios útiles para la práctica diaria.'],
+  ['Píldora LexGub', 'Datos breves, curiosidades jurídicas, fragmentos normativos y recordatorios útiles para la práctica diaria.'],
   ['Control y evidencia', 'Notas sobre razonamiento probatorio, causalidad, temporalidad y construcción de conclusiones sostenibles.'],
 ];
 
 export default function ColumnaPage() {
   return (
     <>
-      <section className="pageHero compactHero">
-        <div className="eyebrow">COLUMNA LEXGUB</div>
-        <h1>Ideas, debate normativo y actualidad para pensar mejor el control.</h1>
-        <p>
-          Un espacio editorial independiente para analizar cambios normativos, jurisprudencia, decisiones públicas y problemas
-          reales de control gubernamental sin reducirlos a titulares.
-        </p>
+      <section className="columnEditorialHero">
+        <div className="columnEditorialHeroInner">
+          <div>
+            <div className="eyebrow">COLUMNA LEXGUB</div>
+            <h1>Ideas, debate normativo y actualidad para pensar mejor el control.</h1>
+            <p>
+              Un espacio editorial independiente para analizar cambios normativos, jurisprudencia, decisiones públicas y problemas
+              reales de control gubernamental sin reducirlos a titulares.
+            </p>
+          </div>
+          <div className="columnEditorialSignature">
+            <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
+            <div>
+              <strong>Marvyn Enrique Gallo Rojas</strong>
+              <span>Abogado · Autor de LexGub</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <main className="columnLanding">
-        <section className="columnFeatured">
-          <div className="featureVisual">
-            <span>Debate LexGub · 06 septiembre 2026</span>
-            <strong>Rapidez frente al riesgo: la excepción al informe previo en Obras por Impuestos ante El Niño.</strong>
-          </div>
-          <div>
-            <div className="columnMeta">Actualidad normativa · Control previo · OxI</div>
-            <h2>¿Eliminar una revisión previa significa reducir el control?</h2>
+      <main className="columnLanding editorialColumnLanding">
+        <a className="editorialFeaturedStory" href="/columna/oxi-informe-previo-el-nino-2026">
+          <div className="editorialFeaturedStoryCopy">
+            <span>ACTUALIDAD NORMATIVA · 06 SEPTIEMBRE 2026</span>
+            <h2>Excepción al informe previo en Obras por Impuestos: rapidez, control y riesgos.</h2>
             <p>
-              El Decreto de Urgencia N.° 010-2026 introduce una excepción temporal para determinadas intervenciones ejecutadas
-              mediante Obras por Impuestos ante el Fenómeno El Niño. La pregunta relevante no es solo qué control desaparece,
-              sino qué responsabilidades se desplazan y qué controles permanecen.
+              El Decreto de Urgencia N.° 010-2026 introduce una excepción temporal para determinadas intervenciones ejecutadas mediante
+              Obras por Impuestos ante el Fenómeno El Niño. La pregunta relevante no es solo qué revisión deja de exigirse, sino qué
+              responsabilidades se desplazan y qué controles permanecen.
             </p>
-            <a className="primaryButton" href="/columna/oxi-informe-previo-el-nino-2026">Leer análisis</a>
+            <strong>Leer análisis completo →</strong>
           </div>
-        </section>
+          <div className="editorialFeaturedStoryAside">
+            <span className="editorialFeaturedNumber">01</span>
+            <p>Control previo · Obras por Impuestos · Gestión de riesgos</p>
+          </div>
+        </a>
 
-        <section className="columnTopics" aria-label="Líneas editoriales">
+        <section className="columnTopics editorialTopicGrid" aria-label="Líneas editoriales">
           {topics.map(([title, text], index) => (
             <article className="columnTopic" key={title}>
               <span>0{index + 1}</span>
