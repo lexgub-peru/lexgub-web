@@ -66,6 +66,7 @@ const quickLinks = [
   ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
   ['Asistente LexGub', '/asistente', IconSearch],
   ['Herramientas y checklists', '/herramientas', IconChecklist],
+  ['Conoce LexGub', '/lexgub', IconShield],
 ] as const;
 
 export default function Home() {
@@ -108,7 +109,7 @@ export default function Home() {
               <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
               <div>
                 <strong>Marvyn Enrique Gallo Rojas</strong>
-                <span>Abogado · Columna LexGub</span>
+                <span>Abogado · Fundador de LexGub</span>
               </div>
             </div>
             <strong className="homeFeaturedLink">Leer análisis <IconArrowRight /></strong>
@@ -177,15 +178,15 @@ export default function Home() {
         <div className="homeAuthorInner">
           <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
           <div className="homeAuthorCopy">
-            <span className="sectionKicker">AUTOR</span>
+            <span className="sectionKicker">FUNDADOR</span>
             <h2>Marvyn Enrique Gallo Rojas</h2>
             <p>
-              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo.
+              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo. Fundador y director de la línea jurídica y editorial de LexGub Perú.
             </p>
           </div>
           <div className="homeAuthorActions">
+            <a className="authorOutlineButton" href="/lexgub">Conocer LexGub</a>
             <a className="authorOutlineButton" href="/columna">Publicaciones</a>
-            <a className="authorOutlineButton" href="/servicios">Perfil</a>
           </div>
         </div>
       </section>
@@ -193,11 +194,11 @@ export default function Home() {
       <section className="section">
         <div className="homeServicesBand">
           <div>
-            <span className="eyebrow">SERVICIOS</span>
-            <h2>Acompañamiento jurídico especializado</h2>
+            <span className="eyebrow">ASESORÍA Y CONSULTORÍA</span>
+            <h2>Especialización para problemas complejos de la gestión pública.</h2>
             <p>
-              Revisión de informes de control, análisis de expedientes de contratación, evaluación de comentarios y
-              sustento jurídico para procedimientos ante el Sistema Nacional de Control.
+              LexGub brinda asesoría y consultoría especializada en control gubernamental, auditoría, contrataciones públicas,
+              derecho administrativo y análisis jurídico de evidencia, con independencia de criterio y respeto de las reglas éticas aplicables.
             </p>
           </div>
           <a className="primaryButton" href="/servicios">Ver servicios</a>

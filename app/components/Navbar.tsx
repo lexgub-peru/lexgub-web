@@ -13,6 +13,7 @@ const primary = [
   { href: '/jurisprudencia', label: 'Jurisprudencia' },
   { href: '/criterios', label: 'Criterios' },
   { href: '/columna', label: 'Columna' },
+  { href: '/lexgub', label: 'LexGub' },
 ];
 
 const consulta = [
@@ -22,7 +23,7 @@ const consulta = [
   { href: '/herramientas', label: 'Herramientas' },
   { href: '/guias', label: 'Guías' },
   { href: '/glosario', label: 'Glosario' },
-  { href: '/servicios', label: 'Perfil y servicios' },
+  { href: '/servicios', label: 'Asesoría y consultoría' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
@@ -100,7 +101,7 @@ export default function Navbar() {
             {consulta.map((link) => navLink(link, true))}
           </div>
         </div>
-        <p className="navDrawerNote">LexGub Perú · conocimiento jurídico especializado, control gubernamental y derecho público.</p>
+        <p className="navDrawerNote">LexGub Perú · asesoría, consultoría y conocimiento jurídico especializado.</p>
       </div>
 
       <button
