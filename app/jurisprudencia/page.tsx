@@ -12,7 +12,7 @@ export default function JurisprudenciaPage() {
   const supreme = jurisprudencia.filter((j) => j.organo === 'Corte Suprema').length;
   const tc = jurisprudencia.filter((j) => j.organo === 'Tribunal Constitucional').length;
 
-  return <main className={styles.page}>
+  return <div className={styles.page}>
     <header className={styles.hero}>
       <div>
         <div className={styles.eyebrow}>JURISPRUDENCIA LEXGUB · ANÁLISIS Y TRAZABILIDAD</div>
@@ -47,5 +47,5 @@ export default function JurisprudenciaPage() {
         <li><strong>Uso auditor.</strong> Traduce la sentencia en preguntas de revisión, no en conclusiones automáticas de responsabilidad.</li>
       </ol>
     </section>
-  </main>;
+  </div>;
 }
