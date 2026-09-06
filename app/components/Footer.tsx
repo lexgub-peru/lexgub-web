@@ -14,8 +14,8 @@ const columns = [
   {
     heading: 'Recursos',
     links: [
-      ['Herramientas y checklists', '/herramientas'],
-      ['Glosario de control', '/glosario'],
+      ['Herramientas', '/herramientas'],
+      ['Glosario', '/glosario'],
       ['Perfil y servicios', '/servicios'],
       ['Contacto', '/contacto'],
     ],
@@ -28,9 +28,9 @@ export default function Footer() {
       <div className="footerTop">
         <div className="footerBrand">
           <Link href="/" className="lexgubFooterBrand" aria-label="LEXGUB PERÚ — Inicio">
-            <LexGubBrand tone="dark" />
+            <LexGubBrand compact tone="dark" />
           </Link>
-          <p>Control gubernamental · Derecho público · Auditoría · Gestión pública</p>
+          <p>Control gubernamental · Derecho público · Auditoría</p>
         </div>
 
         <div className="footerColumns">
