@@ -1,4 +1,4 @@
-import { officialPortals } from '../data/official-resources';
+import { officialPortals } from '../data/official-resources-v2';
 import OfficialResourceBrowser from './OfficialResourceBrowser';
 import styles from './OfficialSources.module.css';
 
@@ -12,7 +12,7 @@ export default function FuentesPage() {
     <header className={styles.hero}>
       <div className={styles.eyebrow}>FUENTES OFICIALES · VERIFICACIÓN CRUZADA</div>
       <h1>No basta encontrar una norma. Hay que saber de dónde viene, qué versión rige y dónde verificarla.</h1>
-      <p>LexGub conecta cada vez más su Biblioteca con la publicación oficial, el texto sistematizado y la fuente institucional. El objetivo es que puedas leer, verificar y descargar sin depender de copias informales.</p>
+      <p>LexGub conecta su Biblioteca con la publicación oficial, el texto sistematizado y la fuente institucional. El objetivo es que puedas leer, verificar y descargar desde repositorios oficiales sin depender de copias informales.</p>
     </header>
 
     <section className={styles.method} aria-label="Método de verificación LexGub">
@@ -33,7 +33,7 @@ export default function FuentesPage() {
     </section>
 
     <section>
-      <div className={styles.libraryHeader}><div><div className={styles.eyebrow}>BIBLIOTECA DOCUMENTAL</div><h2>Normas, técnicas, formatos, resoluciones y precedentes.</h2></div><p>Esta colección crecerá por capas. Primero incorporamos fuentes oficiales útiles para el trabajo real; luego indexaremos resoluciones y precedentes individualmente.</p></div>
+      <div className={styles.libraryHeader}><div><div className={styles.eyebrow}>BIBLIOTECA DOCUMENTAL</div><h2>Normas, técnicas, formatos, resoluciones y precedentes.</h2></div><p>Ya se indexan fuentes generales y una primera selección individual de precedentes del TSRA y SERVIR, resoluciones y acuerdos de contratación pública, además de normativa vigente e histórica. La colección seguirá creciendo sin sacrificar verificación.</p></div>
       <OfficialResourceBrowser />
     </section>
 
