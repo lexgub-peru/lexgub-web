@@ -103,6 +103,29 @@ export default function Home() {
 
       <PildoraLexGub />
 
+      <section className="editorialSection">
+        <div className="editorialSplit">
+          <div className="editorialLead">
+            <span className="sectionKicker">LEXGUB COMO VOZ Y PRÁCTICA PROFESIONAL</span>
+            <h2>Análisis público, debate jurídico y servicios especializados.</h2>
+            <p>
+              LexGub no será solo una biblioteca. También será un espacio para publicar posiciones argumentadas sobre cambios normativos,
+              jurisprudencia y noticias de control, y una carta de presentación profesional para asesoría y capacitación especializada.
+            </p>
+          </div>
+          <div className="editorialActions">
+            <a className="editorialActionCard" href="/columna">
+              <span>Columna LexGub</span>
+              <strong>Actualidad, debate normativo, jurisprudencia y análisis.</strong>
+            </a>
+            <a className="editorialActionCard" href="/servicios">
+              <span>Perfil profesional</span>
+              <strong>Control gubernamental, auditoría y revisión jurídica especializada.</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="section portalSection">
         <div className="sectionHeading splitHeading">
           <div>
