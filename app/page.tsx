@@ -1,4 +1,5 @@
 import PildoraLexGub from './components/PildoraLexGub';
+import { HomeSearchBand } from './components/GlobalSearch';
 import {
   IconAlert,
   IconArrowRight,
@@ -60,7 +61,7 @@ const areas = [
 ];
 
 const quickLinks = [
-  ['Normativa esencial', '/normativa', IconDocument],
+  ['Biblioteca jurídica', '/normativa', IconDocument],
   ['Guías de trabajo', '/guias', IconBook],
   ['Herramientas y checklists', '/herramientas', IconChecklist],
   ['Glosario de control', '/glosario', IconSearch],
@@ -112,6 +113,8 @@ export default function Home() {
         <article><IconEvidence /><strong>Evidencia</strong><span>Hecho, indicio e inferencia no son lo mismo.</span></article>
         <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
+
+      <HomeSearchBand />
 
       <PildoraLexGub />
 
