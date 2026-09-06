@@ -52,6 +52,16 @@ const centers: SearchItem[] = [
     featured: true,
     verified: true,
   },
+  {
+    id: 'herramienta-selector-servicio',
+    kind: 'Herramienta',
+    title: 'Selector orientativo de servicio de control',
+    subtitle: 'Ordena momento, alcance y evidencia para identificar qué directivas de control conviene contrastar.',
+    href: '/herramientas/selector-servicio',
+    keywords: ['selector', 'servicio de control', 'control simultáneo', 'aop', 'acción de oficio posterior', 'sce', 'control específico', 'auditoría de cumplimiento'],
+    featured: true,
+    verified: true,
+  },
 ];
 
 const sourceItems: SearchItem[] = officialResources.map((resource) => ({
