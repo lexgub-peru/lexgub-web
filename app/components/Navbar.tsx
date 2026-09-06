@@ -11,8 +11,8 @@ const links = [
   { href: '/guias', label: 'Guías' },
   { href: '/normativa', label: 'Normativa' },
   { href: '/herramientas', label: 'Herramientas' },
-  { href: '/glosario', label: 'Glosario' },
-  { href: '/contacto', label: 'Contacto' },
+  { href: '/columna', label: 'Columna' },
+  { href: '/servicios', label: 'Servicios' },
 ];
 
 export default function Navbar() {
@@ -90,6 +90,8 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link href="/glosario" tabIndex={open ? 0 : -1}>Glosario</Link>
+          <Link href="/contacto" tabIndex={open ? 0 : -1}>Contacto</Link>
         </div>
         <p className="navDrawerNote">Plataforma jurídica independiente especializada en control gubernamental peruano.</p>
       </div>
