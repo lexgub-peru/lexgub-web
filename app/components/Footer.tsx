@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LexGubBrand from './Brand';
 
 const columns = [
   {
@@ -26,15 +27,8 @@ export default function Footer() {
     <footer>
       <div className="footerTop">
         <div className="footerBrand">
-          <Link href="/" className="footerLogoLink" aria-label="LEXGUB PERÚ — Inicio">
-            <img
-              src="/lexgub-logo.webp"
-              alt="LEXGUB PERÚ"
-              width="420"
-              height="164"
-              loading="lazy"
-              className="footerLogo"
-            />
+          <Link href="/" className="lexgubFooterBrand" aria-label="LEXGUB PERÚ — Inicio">
+            <LexGubBrand tone="dark" />
           </Link>
           <p>Control gubernamental · Derecho público · Auditoría · Gestión pública</p>
         </div>
