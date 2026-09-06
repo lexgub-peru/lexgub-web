@@ -7,9 +7,8 @@ import LexGubBrand from './Brand';
 import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-/** Navegación principal: prioriza conocimiento antes que oferta comercial. */
+/** Navegación principal: pocas rutas, todas de conocimiento. La marca ya cumple la función de Inicio. */
 const primary = [
-  { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Biblioteca' },
   { href: '/jurisprudencia', label: 'Jurisprudencia' },
@@ -17,13 +16,13 @@ const primary = [
   { href: '/columna', label: 'Columna' },
 ];
 
-/** Material de consulta y perfil, agrupado como capa secundaria. */
+/** Capa secundaria: investigación, herramientas, perfil y navegación de apoyo. */
 const consulta = [
-  { href: '/asistente', label: 'Asistente LexGub · Beta' },
-  { href: '/tribunales', label: 'Tribunales administrativos' },
+  { href: '/tribunales', label: 'Tribunales y precedentes' },
   { href: '/fuentes', label: 'Fuentes oficiales' },
-  { href: '/guias', label: 'Guías' },
+  { href: '/asistente', label: 'Asistente LexGub · Beta' },
   { href: '/herramientas', label: 'Herramientas' },
+  { href: '/guias', label: 'Guías' },
   { href: '/glosario', label: 'Glosario' },
   { href: '/servicios', label: 'Perfil y servicios' },
   { href: '/contacto', label: 'Contacto' },
@@ -89,15 +88,16 @@ export default function Navbar() {
 
       <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
         <div className="navDrawerLinks">
+          <Link href="/" tabIndex={open ? undefined : -1}>Inicio</Link>
           {primary.map((link) => navLink(link, true))}
         </div>
         <div className="navDrawerGroup">
-          <span>Consulta</span>
+          <span>Investigar y trabajar</span>
           <div className="navDrawerChips">
             {consulta.map((link) => navLink(link, true))}
           </div>
         </div>
-        <p className="navDrawerNote">LexGub Perú · fuente oficial, temporalidad, evidencia y análisis jurídico independiente.</p>
+        <p className="navDrawerNote">LexGub Perú · conocimiento jurídico especializado, control gubernamental y derecho público.</p>
       </div>
 
       <button
