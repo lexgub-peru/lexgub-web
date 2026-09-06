@@ -6,14 +6,15 @@ const columns = [
     heading: 'Explorar',
     links: [
       ['Control Gubernamental', '/control-gubernamental'],
-      ['Guías prácticas', '/guias'],
       ['Biblioteca Jurídica', '/normativa'],
+      ['Criterios LexGub', '/criterios'],
       ['Columna LexGub', '/columna'],
     ],
   },
   {
     heading: 'Recursos',
     links: [
+      ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
       ['Glosario', '/glosario'],
       ['Perfil y servicios', '/servicios'],
