@@ -1,5 +1,5 @@
 import CompendioNormativo from '../components/CompendioNormativo';
-import { normas } from '../data/normativa';
+import { normas } from '../data/normativa-v2';
 
 export const metadata = {
   title: 'Compendio Normativo',
