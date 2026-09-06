@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
   title: {
-    default: 'LEXGUB PERÚ | Control gubernamental y derecho público',
+    default: 'LEXGUB PERÚ | Control gubernamental, asesoría y conocimiento jurídico',
     template: '%s | LEXGUB PERÚ',
   },
   description: siteConfig.description,
@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   keywords: [
     'control gubernamental Perú',
+    'asesoría control gubernamental',
+    'consultoría derecho público',
     'Contraloría General de la República',
     'auditoría de cumplimiento',
     'acción de oficio posterior',
@@ -57,12 +59,12 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: 'LEXGUB PERÚ | Control gubernamental y derecho público',
+    title: 'LEXGUB PERÚ | Control gubernamental, asesoría y conocimiento jurídico',
     description: siteConfig.description,
   },
   twitter: {
     card: 'summary',
-    title: 'LEXGUB PERÚ | Control gubernamental y derecho público',
+    title: 'LEXGUB PERÚ | Control gubernamental, asesoría y conocimiento jurídico',
     description: siteConfig.description,
   },
 };
@@ -84,6 +86,10 @@ const websiteJsonLd = {
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
+    founder: {
+      '@type': 'Person',
+      name: siteConfig.author,
+    },
   },
   potentialAction: {
     '@type': 'SearchAction',
