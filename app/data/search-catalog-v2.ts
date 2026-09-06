@@ -10,6 +10,29 @@ import { officialResources } from './official-resources-v2';
 export type SearchKind = BaseSearchKind | 'Fuente';
 export type SearchItem = Omit<BaseSearchItem, 'kind'> & { kind: SearchKind };
 
+const centers: SearchItem[] = [
+  {
+    id: 'centro-fuentes-oficiales',
+    kind: 'Centro',
+    title: 'Fuentes Oficiales LexGub',
+    subtitle: 'El Peruano, SPIJ, Contraloría, TSRA, OECE y SERVIR para verificar y descargar desde el origen.',
+    href: '/fuentes',
+    keywords: ['fuentes oficiales', 'el peruano', 'spij', 'cgr', 'oece', 'servir', 'descargar', 'verificar'],
+    featured: true,
+    verified: true,
+  },
+  {
+    id: 'centro-tribunales',
+    kind: 'Centro',
+    title: 'Tribunales, precedentes y resoluciones',
+    subtitle: 'TSRA, Tribunal de Contrataciones Públicas/Estado y Tribunal del Servicio Civil en un repertorio verificable.',
+    href: '/tribunales',
+    keywords: ['tsra', 'tcp', 'tce', 'osce', 'oece', 'tsc', 'servir', 'precedentes', 'sala plena', 'resoluciones'],
+    featured: true,
+    verified: true,
+  },
+];
+
 const sourceItems: SearchItem[] = officialResources.map((resource) => ({
   id: `fuente-${resource.id}`,
   kind: 'Fuente',
@@ -32,7 +55,7 @@ const sourceItems: SearchItem[] = officialResources.map((resource) => ({
   ].includes(resource.id),
 }));
 
-export const searchCatalog: SearchItem[] = [...(baseCatalog as SearchItem[]), ...sourceItems];
+export const searchCatalog: SearchItem[] = [...centers, ...(baseCatalog as SearchItem[]), ...sourceItems];
 export const searchKinds: SearchKind[] = [...baseKinds, 'Fuente'];
 
 export function scoreSearchItem(item: SearchItem, rawQuery: string): number {
