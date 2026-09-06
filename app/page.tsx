@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import PildoraLexGub from './components/PildoraLexGub';
 import {
   IconAlert,
   IconArrowRight,
@@ -69,6 +71,16 @@ export default function Home() {
   return (
     <>
       <section className="hero portalHero">
+        <div className="heroBrandPanel" aria-label="Identidad de LEXGUB PERÚ">
+          <Image
+            src="/lexgub-logo.webp"
+            alt="LEXGUB PERÚ"
+            width={420}
+            height={164}
+            priority
+            className="heroBrandLogo"
+          />
+        </div>
         <div className="eyebrow">LEXGUB PERÚ · CONTROL GUBERNAMENTAL</div>
         <h1>Derecho, control y evidencia para trabajar con criterio.</h1>
         <p>
@@ -88,6 +100,8 @@ export default function Home() {
         <article><IconEvidence /><strong>Evidencia</strong><span>Se distingue hecho acreditado, indicio e inferencia.</span></article>
         <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
+
+      <PildoraLexGub />
 
       <section className="section portalSection">
         <div className="sectionHeading splitHeading">
