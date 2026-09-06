@@ -2,9 +2,9 @@ import CompendioNormativo from '../components/CompendioNormativo';
 import { normas } from '../data/normativa-v2';
 
 export const metadata = {
-  title: 'Compendio Normativo',
+  title: 'Biblioteca Jurídica | Compendio Normativo',
   description:
-    'Compendio normativo de control gubernamental peruano: fichas por materia con resolución aprobatoria, modificatorias, versión integrada, estado de vigencia y fuente oficial.',
+    'Biblioteca jurídica de control gubernamental y derecho público peruano: fichas por materia con resolución aprobatoria, modificatorias, versión integrada, vigencia y fuente oficial.',
 };
 
 const external = [
@@ -22,11 +22,11 @@ export default function NormativaPage() {
   return (
     <>
       <section className="pageHero compactHero">
-        <div className="eyebrow">COMPENDIO NORMATIVO</div>
+        <div className="eyebrow">BIBLIOTECA JURÍDICA · COMPENDIO NORMATIVO</div>
         <h1>La norma, su versión y la fecha en que regía</h1>
         <p>
-          Fichas de normativa de control gubernamental organizadas por materia. Cada una identifica la resolución que
-          la aprueba, sus modificatorias, si existe versión integrada y su estado de vigencia, con enlace a fuente oficial.
+          Fichas jurídicas organizadas por materia. Cada una identifica la norma, su fuente oficial, modificatorias,
+          versión integrada cuando existe y estado de vigencia, con énfasis en la temporalidad aplicable al caso.
         </p>
       </section>
 
