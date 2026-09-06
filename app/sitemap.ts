@@ -15,6 +15,7 @@ const staticRoutes = [
   '/columna/oxi-informe-previo-el-nino-2026',
   '/guias',
   '/herramientas',
+  '/herramientas/selector-servicio',
   '/glosario',
   '/asistente',
   '/servicios',
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : ['/normativa', '/jurisprudencia', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
           ? 0.9
-          : route === '/asistente'
+          : route === '/asistente' || route === '/herramientas/selector-servicio'
             ? 0.75
             : 0.7,
   }));
