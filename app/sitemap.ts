@@ -5,6 +5,7 @@ import { siteConfig } from './lib/site';
 
 const staticRoutes = [
   '/',
+  '/lexgub',
   '/control-gubernamental',
   '/normativa',
   '/jurisprudencia',
@@ -37,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       route === '/'
         ? 1
-        : ['/normativa', '/jurisprudencia', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
+        : ['/lexgub', '/normativa', '/jurisprudencia', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
           ? 0.9
           : route === '/asistente' || route === '/herramientas/selector-servicio'
             ? 0.75
