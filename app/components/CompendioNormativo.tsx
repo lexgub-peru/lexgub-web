@@ -12,7 +12,7 @@ import {
   type MateriaId,
   type Norma,
   type TipoNorma,
-} from '../data/normativa';
+} from '../data/normativa-v2';
 import { IconSearch } from './icons';
 
 type FiltroVigencia = 'todas' | 'vigentes' | 'historicas';
