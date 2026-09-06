@@ -12,13 +12,15 @@ const primary = [
   { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Biblioteca' },
-  { href: '/tribunales', label: 'Tribunales' },
+  { href: '/jurisprudencia', label: 'Jurisprudencia' },
   { href: '/criterios', label: 'Criterios' },
   { href: '/columna', label: 'Columna' },
 ];
 
 /** Material de consulta y perfil, agrupado como capa secundaria. */
 const consulta = [
+  { href: '/asistente', label: 'Asistente LexGub · Beta' },
+  { href: '/tribunales', label: 'Tribunales administrativos' },
   { href: '/fuentes', label: 'Fuentes oficiales' },
   { href: '/guias', label: 'Guías' },
   { href: '/herramientas', label: 'Herramientas' },
@@ -95,7 +97,7 @@ export default function Navbar() {
             {consulta.map((link) => navLink(link, true))}
           </div>
         </div>
-        <p className="navDrawerNote">LexGub Perú · análisis jurídico independiente, control gubernamental y derecho público.</p>
+        <p className="navDrawerNote">LexGub Perú · fuente oficial, temporalidad, evidencia y análisis jurídico independiente.</p>
       </div>
 
       <button
