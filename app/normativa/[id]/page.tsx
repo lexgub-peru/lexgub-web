@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EstadoChip } from '../../components/CompendioNormativo';
-import { etiquetaVigencia, getMateria, getNorma, normas } from '../../data/normativa';
+import { etiquetaVigencia, getMateria, getNorma, normas } from '../../data/normativa-v2';
 
 export function generateStaticParams() {
   return normas.map((n) => ({ id: n.id }));
