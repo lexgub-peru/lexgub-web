@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useId } from 'react';
 import { IconSearch } from './icons';
 
 type LiveFilterProps = {
@@ -20,7 +20,7 @@ export default function LiveFilter({
   itemSelector = '[data-search-item]',
   label,
 }: LiveFilterProps) {
-  const inputId = useRef(`live-filter-${Math.random().toString(36).slice(2, 9)}`);
+  const inputId = useId();
 
   function handleChange(value: string) {
     const query = value.trim().toLocaleLowerCase('es');
@@ -47,9 +47,9 @@ export default function LiveFilter({
   return (
     <div className="liveFilter">
       <IconSearch className="liveFilterIcon" />
-      <label className="srOnly" htmlFor={inputId.current}>{label}</label>
+      <label className="srOnly" htmlFor={inputId}>{label}</label>
       <input
-        id={inputId.current}
+        id={inputId}
         type="search"
         placeholder={placeholder}
         autoComplete="off"
