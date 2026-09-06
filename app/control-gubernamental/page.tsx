@@ -1,18 +1,23 @@
+import { IconArrowRight, IconClock, IconLandmark, IconShield } from '../components/icons';
+
 const services = [
   {
     type: 'Control previo',
     moment: 'Antes de ejecutar determinados actos u operaciones',
     purpose: 'Intervención excepcional prevista expresamente por norma. No sustituye la responsabilidad de la entidad sobre sus decisiones.',
+    icon: IconShield,
   },
   {
     type: 'Control simultáneo',
     moment: 'Durante un proceso en curso',
     purpose: 'Identifica oportunamente situaciones adversas que puedan afectar continuidad, resultado o logro de objetivos para que la entidad adopte acciones.',
+    icon: IconLandmark,
   },
   {
     type: 'Control posterior',
     moment: 'Después de ejecutados los actos u operaciones',
     purpose: 'Examina hechos, resultados, cumplimiento y responsabilidades conforme al servicio de control aplicable y la evidencia obtenida.',
+    icon: IconClock,
   },
 ];
 
@@ -70,6 +75,7 @@ export default function ControlGubernamentalPage() {
         <div className="serviceGrid">
           {services.map((service, index) => (
             <article className="serviceCard" key={service.type}>
+              <span className="cardIcon"><service.icon /></span>
               <span className="serviceNumber">0{index + 1}</span>
               <h3>{service.type}</h3>
               <strong>{service.moment}</strong>
@@ -105,7 +111,7 @@ export default function ControlGubernamentalPage() {
             <a key={title} href={href} className="posteriorCard">
               <h3>{title}</h3>
               <p>{description}</p>
-              <span>Ver ruta práctica →</span>
+              <span>Ver ruta práctica <IconArrowRight /></span>
             </a>
           ))}
         </div>

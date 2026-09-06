@@ -1,48 +1,69 @@
+import {
+  IconAlert,
+  IconArrowRight,
+  IconBook,
+  IconChecklist,
+  IconClock,
+  IconContract,
+  IconDocument,
+  IconEvidence,
+  IconLandmark,
+  IconScale,
+  IconSearch,
+  IconShield,
+} from './components/icons';
+
 const areas = [
   {
     title: 'Control gubernamental',
     description: 'Sistema Nacional de Control, servicios de control previo, simultáneo y posterior, criterios de actuación y fuentes oficiales.',
     href: '/control-gubernamental',
     tag: 'Núcleo',
+    icon: IconShield,
   },
   {
     title: 'Auditoría de cumplimiento',
     description: 'Planificación, procedimientos, evidencia suficiente y apropiada, desviaciones, comentarios y estructura del informe.',
     href: '/guias#auditoria-cumplimiento',
     tag: 'Guía',
+    icon: IconBook,
   },
   {
     title: 'Acción de Oficio Posterior',
     description: 'Cuándo corresponde, delimitación del hecho, evidencia disponible, comunicación y seguimiento del plan de acción.',
     href: '/guias#aop',
     tag: 'Control posterior',
+    icon: IconClock,
   },
   {
     title: 'Control simultáneo',
     description: 'Control concurrente, visita de control y orientación de oficio. Situaciones adversas y seguimiento de acciones preventivas y correctivas.',
     href: '/guias#control-simultaneo',
     tag: 'Oportuno',
+    icon: IconLandmark,
   },
   {
     title: 'Denuncias y alertas',
     description: 'Competencia, recepción, evaluación, hechos concretos, evidencia, trazabilidad y decisión sobre la actuación de control pertinente.',
     href: '/guias#denuncias',
     tag: 'Ciudadanía',
+    icon: IconAlert,
   },
   {
     title: 'Contrataciones públicas',
     description: 'Ruta de revisión del expediente contractual, régimen temporal aplicable, actuación preparatoria, selección, ejecución y responsabilidades.',
     href: '/guias#contrataciones',
     tag: 'Materia frecuente',
+    icon: IconContract,
   },
 ];
 
 const quickLinks = [
-  ['Normativa esencial', '/normativa'],
-  ['Guías de trabajo', '/guias'],
-  ['Herramientas y checklists', '/herramientas'],
-  ['Glosario de control', '/glosario'],
-];
+  ['Normativa esencial', '/normativa', IconDocument],
+  ['Guías de trabajo', '/guias', IconBook],
+  ['Herramientas y checklists', '/herramientas', IconChecklist],
+  ['Glosario de control', '/glosario', IconSearch],
+] as const;
 
 export default function Home() {
   return (
@@ -62,10 +83,10 @@ export default function Home() {
       </section>
 
       <section className="statStrip" aria-label="Principios LexGub">
-        <article><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
-        <article><strong>Temporalidad</strong><span>La regla aplicable se determina por la fecha del hecho.</span></article>
-        <article><strong>Evidencia</strong><span>Se distingue hecho acreditado, indicio e inferencia.</span></article>
-        <article><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
+        <article><IconDocument /><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
+        <article><IconClock /><strong>Temporalidad</strong><span>La regla aplicable se determina por la fecha del hecho.</span></article>
+        <article><IconEvidence /><strong>Evidencia</strong><span>Se distingue hecho acreditado, indicio e inferencia.</span></article>
+        <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
 
       <section className="section portalSection">
@@ -79,10 +100,11 @@ export default function Home() {
         <div className="moduleGrid areaGrid">
           {areas.map((area) => (
             <a className="moduleCard areaCard" key={area.title} href={area.href}>
+              <span className="cardIcon"><area.icon /></span>
               <span className="cardTag">{area.tag}</span>
               <h3>{area.title}</h3>
               <p>{area.description}</p>
-              <strong className="cardLink">Abrir guía →</strong>
+              <strong className="cardLink">Abrir guía <IconArrowRight /></strong>
             </a>
           ))}
         </div>
@@ -94,9 +116,9 @@ export default function Home() {
           <h2>Lo que más se consulta</h2>
         </div>
         <div className="quickGrid">
-          {quickLinks.map(([label, href], index) => (
+          {quickLinks.map(([label, href, Icon]) => (
             <a key={href} href={href} className="quickCard">
-              <span>0{index + 1}</span>
+              <Icon />
               <strong>{label}</strong>
             </a>
           ))}

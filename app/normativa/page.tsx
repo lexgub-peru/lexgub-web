@@ -1,3 +1,6 @@
+import LiveFilter from '../components/LiveFilter';
+import { IconArrowRight, IconBook, IconDocument, IconLandmark, IconScale } from '../components/icons';
+
 const core = [
   {
     title: 'Ley N.° 27785 — Ley Orgánica del Sistema Nacional de Control y de la Contraloría General de la República',
@@ -67,17 +70,33 @@ const external = [
   ['Congreso — Archivo Digital de la Legislación', 'Textos legales publicados por el Congreso de la República.', 'https://www.leyes.congreso.gob.pe/'],
 ];
 
-function NormList({ items }: { items: typeof core }) {
+const typeIcons: Record<string, typeof IconDocument> = {
+  Ley: IconScale,
+  Resolución: IconDocument,
+  Modificatoria: IconDocument,
+};
+
+function iconForType(type: string) {
+  if (type.startsWith('NGCG')) return IconBook;
+  if (type.toLowerCase().includes('control')) return IconLandmark;
+  return typeIcons[type] ?? IconDocument;
+}
+
+function NormList({ items, id }: { items: typeof core; id: string }) {
   return (
-    <div className="normGrid">
-      {items.map((item) => (
-        <a className="normCard" key={item.title} href={item.href} target="_blank" rel="noreferrer">
-          <span className="cardTag">{item.type}</span>
-          <h3>{item.title}</h3>
-          <p>{item.note}</p>
-          <strong>Fuente oficial ↗</strong>
-        </a>
-      ))}
+    <div className="normGrid" id={id}>
+      {items.map((item) => {
+        const Icon = iconForType(item.type);
+        return (
+          <a className="normCard" data-search-item key={item.title} href={item.href} target="_blank" rel="noreferrer">
+            <span className="cardIcon"><Icon /></span>
+            <span className="cardTag">{item.type}</span>
+            <h3>{item.title}</h3>
+            <p>{item.note}</p>
+            <strong>Fuente oficial <IconArrowRight /></strong>
+          </a>
+        );
+      })}
     </div>
   );
 }
@@ -96,25 +115,35 @@ export default function NormativaPage() {
         <span>La normativa puede cambiar. El enlace oficial debe revisarse nuevamente al momento de usarlo en un informe, oficio o decisión.</span>
       </section>
 
-      <section className="section">
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <LiveFilter
+          label="Buscar norma, directiva o fuente"
+          placeholder="Buscar por título, tipo o materia (ej. contrataciones, denuncias, AOP)…"
+          containerIds={['norm-core', 'norm-services', 'norm-external']}
+          emptyStateId="norm-empty"
+        />
+      </section>
+
+      <section className="section" style={{ paddingTop: '28px' }}>
         <div className="sectionHeading"><span>MARCO ESENCIAL</span><h2>Las fuentes que deberían estar abiertas en casi toda revisión</h2></div>
-        <NormList items={core} />
+        <NormList items={core} id="norm-core" />
       </section>
 
       <section className="section softSection">
         <div className="sectionHeading"><span>SERVICIOS DE CONTROL</span><h2>Directivas y manuales de trabajo</h2></div>
-        <NormList items={services} />
+        <NormList items={services} id="norm-services" />
       </section>
 
       <section className="section">
         <div className="sectionHeading"><span>FUENTES INSTITUCIONALES</span><h2>Dónde continuar la investigación jurídica</h2></div>
-        <div className="sourceDirectory">
+        <div className="sourceDirectory" id="norm-external">
           {external.map(([name, description, href]) => (
-            <a key={name} href={href} target="_blank" rel="noreferrer">
+            <a data-search-item key={name} href={href} target="_blank" rel="noreferrer">
               <div><strong>{name}</strong><p>{description}</p></div><span>↗</span>
             </a>
           ))}
         </div>
+        <p className="emptyState" id="norm-empty" hidden>Ninguna fuente coincide con la búsqueda. Ajusta los términos o revisa el glosario para identificar el nombre técnico correcto.</p>
       </section>
 
       <section className="section temporalRule">
