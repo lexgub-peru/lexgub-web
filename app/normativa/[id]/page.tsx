@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EstadoChip } from '../../components/CompendioNormativo';
+import OfficialVerification from '../../components/OfficialVerification';
 import { etiquetaVigencia, getMateria, getNorma, normas } from '../../data/normativa-v2';
 
 export function generateStaticParams() {
@@ -189,6 +190,8 @@ export default async function FichaNormativaPage({ params }: { params: Promise<{
             Una modificatoria posterior no se aplica automáticamente a hechos anteriores.
           </p>
         </section>
+
+        <OfficialVerification officialUrl={norma.fuenteOficial} />
 
         {relacionadas.length > 0 && (
           <section className="fichaBloque">
