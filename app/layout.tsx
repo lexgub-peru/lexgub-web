@@ -1,6 +1,7 @@
 import { IBM_Plex_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import './lexgub-brand.css';
+import './lexgub-editorial.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
