@@ -60,7 +60,13 @@ export type Norma = {
   titulo: string;
   tipo: TipoNorma;
   materia: MateriaId;
-  /** Solo se completa cuando la fecha fue contrastada con fuente oficial. */
+  /**
+   * Fecha de emisión de la resolución. NO debe confundirse con la fecha de
+   * publicación en el Diario Oficial: son distintas y la exigible suele ser
+   * la de publicación.
+   */
+  fechaEmision?: string;
+  /** Fecha de publicación oficial. Solo se completa si fue contrastada. */
   fechaPublicacion?: string;
   anio?: number;
   vigencia: EstadoVigencia;
@@ -334,12 +340,13 @@ export const normas: Norma[] = [
     titulo: 'Acción de Oficio Posterior',
     tipo: 'Directiva',
     materia: 'aop',
-    fechaPublicacion: '27 de junio de 2023 (fecha de la resolución aprobatoria)',
+    fechaEmision: '27 de junio de 2023',
+    fechaPublicacion: '29 de junio de 2023',
     anio: 2023,
     vigencia: 'vigente',
     resolucionAprobatoria: {
       norma: 'Resolución de Contraloría N.° 253-2023-CG',
-      fecha: '27 de junio de 2023',
+      fecha: 'Emitida el 27 de junio de 2023; publicada el 29 de junio de 2023',
       sumilla: 'Aprueba la Directiva N.° 007-2023-CG/VCIC «Acción de Oficio Posterior».',
       fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/4383470-253-2023-cg',
       verificacion: 'verificado',
@@ -369,12 +376,12 @@ export const normas: Norma[] = [
     titulo: 'Servicio de Control Simultáneo',
     tipo: 'Directiva',
     materia: 'control-simultaneo',
-    fechaPublicacion: '30 de mayo de 2022 (fecha de la resolución aprobatoria)',
+    fechaEmision: '30 de mayo de 2022',
     anio: 2022,
     vigencia: 'modificada',
     resolucionAprobatoria: {
       norma: 'Resolución de Contraloría N.° 218-2022-CG',
-      fecha: '30 de mayo de 2022',
+      fecha: 'Emitida el 30 de mayo de 2022',
       sumilla: 'Aprueba la Directiva N.° 013-2022-CG/NORM «Servicio de Control Simultáneo».',
       fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/3042483-218-2022-cg',
       verificacion: 'verificado',
@@ -384,6 +391,29 @@ export const normas: Norma[] = [
         norma: 'Resolución de Contraloría N.° 270-2022-CG',
         fecha: '10 de agosto de 2022',
         sumilla: 'Modifica la Directiva N.° 013-2022-CG/NORM.',
+        verificacion: 'verificado',
+      },
+      {
+        norma: 'Resolución de Contraloría N.° 062-2023-CG',
+        fecha: 'Publicada el 13 de febrero de 2023',
+        sumilla:
+          'Incorpora la Quinta Disposición Complementaria Final a la Directiva, sobre control concurrente a cargo de sociedades de auditoría durante 2023.',
+        fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/3905681-062-2023-cg',
+        verificacion: 'verificado',
+      },
+      {
+        norma: 'Resolución de Contraloría N.° 429-2023-CG',
+        fecha: 'Publicada el 20 de diciembre de 2023',
+        sumilla:
+          'Modifica el subnumeral 6.1.8.2 del numeral 6.1.8, la Quinta Disposición Complementaria Final y la Única Disposición Complementaria Transitoria.',
+        fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/4963856-429-2023-cg',
+        verificacion: 'verificado',
+      },
+      {
+        norma: 'Resolución de Contraloría N.° 714-2024-CG',
+        fecha: 'Publicada el 5 de diciembre de 2024',
+        sumilla: 'Modifica el numeral 7.3 y el Formato N.° 1B del Anexo N.° 2 de la Directiva.',
+        fuente: 'https://busquedas.elperuano.pe/dispositivo/NL/2351008-1',
         verificacion: 'verificado',
       },
       {
@@ -407,7 +437,7 @@ export const normas: Norma[] = [
       'Su finalidad no es determinar responsabilidad, sino advertir situaciones adversas de manera oportuna.',
       'Exige que el proceso o actividad se encuentre efectivamente en curso.',
       'Distingue acciones preventivas de acciones correctivas para el seguimiento.',
-      'Ha sido modificada en más de una oportunidad: verifique siempre la versión vigente.',
+      'Acumula cinco modificatorias entre 2022 y 2025: no use un formato ni un plazo sin comprobar la versión vigente.',
     ],
     usoPractico:
       'Se consulta al decidir si corresponde intervenir sobre un proceso en ejecución y al redactar una situación adversa con evidencia verificable.',
@@ -432,26 +462,36 @@ export const normas: Norma[] = [
     materia: 'control-especifico',
     anio: 2021,
     vigencia: 'modificada',
+    resolucionAprobatoria: {
+      norma: 'Resolución de Contraloría N.° 134-2021-CG',
+      sumilla: 'Aprueba la Directiva N.° 007-2021-CG/NORM «Servicio de Control Específico a Hechos con Presunta Irregularidad».',
+      fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/1965249-134-2021-cg',
+      verificacion: 'verificado',
+    },
     modificatorias: [
       {
         norma: 'Resolución de Contraloría N.° 140-2021-CG',
+        fecha: 'Publicada el 26 de junio de 2021',
         sumilla: 'Modifica la Directiva N.° 007-2021-CG/NORM.',
         verificacion: 'verificado',
       },
       {
         norma: 'Resolución de Contraloría N.° 043-2022-CG',
+        fecha: 'Publicada el 26 de febrero de 2022',
         sumilla: 'Modifica diversos numerales de la Directiva N.° 007-2021-CG/NORM.',
         fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/2774350-043-2022-cg',
         verificacion: 'verificado',
       },
       {
         norma: 'Resolución de Contraloría N.° 159-2023-CG',
+        fecha: 'Publicada el 12 de mayo de 2023',
         sumilla: 'Modifica la Directiva N.° 007-2021-CG/NORM.',
         fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/4222591-159-2023-cg',
         verificacion: 'verificado',
       },
       {
         norma: 'Resolución de Contraloría N.° 239-2023-CG',
+        fecha: 'Publicada el 18 de junio de 2023',
         sumilla: 'Modifica la Directiva N.° 007-2021-CG/NORM.',
         fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/4364999-239-2023-cg',
         verificacion: 'verificado',
@@ -475,9 +515,7 @@ export const normas: Norma[] = [
       'Se consulta cuando existen hechos concretos con evidencia de presunta irregularidad y se evalúa qué servicio de control posterior corresponde.',
     relacionadas: ['directiva-007-2023-cg-vcic', 'directiva-001-2022-cg-norm'],
     palabrasClave: ['control específico', 'presunta irregularidad', 'debido proceso de control', 'comentarios'],
-    verificacion: 'por-verificar',
-    notaVerificacion:
-      'La Directiva y sus modificatorias están confirmadas. La resolución que la aprueba NO ha podido confirmarse: fuentes oficiales consultadas atribuyen la aprobación tanto a la Resolución de Contraloría N.° 131-2021-CG como a la N.° 134-2021-CG. Confirme el dato en la fuente oficial antes de citarlo en un informe.',
+    verificacion: 'verificado',
   },
 
   /* --- F. Gestión de Denuncias -------------------------------------- */
@@ -566,26 +604,27 @@ export const normas: Norma[] = [
     tipo: 'Directiva',
     materia: 'notificaciones',
     anio: 2022,
-    vigencia: 'vigente',
+    vigencia: 'derogada',
     resolucionAprobatoria: {
       norma: 'Resolución de Contraloría N.° 102-2022-CG',
-      sumilla: 'Aprueba la Directiva N.° 007-2022-CG/DOC «Notificaciones Electrónicas en el Sistema Nacional de Control».',
+      sumilla: 'Aprobó la Directiva N.° 007-2022-CG/DOC «Notificaciones Electrónicas en el Sistema Nacional de Control».',
       fuente: 'https://www.gob.pe/institucion/contraloria/normas-legales/2815017-102-2022-cg',
       verificacion: 'verificado',
     },
     modificatorias: [],
     fuenteOficial: 'https://www.gob.pe/institucion/contraloria/normas-legales/3651824-007-2022-cg-doc',
     resumenLexGub:
-      'Regula las notificaciones electrónicas en el ámbito de los servicios de control, mediante el sistema de casilla electrónica administrado por la Contraloría.',
+      'Marco anterior de las notificaciones electrónicas en el Sistema Nacional de Control. Fue dejado sin efecto, junto con la Resolución de Contraloría N.° 102-2022-CG que lo aprobó, por la Resolución de Contraloría N.° 479-2025-CG. Se conserva porque puede ser la norma aplicable a notificaciones practicadas durante su vigencia.',
     puntosClave: [
-      'Habilita la notificación electrónica de actos y actuaciones en el Sistema Nacional de Control.',
-      'Se apoya en el sistema eCasilla-CGR como canal de comunicación.',
-      'Incide en el cómputo de plazos y en la acreditación de la comunicación.',
+      'Dejada sin efecto por la Resolución de Contraloría N.° 479-2025-CG, que aprobó la Directiva N.° 007-2025-CG/DOC.',
+      'Habilitó la notificación electrónica de actos y actuaciones en el Sistema Nacional de Control.',
+      'Se apoyaba en el sistema eCasilla-CGR como canal de comunicación.',
+      'Su consulta procede respecto de notificaciones practicadas bajo su vigencia.',
     ],
     usoPractico:
-      'Se consulta al discutir la validez o la fecha de una notificación dentro de un servicio de control.',
+      'Se revisa cuando se discute la validez o la fecha de una notificación practicada mientras esta directiva regía.',
     relacionadas: ['directiva-007-2025-cg-doc'],
-    palabrasClave: ['notificaciones electrónicas', 'ecasilla', 'casilla electrónica', 'plazos'],
+    palabrasClave: ['notificaciones electrónicas', 'ecasilla', 'casilla electrónica', 'plazos', 'histórica'],
     verificacion: 'verificado',
   },
   {
@@ -598,21 +637,30 @@ export const normas: Norma[] = [
     vigencia: 'vigente',
     resolucionAprobatoria: {
       norma: 'Resolución de Contraloría N.° 479-2025-CG',
-      verificacion: 'por-verificar',
+      sumilla:
+        'Aprueba la Directiva N.° 007-2025-CG/DOC «Notificaciones Electrónicas en el Sistema Nacional de Control» y deja sin efecto la Resolución de Contraloría N.° 102-2022-CG y la Directiva N.° 007-2022-CG/DOC.',
+      verificacion: 'verificado',
     },
     modificatorias: [],
+    sustituyeA: {
+      norma: 'Directiva N.° 007-2022-CG/DOC, aprobada por Resolución de Contraloría N.° 102-2022-CG',
+      sumilla: 'Marco anterior de notificaciones electrónicas, dejado sin efecto por la Resolución de Contraloría N.° 479-2025-CG.',
+      verificacion: 'verificado',
+    },
     fuenteOficial: 'https://www.gob.pe/institucion/contraloria/normas-legales',
     resumenLexGub:
-      'Marco de notificaciones electrónicas en el Sistema Nacional de Control identificado para el año 2025. Su ficha está en preparación y sus datos deben confirmarse en fuente oficial antes de ser citados.',
+      'Marco vigente de las notificaciones electrónicas en el Sistema Nacional de Control. Sustituye a la Directiva N.° 007-2022-CG/DOC y ordena la comunicación de actos y actuaciones de control a través del sistema de casilla electrónica.',
     puntosClave: [
-      'Ficha pendiente de confirmación documental.',
-      'Mientras tanto, verifique la relación con la Directiva N.° 007-2022-CG/DOC.',
+      'Dejó sin efecto la Resolución de Contraloría N.° 102-2022-CG y la Directiva N.° 007-2022-CG/DOC.',
+      'Es el marco aplicable a las notificaciones electrónicas practicadas bajo su vigencia.',
+      'Incide en el cómputo de plazos y en la acreditación de la comunicación.',
+      'Para notificaciones anteriores, revise qué directiva regía en la fecha del acto.',
     ],
+    usoPractico:
+      'Se consulta al discutir la validez, el canal o la fecha de una notificación dentro de un servicio de control.',
     relacionadas: ['directiva-007-2022-cg-doc'],
-    palabrasClave: ['notificaciones electrónicas', '2025', 'ecasilla'],
-    verificacion: 'por-verificar',
-    notaVerificacion:
-      'No se ha podido confirmar en fuente oficial el número de la directiva ni el de la resolución aprobatoria. La búsqueda solo devolvió de forma verificable la Directiva N.° 007-2022-CG/DOC (Resolución de Contraloría N.° 102-2022-CG). No cite estos datos sin contrastarlos.',
+    palabrasClave: ['notificaciones electrónicas', '2025', 'ecasilla', 'casilla electrónica', 'plazos'],
+    verificacion: 'verificado',
   },
 
   /* --- J. Contrataciones Públicas ------------------------------------ */

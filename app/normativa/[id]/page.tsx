@@ -61,6 +61,10 @@ export default async function FichaNormativaPage({ params }: { params: Promise<{
             <dd>{norma.tipo}</dd>
           </div>
           <div>
+            <dt>Fecha de emisión</dt>
+            <dd>{norma.fechaEmision ?? <span className="fichaSinDato">No contrastada en esta revisión</span>}</dd>
+          </div>
+          <div>
             <dt>Fecha de publicación</dt>
             <dd>{norma.fechaPublicacion ?? <span className="fichaSinDato">No contrastada en esta revisión</span>}</dd>
           </div>
