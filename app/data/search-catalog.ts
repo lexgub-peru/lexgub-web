@@ -5,6 +5,7 @@ export type SearchKind =
   | 'Guía'
   | 'Herramienta'
   | 'Glosario'
+  | 'Criterio'
   | 'Columna'
   | 'Centro';
 
@@ -187,6 +188,39 @@ const staticItems: SearchItem[] = [
     keywords: ['inferencia', 'razonamiento probatorio', 'hechos', 'indicios'],
   },
   {
+    id: 'criterio-temporalidad',
+    kind: 'Criterio',
+    title: 'La versión vigente hoy no demuestra qué regla gobernó el hecho',
+    subtitle: 'Criterio LexGub 001 · Temporalidad normativa y reconstrucción del marco aplicable.',
+    href: '/criterios#temporalidad',
+    keywords: ['temporalidad', 'vigencia', 'modificatorias', 'fecha del hecho', 'norma aplicable'],
+    featured: true,
+  },
+  {
+    id: 'criterio-inferencia',
+    kind: 'Criterio',
+    title: 'Una inferencia debe mostrarse como razonamiento, no como dato',
+    subtitle: 'Criterio LexGub 002 · Diferencia entre evidencia, hecho, indicio e inferencia.',
+    href: '/criterios#inferencia',
+    keywords: ['inferencia', 'evidencia', 'indicio', 'hecho acreditado', 'razonamiento probatorio'],
+  },
+  {
+    id: 'criterio-participacion',
+    kind: 'Criterio',
+    title: 'El cargo no prueba por sí solo la intervención',
+    subtitle: 'Criterio LexGub 003 · Individualización de deber, acto concreto y evidencia de participación.',
+    href: '/criterios#participacion',
+    keywords: ['participación', 'responsabilidad', 'cargo', 'deber funcional', 'individualización'],
+  },
+  {
+    id: 'criterio-comision-investigadora',
+    kind: 'Criterio',
+    title: 'Un informe de comisión investigadora no sustituye por sí mismo un servicio de control',
+    subtitle: 'Criterio LexGub 004 · Naturaleza jurídica, competencia y valor como insumo.',
+    href: '/criterios#comision-investigadora',
+    keywords: ['comisión investigadora', 'auditoría', 'servicio de control', 'competencia', 'informe'],
+  },
+  {
     id: 'columna-oxi-2026',
     kind: 'Columna',
     title: 'Excepción al informe previo en Obras por Impuestos: rapidez, control y riesgos',
@@ -224,7 +258,7 @@ const normativeItems: SearchItem[] = normas.map((norma) => ({
 
 export const searchCatalog: SearchItem[] = [...normativeItems, ...staticItems];
 
-export const searchKinds: SearchKind[] = ['Norma', 'Guía', 'Herramienta', 'Glosario', 'Columna', 'Centro'];
+export const searchKinds: SearchKind[] = ['Norma', 'Guía', 'Herramienta', 'Glosario', 'Criterio', 'Columna', 'Centro'];
 
 export function normalizeSearch(value: string): string {
   return value
