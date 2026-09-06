@@ -1,3 +1,4 @@
+import LexGubBrand from './components/Brand';
 import PildoraLexGub from './components/PildoraLexGub';
 import {
   IconAlert,
@@ -70,17 +71,10 @@ export default function Home() {
   return (
     <>
       <section className="hero portalHero">
-        <div className="heroBrandPanel" aria-label="Identidad de LEXGUB PERÚ">
-          <img
-            src="/lexgub-logo.webp"
-            alt="LEXGUB PERÚ"
-            width="420"
-            height="164"
-            loading="eager"
-            className="heroBrandLogo"
-          />
+        <div className="lexgubHeroIdentity">
+          <LexGubBrand tone="dark" />
         </div>
-        <div className="eyebrow">LEXGUB PERÚ · CONTROL GUBERNAMENTAL</div>
+        <div className="eyebrow">PLATAFORMA JURÍDICA INDEPENDIENTE · CONTROL GUBERNAMENTAL</div>
         <h1>Derecho, control y evidencia para trabajar con criterio.</h1>
         <p>
           Plataforma jurídica independiente especializada en control gubernamental peruano. Reúne normativa oficial,
