@@ -64,7 +64,7 @@ const areas = [
 const quickLinks = [
   ['Biblioteca jurídica', '/normativa', IconDocument],
   ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
-  ['Fuentes oficiales', '/fuentes', IconSearch],
+  ['Asistente LexGub', '/asistente', IconSearch],
   ['Herramientas y checklists', '/herramientas', IconChecklist],
 ] as const;
 
@@ -75,14 +75,22 @@ export default function Home() {
         <div className="editorialHomeHeroInner">
           <div className="editorialHomeCopy">
             <div className="eyebrow">LEXGUB PERÚ · CONOCIMIENTO JURÍDICO ESPECIALIZADO</div>
-            <h1>Conocimiento jurídico para analizar mejor el control público.</h1>
+            <h1>Analiza mejor. Verifica antes. Decide con evidencia.</h1>
             <p>
               Normas, jurisprudencia, criterios y herramientas para control gubernamental, auditoría, contrataciones públicas
-              y derecho administrativo, conectados con fuente oficial, temporalidad y evidencia.
+              y derecho administrativo, conectados con fuente oficial, temporalidad y razonamiento probatorio.
             </p>
             <div className="heroActions">
-              <a className="primaryButton" href="/normativa">Explorar Biblioteca</a>
-              <a className="secondaryButton" href="/jurisprudencia">Ver jurisprudencia</a>
+              <a className="primaryButton" href="/asistente">Preguntar a LexGub</a>
+              <a className="secondaryButton" href="/normativa">Explorar Biblioteca</a>
+            </div>
+            <div className="heroIntelligence" aria-label="Características del Asistente LexGub">
+              <strong>Asistente LexGub · Beta</strong>
+              <span>orientación documental</span>
+              <span>·</span>
+              <span>fuentes verificables</span>
+              <span>·</span>
+              <span>privacidad por diseño</span>
             </div>
             <div className="editorialHeroTopics" aria-label="Áreas principales">
               <span>Control</span><span>Auditoría</span><span>Contrataciones</span><span>Gestión pública</span>
