@@ -1,9 +1,11 @@
 import Link from 'next/link';
 
 const links = [
-  { href: '/', label: 'Inicio' },
+  { href: '/control-gubernamental', label: 'Control' },
+  { href: '/guias', label: 'Guías' },
   { href: '/normativa', label: 'Normativa' },
-  { href: '/contacto', label: 'Contacto' },
+  { href: '/herramientas', label: 'Herramientas' },
+  { href: '/glosario', label: 'Glosario' },
 ];
 
 export default function Navbar() {
