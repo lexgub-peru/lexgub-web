@@ -24,7 +24,7 @@ export default function ColumnaPage() {
             </p>
           </div>
           <div className="columnEditorialSignature">
-            <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="720" height="720" />
+            <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
             <div>
               <strong>Marvyn Enrique Gallo Rojas</strong>
               <span>Abogado · Autor de LexGub</span>

@@ -116,63 +116,67 @@ h1, h2 {
 /* ============================================================
    3. Marca
    ============================================================ */
+/* Logotipo tipográfico: sin isotipo. El peso lo llevan el interletrado,
+   el filete dorado y la línea de bajada. */
 .lexgubBrand {
   display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  line-height: 1;
-}
-
-.lexgubBrandMark {
-  display: block;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-  color: var(--gold);
-}
-
-.lexgubBrandWords {
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 7px;
+  line-height: 1;
 }
 
 .lexgubBrandLine {
   display: inline-flex;
   align-items: baseline;
-  gap: 7px;
+  gap: 10px;
   white-space: nowrap;
 }
 
-.lexgubBrandName,
-.lexgubBrandCountry {
+.lexgubBrandName {
   font-family: var(--font-serif);
   font-weight: 700;
-  letter-spacing: .04em;
+  font-size: 1.34rem;
+  letter-spacing: .13em;
 }
-.lexgubBrandName { font-size: 1.3rem; }
-.lexgubBrandCountry { font-size: 1rem; }
+
+.lexgubBrandCountry {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .28em;
+}
+
+.lexgubBrandRule {
+  display: block;
+  width: 100%;
+  min-width: 92px;
+  height: 1px;
+  background: currentColor;
+  opacity: .45;
+}
 
 .lexgubBrandTagline {
-  font-size: .54rem;
-  font-weight: 700;
-  letter-spacing: .17em;
+  font-family: var(--font-sans);
+  font-size: .53rem;
+  font-weight: 600;
+  letter-spacing: .21em;
   white-space: nowrap;
 }
 
+.lexgubBrand--dark { color: var(--gold); }
 .lexgubBrand--dark .lexgubBrandName { color: #fffdf8; }
 .lexgubBrand--dark .lexgubBrandCountry,
 .lexgubBrand--dark .lexgubBrandTagline { color: var(--gold); }
+.lexgubBrand--light { color: var(--gold-dark); }
 .lexgubBrand--light .lexgubBrandName { color: var(--navy); }
 .lexgubBrand--light .lexgubBrandCountry,
 .lexgubBrand--light .lexgubBrandTagline { color: var(--gold-dark); }
 
-.lexgubBrand--compact { gap: 9px; }
-.lexgubBrand--compact .lexgubBrandMark { width: 30px; height: 30px; flex-basis: 30px; }
-.lexgubBrand--compact .lexgubBrandName { font-size: 1.06rem; }
-.lexgubBrand--compact .lexgubBrandCountry { font-size: .84rem; }
-.lexgubBrand--compact .lexgubBrandTagline { display: none; }
+/* Una sola línea para barra y pie. */
+.lexgubBrand--compact { flex-direction: row; align-items: baseline; gap: 9px; }
+.lexgubBrand--compact .lexgubBrandName { font-size: 1.1rem; letter-spacing: .12em; }
+.lexgubBrand--compact .lexgubBrandCountry { font-size: .7rem; letter-spacing: .24em; }
 
 .lexgubNavBrand,
 .lexgubFooterBrand { display: inline-flex; align-items: center; min-width: fit-content; }
@@ -526,9 +530,10 @@ h1, h2 {
   border-top: 1px solid var(--line);
 }
 .homeFeaturedAuthor img {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 50px;
   object-fit: cover;
+  object-position: 50% 22%;
   border-radius: 50%;
   border: 1px solid #e0d2b4;
 }
@@ -720,11 +725,12 @@ h1, h2 {
   margin: 0 auto;
 }
 .homeAuthorInner > img {
-  width: 78px;
-  height: 78px;
+  width: 76px;
+  height: 95px;
   object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: 0 6px 20px rgba(10, 26, 43, .12);
+  object-position: 50% 20%;
+  border-radius: 50%;
+  box-shadow: 0 8px 22px rgba(10, 26, 43, .14);
 }
 .homeAuthorCopy h2 { margin: 6px 0 6px; font-size: clamp(1.3rem, 2vw, 1.75rem); }
 .homeAuthorCopy p { margin: 0; max-width: 720px; color: var(--muted); font-size: .9rem; line-height: 1.6; }
@@ -803,9 +809,10 @@ h1, h2 {
 
 .columnEditorialSignature { display: flex; align-items: center; gap: 11px; }
 .columnEditorialSignature img {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 57px;
   object-fit: cover;
+  object-position: 50% 20%;
   border-radius: 50%;
   border: 1px solid rgba(201, 163, 95, .55);
 }
@@ -1035,8 +1042,15 @@ h1, h2 {
   letter-spacing: .14em;
 }
 .authorCardKicker::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
-.authorCardTop { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; align-items: center; margin-top: 16px; }
-.authorCardPhoto { width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius); }
+.authorCardTop { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 16px; align-items: center; margin-top: 16px; }
+.authorCardPhoto {
+  width: 78px;
+  height: 97px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(10, 26, 43, .12);
+}
 .authorCardIdentity h2 { margin: 0; font-size: 1.25rem; line-height: 1.1; }
 .authorCardIdentity > span {
   display: inline-block;
@@ -1065,8 +1079,8 @@ h1, h2 {
   font-weight: 700;
 }
 .authorCard--compact { padding: 20px; }
-.authorCard--compact .authorCardTop { grid-template-columns: 68px minmax(0, 1fr); }
-.authorCard--compact .authorCardPhoto { width: 68px; height: 68px; }
+.authorCard--compact .authorCardTop { grid-template-columns: 70px minmax(0, 1fr); }
+.authorCard--compact .authorCardPhoto { width: 70px; height: 87px; }
 .authorCard--compact .authorCardIdentity h2 { font-size: 1.15rem; }
 
 /* ============================================================
@@ -1400,6 +1414,307 @@ h1, h2 {
 .resourceCard span { color: var(--muted); }
 
 /* ============================================================
+   10b. Compendio normativo
+   ============================================================ */
+.compendioSection { max-width: var(--wide); margin: 0 auto; }
+.compendio { max-width: var(--max); margin: 0 auto; }
+
+.compendioBuscador { position: relative; margin-bottom: 16px; }
+.compendioBuscador input {
+  width: 100%;
+  padding: 15px 18px 15px 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 1rem;
+  color: var(--ink);
+}
+.compendioBuscador input::placeholder { color: #94a0ac; }
+.compendioBuscador .liveFilterIcon { left: 17px; }
+
+.compendioFiltros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.compendioFiltros label { display: flex; flex-direction: column; gap: 6px; }
+.compendioFiltros span {
+  color: var(--gold-dark);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.compendioFiltros select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: .88rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.compendioResumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 22px 0 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .85rem;
+}
+.compendioResumen button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  padding: 7px 14px;
+  color: var(--gold-dark);
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.compendioResumen button:hover { border-color: var(--gold); background: var(--gold-soft); }
+
+.compendioMateria { margin-top: 38px; }
+.compendioMateria > header {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.compendioMateriaLetra {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.compendioMateria h2 { margin: 0 0 5px; font-size: clamp(1.25rem, 2.1vw, 1.75rem); line-height: 1.15; }
+.compendioMateria > header p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+
+.compendioLista { list-style: none; margin: 0; padding: 0; }
+.fichaFila { padding: 22px 0; border-bottom: 1px solid var(--line-soft); }
+
+.fichaFilaCabecera { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.fichaTipo {
+  color: var(--gold-dark);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.fichaChip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.fichaChip--vigente { background: #e9f1ec; border-color: #cbdfd3; color: #2f6b52; }
+.fichaChip--modificada { background: var(--gold-soft); border-color: #e8dcc2; color: var(--gold-dark); }
+.fichaChip--historica { background: #eceaf0; border-color: #dcd8e2; color: #5a5468; }
+.fichaChip--derogada { background: #f5e9e6; border-color: #e6cfc8; color: #8a4a38; }
+.fichaChip--aviso { background: #fbf1dd; border-color: #ecd8ab; color: #7d5a15; }
+.fichaChip--materia { background: var(--surface-soft); border-color: var(--line); color: #445365; }
+
+.fichaTitulo { display: block; margin-top: 10px; }
+.fichaTitulo strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.14rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.fichaTitulo span { display: block; margin-top: 3px; color: #445365; font-size: .95rem; line-height: 1.45; }
+.fichaTitulo:hover strong { color: var(--gold-dark); }
+
+.fichaResumen { margin: 10px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.6; max-width: 780px; }
+
+.fichaMetaLinea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 10px;
+  color: #6c7885;
+  font-size: .78rem;
+}
+.fichaMetaLinea span + span::before { content: '·'; margin-right: 18px; color: var(--gold-dark); }
+
+.fichaAcciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.fichaAccion {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: #1d4260;
+  font-size: .82rem;
+  font-weight: 600;
+}
+.fichaAccion:hover { border-color: #c4a46b; background: var(--gold-soft); }
+.fichaAccion--principal { background: var(--navy); border-color: var(--navy); color: #fff; }
+.fichaAccion--principal:hover { background: var(--navy-2); border-color: var(--navy-2); color: #fff; }
+
+.compendioPendientes {
+  margin-top: 44px;
+  padding: 24px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+.compendioPendientes h2 { margin: 0 0 8px; font-size: 1.2rem; }
+.compendioPendientes > p { margin: 0 0 14px; color: var(--muted); font-size: .88rem; max-width: 760px; }
+.compendioPendientes ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #445365;
+  font-size: .88rem;
+}
+.compendioPendientes strong { color: var(--gold-dark); }
+
+/* ---------- Ficha individual ---------- */
+.fichaPage { max-width: 920px; margin: 0 auto; padding: 34px clamp(20px, 6vw, 40px) 80px; }
+.fichaBreadcrumb { margin-bottom: 22px; }
+
+.fichaCabecera { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.fichaCabeceraChips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.fichaCabecera h1 { margin: 14px 0 8px; font-size: clamp(1.7rem, 3.6vw, 2.6rem); line-height: 1.1; }
+.fichaCabecera .dek { margin: 0; color: #445365; font-family: var(--font-serif); font-size: var(--fs-dek); line-height: 1.5; }
+
+.fichaAviso {
+  margin: 22px 0 0;
+  padding: 18px 20px;
+  border: 1px solid #ecd8ab;
+  border-left: 3px solid #c99a2f;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: #fdf7ea;
+}
+.fichaAviso strong { display: block; margin-bottom: 5px; color: #7d5a15; font-size: .88rem; }
+.fichaAviso p { margin: 0; color: #5f5232; font-size: .89rem; line-height: 1.6; }
+
+.fichaDatos { margin-top: 26px; }
+.fichaDatos dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.fichaDatos dl > div { padding: 14px 16px; background: var(--surface); }
+/* Si el número de datos es impar, el último ocupa la fila completa. */
+.fichaDatos dl > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.fichaDatos dt {
+  color: var(--gold-dark);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.fichaDatos dd { margin: 6px 0 0; font-size: .92rem; line-height: 1.45; }
+.fichaDatos dd a { color: #1d4260; font-weight: 600; border-bottom: 1px solid #b9cbd8; }
+.fichaSinDato { color: #8a949f; font-style: italic; font-size: .86rem; }
+.fichaAcciones--cabecera { margin-top: 16px; }
+
+.fichaCuerpo { margin-top: 34px; }
+.fichaBloque { margin-bottom: 32px; }
+.fichaBloque h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.2;
+}
+.fichaBloque > p { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.72; }
+
+.fichaPuntos { margin: 0; padding: 0; list-style: none; }
+.fichaPuntos li {
+  position: relative;
+  padding: 9px 0 9px 22px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.fichaPuntos li:last-child { border-bottom: 1px solid var(--line-soft); }
+.fichaPuntos li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 18px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.fichaTimeline { margin: 0; padding: 0 0 0 18px; list-style: none; border-left: 1px solid var(--line); }
+.fichaTimeline > li { position: relative; padding: 0 0 18px; }
+.fichaTimeline > li::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.fichaTimelineItem strong { display: block; font-size: .96rem; }
+.fichaTimelineItem strong a { color: inherit; border-bottom: 1px solid #b9cbd8; }
+.fichaTimelineFecha { display: block; margin-top: 2px; color: var(--gold-dark); font-size: .78rem; }
+.fichaTimelineItem p { margin: 5px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+
+.fichaVigencia {
+  padding: 20px 22px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--gold-soft);
+}
+.fichaVigencia h2 { margin-bottom: 6px; font-size: 1.1rem; }
+.fichaVigencia > p { color: #4d4739; }
+
+.fichaRelacionadas { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.fichaRelacionadas a {
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.fichaRelacionadas a:hover { border-color: #c4a46b; }
+.fichaRelacionadas strong { display: block; font-family: var(--font-serif); font-size: 1rem; }
+.fichaRelacionadas span { display: block; margin-top: 3px; color: var(--muted); font-size: .87rem; }
+
+.fichaPie {
+  margin: 34px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.6;
+}
+.fichaPie a { color: #1d4260; font-weight: 700; }
+
+/* ============================================================
    11. Footer — secundario y compacto
    ============================================================ */
 footer {
@@ -1496,7 +1811,7 @@ footer {
   /* Autor en móvil: foto pequeña junto al nombre, texto debajo, enlaces discretos. */
   .homeAuthorInner { grid-template-columns: 56px minmax(0, 1fr); gap: 8px 14px; align-items: center; }
   .homeAuthorCopy { display: contents; }
-  .homeAuthorInner > img { width: 56px; height: 56px; grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+  .homeAuthorInner > img { width: 56px; height: 70px; grid-column: 1; grid-row: 1 / span 2; align-self: center; }
   .homeAuthorCopy .sectionKicker { grid-column: 2; grid-row: 1; }
   .homeAuthorCopy h2 { grid-column: 2; grid-row: 2; margin: 0; }
   .homeAuthorCopy p { grid-column: 1 / -1; grid-row: 3; margin-top: 6px; }
@@ -1523,10 +1838,11 @@ footer {
     border-top: 1px solid var(--line);
   }
   .articleMobileAuthor img {
-    width: 48px;
-    height: 48px;
-    flex: 0 0 48px;
+    width: 44px;
+    height: 55px;
+    flex: 0 0 44px;
     object-fit: cover;
+    object-position: 50% 20%;
     border-radius: 50%;
     border: 1px solid #e0d2b4;
   }
@@ -1536,10 +1852,10 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .navbar { min-height: 60px; padding: 9px 18px; }
-  .lexgubBrand--compact .lexgubBrandMark { width: 27px; height: 27px; flex-basis: 27px; }
-  .lexgubBrand--compact .lexgubBrandName { font-size: .97rem; }
-  .lexgubBrand--compact .lexgubBrandCountry { font-size: .76rem; }
+  .navbar { min-height: 58px; padding: 9px 18px; }
+  .lexgubBrand--compact { gap: 7px; }
+  .lexgubBrand--compact .lexgubBrandName { font-size: .98rem; letter-spacing: .1em; }
+  .lexgubBrand--compact .lexgubBrandCountry { font-size: .64rem; letter-spacing: .2em; }
 
   .editorialHomeHeroInner { padding: 46px 20px 48px; gap: 28px; }
   .editorialHeroTopics span + span::before { margin-right: 10px; }
@@ -1562,9 +1878,36 @@ footer {
   .moduleGrid, .normGrid, .columnTopics { grid-template-columns: 1fr; }
   .methodSteps { grid-template-columns: 1fr 1fr; }
 
+  /* Compendio: filas compactas y filtros en dos columnas. */
+  .compendioFiltros { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .compendioMateria { margin-top: 30px; }
+  .compendioMateria > header { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+  .compendioMateriaLetra { width: 32px; height: 32px; font-size: .95rem; }
+  .compendioMateria > header p { font-size: .82rem; }
+  /* En móvil el compendio se comporta como un índice: fila breve por norma
+     y todo el detalle en su ficha, a un toque de distancia. */
+  .fichaFila { padding: 14px 0; }
+  .fichaTitulo { margin-top: 7px; }
+  .fichaTitulo strong { font-size: 1rem; }
+  .fichaTitulo span { font-size: .86rem; }
+  .fichaResumen,
+  .fichaMetaLinea { display: none; }
+  .fichaAcciones { margin-top: 10px; }
+  .fichaAcciones .fichaAccion:not(.fichaAccion--principal) { display: none; }
+  .fichaAccion { min-height: 36px; padding: 7px 14px; font-size: .78rem; }
+  /* En la ficha individual sí se muestran todas las acciones. */
+  .fichaAcciones--cabecera .fichaAccion { display: inline-flex; }
+  .compendioPendientes { padding: 20px; }
+  .compendioPendientes ul { grid-template-columns: 1fr; }
+
+  .fichaPage { padding: 26px 20px 64px; }
+  .fichaDatos dl { grid-template-columns: 1fr; }
+  .fichaBloque { margin-bottom: 26px; }
+  .fichaBloque > p { font-size: .96rem; }
+
   .homeAuthorSection { padding: 30px 20px; }
   .homeAuthorInner { grid-template-columns: 52px minmax(0, 1fr); gap: 7px 12px; }
-  .homeAuthorInner > img { width: 52px; height: 52px; }
+  .homeAuthorInner > img { width: 52px; height: 65px; }
   .homeServicesBand { padding: 26px 22px; }
 
   .articleMastheadInner { flex-direction: column; gap: 6px; padding: 18px 20px; }

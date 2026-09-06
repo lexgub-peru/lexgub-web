@@ -95,7 +95,7 @@ export default function Home() {
               desplaza parte del énfasis hacia la responsabilidad de la entidad y los controles simultáneo y posterior.
             </p>
             <div className="homeFeaturedAuthor">
-              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="640" />
+              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
               <div>
                 <strong>Marvyn Enrique Gallo Rojas</strong>
                 <span>Abogado · Columna LexGub</span>
@@ -161,7 +161,7 @@ export default function Home() {
 
       <section className="homeAuthorSection">
         <div className="homeAuthorInner">
-          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="640" />
+          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
           <div className="homeAuthorCopy">
             <span className="sectionKicker">AUTOR</span>
             <h2>Marvyn Enrique Gallo Rojas</h2>
