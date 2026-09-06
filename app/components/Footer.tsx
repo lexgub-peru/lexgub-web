@@ -7,6 +7,7 @@ const columns = [
     links: [
       ['Control Gubernamental', '/control-gubernamental'],
       ['Biblioteca Jurídica', '/normativa'],
+      ['Tribunales y precedentes', '/tribunales'],
       ['Criterios LexGub', '/criterios'],
       ['Columna LexGub', '/columna'],
     ],
