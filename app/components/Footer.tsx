@@ -14,6 +14,7 @@ const columns = [
   {
     heading: 'Recursos',
     links: [
+      ['Fuentes oficiales', '/fuentes'],
       ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
       ['Glosario', '/glosario'],
