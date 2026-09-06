@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { jurisprudencia } from '../data/jurisprudencia';
 import { IconArrowRight, IconBook, IconClock, IconDocument, IconLandmark, IconScale } from './icons';
 
-const pills = [
+const basePills = [
   {
     category: 'Sabías que · Control gubernamental',
     title: 'El control gubernamental es un proceso integral y permanente.',
@@ -58,25 +59,21 @@ const pills = [
     href: 'https://www.gob.pe/institucion/oece/colecciones/68030-resoluciones-del-tribunal-de-contrataciones-publicas',
     icon: IconScale,
   },
-  {
-    category: 'Jurisprudencia · Prueba',
-    title: 'Una irregularidad puede ser un indicio; no es sinónimo automático de concertación.',
-    summary:
-      'La Casación N.° 241-2019/Áncash explica que la prueba por indicios exige hechos base acreditados y una inferencia correctamente motivada. Las vulneraciones a reglas de contratación pueden integrar la cadena indiciaria, pero no reemplazan por sí solas la demostración del hecho principal.',
-    source: 'Poder Judicial — Casación N.° 241-2019, Áncash',
-    href: 'https://www.pj.gob.pe/wps/wcm/connect/1eed6b0043cbbcd186d3876745cba5c4/241-2019.pdf?CACHEID=1eed6b0043cbbcd186d3876745cba5c4&MOD=AJPERES',
-    icon: IconScale,
-  },
-  {
-    category: 'Jurisprudencia · Contraloría',
-    title: 'Una inconstitucionalidad posterior no sustituye el examen del fondo de una sanción antigua.',
-    summary:
-      'La sentencia fuente Casación N.° 52028-2022/Junín rechazó que la inconstitucionalidad posterior del antiguo artículo 46 de la Ley 27785 baste, por sí sola, para resolver retroactivamente el caso: el órgano jurisdiccional debe pronunciarse sobre la controversia de fondo y la acreditación de responsabilidad.',
-    source: 'Poder Judicial — Casación N.° 52028-2022, Junín',
-    href: 'https://www.pj.gob.pe/wps/wcm/connect/33ed4f0044e8c72c9896d8e5406a4592/CASACI%C3%93N%2B52028-2022-JUN%C3%8DN%2B-%2BSENTENCIA%2BFUENTE%2BN.%C2%B02.pdf?CACHEID=33ed4f0044e8c72c9896d8e5406a4592&MOD=AJPERES',
-    icon: IconScale,
-  },
 ];
+
+const jurisprudencePills = jurisprudencia.flatMap((entry) => {
+  if (!entry.pildora) return [];
+  return [{
+    category: `Jurisprudencia · ${entry.organo}`,
+    title: entry.pildora.title,
+    summary: entry.pildora.summary,
+    source: entry.numero,
+    href: `/jurisprudencia/${entry.id}`,
+    icon: IconScale,
+  }];
+});
+
+const pills = [...basePills, ...jurisprudencePills];
 
 function dayIndex(length: number) {
   const now = new Date();
@@ -139,8 +136,8 @@ export default function PildoraLexGub() {
         <h3>{pill.title}</h3>
         <p>{pill.summary}</p>
         <div className="dailyPillFooter">
-          <a href={pill.href} target="_blank" rel="noreferrer">
-            Ver fuente oficial <IconArrowRight />
+          <a href={pill.href} target={pill.href.startsWith('http') ? '_blank' : undefined} rel={pill.href.startsWith('http') ? 'noreferrer' : undefined}>
+            {pill.href.startsWith('http') ? 'Ver fuente oficial' : 'Abrir ficha LexGub'} <IconArrowRight />
           </a>
           <small>{pill.source}</small>
         </div>
