@@ -1,40 +1,50 @@
-# LEXGUB PERÚ 2.0
+# LEXGUB PERÚ
 
-LEXGUB PERÚ es un proyecto independiente orientado a construir una plataforma de inteligencia jurídica especializada en derecho público, control gubernamental y gestión pública peruana.
+LEXGUB PERÚ es una plataforma jurídica independiente especializada en control gubernamental, derecho público y gestión pública peruana.
 
-## Estado
+Su objetivo es ayudar a ordenar el análisis profesional mediante normativa oficial, guías de trabajo, checklists, glosario y rutas de revisión orientadas a casos reales.
 
-Versión 2.0 en desarrollo sobre una rama separada de `main`.
+## Enfoque actual
 
-## Núcleo inicial
+La versión pública prioriza contenido jurídico verificable y herramientas estáticas antes que funciones de inteligencia artificial. La utilidad del producto debe existir aun sin depender de un modelo generativo.
 
+## Áreas principales
+
+- Sistema Nacional de Control y control gubernamental
 - Auditoría de cumplimiento
-- Control gubernamental
-- Contrataciones públicas
-- PAD y SERVIR
-- Análisis probatorio
-- Revisión crítica jurídica
-- Base normativa con prioridad en fuentes oficiales
+- Control simultáneo
+- Acción de Oficio Posterior
+- Servicio de Control Específico a Hechos con Presunta Irregularidad
+- Gestión de denuncias y alertas
+- Contrataciones públicas como materia transversal
+- Análisis probatorio y revisión crítica
+- Biblioteca normativa con fuentes oficiales
+- Checklists y herramientas de revisión
 
-## Principios de producto
+## Principios editoriales
 
 1. Fuente oficial primero.
-2. No asumir irregularidad antes de reconstruir hechos y evidencia.
-3. Aplicar la norma vigente y temporalmente pertinente al hecho analizado.
+2. No presumir irregularidad ni responsabilidad.
+3. Determinar la norma temporalmente aplicable.
 4. Diferenciar hechos acreditados, indicios, inferencias y conclusiones.
-5. Mantener trazabilidad de fuentes y razonamiento revisable.
+5. Vincular cada afirmación relevante con evidencia identificable.
+6. Explicar causalidad y participación individual cuando corresponda.
+7. Advertir que el contenido informativo no sustituye la revisión del caso concreto ni la normativa vigente.
 
 ## Stack
 
 - Next.js 16.3.3
 - React 19.2
 - TypeScript estricto
+- Despliegue en Vercel
 
-## Desarrollo
+## Desarrollo local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Proyecto privado en concepto y desarrollo, aunque el repositorio pueda encontrarse públicamente accesible durante esta etapa.
+## Aviso
+
+LEXGUB PERÚ es un proyecto independiente. No representa a la Contraloría General de la República ni a otra entidad pública.
