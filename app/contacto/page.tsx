@@ -1,3 +1,5 @@
+import { IconMail } from '../components/icons';
+
 export default function ContactoPage() {
   return (
     <section className="contentPage">
@@ -5,10 +7,13 @@ export default function ContactoPage() {
       <h1>LEXGUB PERÚ</h1>
       <p>Proyecto independiente en desarrollo, especializado en derecho público, control gubernamental y gestión pública peruana.</p>
       <div className="resourceList">
-        <div className="resourceCard">
-          <strong>Correo</strong>
-          <span>lexgubperu@gmail.com</span>
-        </div>
+        <a className="resourceCard" href="mailto:lexgub.peru@gmail.com">
+          <span className="cardIcon" style={{ marginBottom: 0 }}><IconMail /></span>
+          <div>
+            <strong>Correo</strong>
+            <span>lexgub.peru@gmail.com</span>
+          </div>
+        </a>
       </div>
     </section>
   );

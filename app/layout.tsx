@@ -1,28 +1,43 @@
+import { IBM_Plex_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+const sans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const serif = Source_Serif_4({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-serif',
+  display: 'swap',
+});
 
 export const metadata = {
   title: {
     default: 'LEXGUB PERÚ | Control gubernamental y derecho público',
     template: '%s | LEXGUB PERÚ',
   },
-  description: 'Plataforma jurídica independiente especializada en control gubernamental peruano, auditoría de cumplimiento, control simultáneo, control posterior, denuncias y gestión pública.',
+  description: 'Plataforma jurídica independiente especializada en control gubernamental peruano, auditoría de cumplimiento, control simultáneo, control posterior, contrataciones públicas y gestión pública.',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0b1928',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${sans.variable} ${serif.variable}`}>
       <body>
         <Navbar />
-        <main>{children}</main>
-        <footer>
-          <div className="footerInner">
-            <div><strong>LEXGUB PERÚ</strong><span>Control gubernamental · Derecho público · Gestión pública</span></div>
-            <div className="footerLinks"><a href="/normativa">Normativa</a><a href="/guias">Guías</a><a href="/contacto">Contacto</a></div>
-          </div>
-          <p className="footerDisclaimer">Plataforma jurídica independiente. No representa ni sustituye a la Contraloría General de la República ni a otra entidad pública. El contenido es informativo y debe contrastarse con la normativa oficial vigente y las circunstancias del caso concreto.</p>
-          <div className="footerBottom">© {new Date().getFullYear()} LEXGUB PERÚ · Todos los derechos reservados.</div>
-        </footer>
+        <main id="contenido">{children}</main>
+        <Footer />
       </body>
     </html>
   );

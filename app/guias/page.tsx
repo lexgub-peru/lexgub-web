@@ -1,8 +1,11 @@
+import { IconAlert, IconArrowRight, IconBook, IconClock, IconContract, IconEvidence, IconLandmark } from '../components/icons';
+
 const guideSections = [
   {
     id: 'auditoria-cumplimiento',
     title: 'Auditoría de cumplimiento',
     badge: 'Control posterior',
+    icon: IconBook,
     summary: 'Ruta de trabajo para examinar una materia y determinar su conformidad con la normativa, disposiciones internas y estipulaciones contractuales aplicables.',
     steps: [
       'Delimita materia a examinar, periodo, entidad, objetivos y alcance.',
@@ -21,6 +24,7 @@ const guideSections = [
     id: 'aop',
     title: 'Acción de Oficio Posterior',
     badge: 'Control posterior',
+    icon: IconClock,
     summary: 'Útil para hechos puntuales ya ocurridos cuando la información disponible permite advertir indicios de irregularidad y corresponde comunicar el resultado bajo su directiva específica.',
     steps: [
       'Define con precisión el hecho: qué ocurrió, cuándo, en qué operación y qué entidad intervino.',
@@ -39,6 +43,7 @@ const guideSections = [
     id: 'control-especifico',
     title: 'Servicio de Control Específico a Hechos con Presunta Irregularidad',
     badge: 'Control posterior',
+    icon: IconEvidence,
     summary: 'Servicio dirigido al examen de hechos específicos con evidencia de presunta irregularidad, conforme a sus condiciones, fases y metodología particular.',
     steps: [
       'Verifica que existan hechos delimitados y evidencia que justifique la actuación, no solo sospechas generales.',
@@ -55,6 +60,7 @@ const guideSections = [
     id: 'control-simultaneo',
     title: 'Control simultáneo',
     badge: 'Proceso en curso',
+    icon: IconLandmark,
     summary: 'La pregunta central es si existe una situación que, mientras el proceso sigue en ejecución, puede afectar su continuidad, resultado o logro de objetivos.',
     steps: [
       'Confirma que el proceso o actividad se encuentre en curso.',
@@ -72,6 +78,7 @@ const guideSections = [
     id: 'denuncias',
     title: 'Denuncias, alertas e información ciudadana',
     badge: 'Gestión de denuncias',
+    icon: IconAlert,
     summary: 'Recibir información no equivale automáticamente a tener un hecho probado. La primera tarea es evaluar competencia, concreción, verificabilidad y relevancia para el control.',
     steps: [
       'Registra el origen, fecha y contenido de la información recibida conforme al procedimiento aplicable.',
@@ -89,6 +96,7 @@ const guideSections = [
     id: 'contrataciones',
     title: 'Revisión de contrataciones públicas',
     badge: 'Materia transversal',
+    icon: IconContract,
     summary: 'La contratación debe analizarse por etapas y bajo el régimen jurídico vigente cuando ocurrieron los hechos. No mezcles automáticamente la Ley N.° 30225 con la Ley N.° 32069.',
     steps: [
       'Fija primero la fecha y el régimen de contratación aplicable al procedimiento examinado.',
@@ -121,6 +129,7 @@ export default function GuiasPage() {
         {guideSections.map((guide, guideIndex) => (
           <section className="guideSection" id={guide.id} key={guide.id}>
             <aside>
+              <span className="cardIcon"><guide.icon /></span>
               <span className="guideNumber">{String(guideIndex + 1).padStart(2, '0')}</span>
               <span className="cardTag">{guide.badge}</span>
             </aside>
@@ -130,7 +139,7 @@ export default function GuiasPage() {
               <ol className="checkSteps">
                 {guide.steps.map((step) => <li key={step}>{step}</li>)}
               </ol>
-              <a className="sourceButton" href={guide.source} target="_blank" rel="noreferrer">Fuente oficial: {guide.sourceLabel} ↗</a>
+              <a className="sourceButton" href={guide.source} target="_blank" rel="noreferrer">Fuente oficial: {guide.sourceLabel} <IconArrowRight /></a>
             </div>
           </section>
         ))}

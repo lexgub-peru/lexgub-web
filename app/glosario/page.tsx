@@ -1,3 +1,5 @@
+import LiveFilter from '../components/LiveFilter';
+
 const terms = [
   ['Control gubernamental', 'Supervisión, vigilancia y verificación de los actos y resultados de la gestión pública, conforme al marco del Sistema Nacional de Control.'],
   ['Sistema Nacional de Control', 'Conjunto de órganos, normas, métodos y procedimientos estructurados e integrados funcionalmente para conducir y desarrollar el control gubernamental de forma descentralizada.'],
@@ -35,14 +37,21 @@ export default function GlosarioPage() {
           <strong>Importante</strong>
           <p>Un mismo concepto puede tener matices según el servicio de control. Usa este glosario como mapa inicial y confirma la definición en la norma específica.</p>
         </div>
-        <div className="glossaryGrid">
+        <LiveFilter
+          label="Buscar término del glosario"
+          placeholder="Buscar un término (ej. evidencia, indicio, criterio)…"
+          containerIds={['glossary-grid']}
+          emptyStateId="glossary-empty"
+        />
+        <div className="glossaryGrid" id="glossary-grid">
           {terms.map(([term, definition]) => (
-            <article className="glossaryCard" key={term}>
+            <article className="glossaryCard" data-search-item key={term}>
               <h2>{term}</h2>
               <p>{definition}</p>
             </article>
           ))}
         </div>
+        <p className="emptyState" id="glossary-empty" hidden>Ningún término coincide con la búsqueda. Prueba con otra palabra clave o revisa la Biblioteca Normativa.</p>
       </section>
 
       <section className="section sourceCallout">

@@ -1,6 +1,10 @@
+import LiveFilter from '../components/LiveFilter';
+import { IconAlert, IconChecklist, IconContract, IconDocument, IconEvidence, IconScale } from '../components/icons';
+
 const checklists = [
   {
     title: 'Requerimiento de información útil',
+    icon: IconDocument,
     description: 'Antes de enviar un oficio, verifica que cada pedido tenga una finalidad probatoria concreta.',
     items: [
       'Identifica el hecho o aspecto que necesitas acreditar.',
@@ -14,6 +18,7 @@ const checklists = [
   },
   {
     title: 'Matriz mínima del hecho',
+    icon: IconEvidence,
     description: 'Una hoja simple para evitar que la revisión se disperse.',
     items: [
       'Hecho: descripción concreta y neutral.',
@@ -29,6 +34,7 @@ const checklists = [
   },
   {
     title: 'Evaluación de comentarios o aclaraciones',
+    icon: IconScale,
     description: 'No basta responder “no desvirtúa”. La evaluación debe hacerse argumento por argumento.',
     items: [
       'Resume fielmente el argumento de la persona, sin caricaturizarlo.',
@@ -43,6 +49,7 @@ const checklists = [
   },
   {
     title: 'Revisión de una AOP',
+    icon: IconChecklist,
     description: 'Control rápido antes de cerrar el proyecto de informe.',
     items: [
       'El hecho está delimitado y ocurrió antes de la actuación de control.',
@@ -57,6 +64,7 @@ const checklists = [
   },
   {
     title: 'Situación adversa en control simultáneo',
+    icon: IconAlert,
     description: 'La situación adversa debe ser útil para la entidad, no una narración genérica.',
     items: [
       'El proceso continúa en ejecución.',
@@ -70,6 +78,7 @@ const checklists = [
   },
   {
     title: 'Expediente de contratación',
+    icon: IconContract,
     description: 'Mapa documental para reconstruir una contratación de principio a fin.',
     items: [
       'Requerimiento y sustento de necesidad.',
@@ -104,11 +113,20 @@ export default function HerramientasPage() {
         </div>
       </section>
 
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <LiveFilter
+          label="Buscar herramienta o checklist"
+          placeholder="Buscar por tema (ej. contratación, denuncias, comentarios)…"
+          containerIds={['tools-grid']}
+          emptyStateId="tools-empty"
+        />
+      </section>
+
       <section className="section toolsGridSection">
-        <div className="toolsGrid">
-          {checklists.map((checklist, index) => (
-            <article className="toolCard" key={checklist.title}>
-              <div className="toolHeading"><span>{String(index + 1).padStart(2, '0')}</span><h2>{checklist.title}</h2></div>
+        <div className="toolsGrid" id="tools-grid">
+          {checklists.map((checklist) => (
+            <article className="toolCard" data-search-item key={checklist.title}>
+              <div className="toolHeading"><span className="cardIcon"><checklist.icon /></span><h2>{checklist.title}</h2></div>
               <p>{checklist.description}</p>
               <ul className="checkList">
                 {checklist.items.map((item) => <li key={item}>{item}</li>)}
@@ -116,6 +134,7 @@ export default function HerramientasPage() {
             </article>
           ))}
         </div>
+        <p className="emptyState" id="tools-empty" hidden>Ninguna herramienta coincide con la búsqueda. Ajusta los términos de búsqueda.</p>
       </section>
 
       <section className="section darkSection reviewBox">
