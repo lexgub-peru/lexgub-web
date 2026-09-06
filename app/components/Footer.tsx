@@ -7,7 +7,7 @@ const columns = [
     links: [
       ['Control Gubernamental', '/control-gubernamental'],
       ['Biblioteca Jurídica', '/normativa'],
-      ['Tribunales y precedentes', '/tribunales'],
+      ['Jurisprudencia LexGub', '/jurisprudencia'],
       ['Criterios LexGub', '/criterios'],
       ['Columna LexGub', '/columna'],
     ],
@@ -15,6 +15,8 @@ const columns = [
   {
     heading: 'Recursos',
     links: [
+      ['Asistente LexGub · Beta', '/asistente'],
+      ['Tribunales administrativos', '/tribunales'],
       ['Fuentes oficiales', '/fuentes'],
       ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
