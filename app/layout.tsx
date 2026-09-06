@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
+import './design-v3.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { siteConfig } from './lib/site';
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0b1928',
+  themeColor: '#111824',
 };
 
 const websiteJsonLd = {

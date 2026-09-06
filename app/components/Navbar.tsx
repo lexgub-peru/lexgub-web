@@ -7,7 +7,6 @@ import LexGubBrand from './Brand';
 import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-/** Navegación principal: pocas rutas, todas de conocimiento. La marca ya cumple la función de Inicio. */
 const primary = [
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Biblioteca' },
@@ -16,7 +15,6 @@ const primary = [
   { href: '/columna', label: 'Columna' },
 ];
 
-/** Capa secundaria: investigación, herramientas, perfil y navegación de apoyo. */
 const consulta = [
   { href: '/tribunales', label: 'Tribunales y precedentes' },
   { href: '/fuentes', label: 'Fuentes oficiales' },
@@ -71,6 +69,11 @@ export default function Navbar() {
         <div className="navlinks">
           {primary.map((link) => navLink(link))}
         </div>
+
+        <Link className="navAssistant" href="/asistente" aria-label="Abrir Asistente LexGub">
+          <span className="navAssistantDot" aria-hidden="true" />
+          Asistente
+        </Link>
 
         <GlobalSearchButton />
 
