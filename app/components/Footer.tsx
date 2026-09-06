@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { IconShield } from './icons';
 
 const columns = [
   {
@@ -25,10 +25,15 @@ export default function Footer() {
     <footer>
       <div className="footerTop">
         <div className="footerBrand">
-          <div className="brand footerBrandMark">
-            <IconShield className="brandIcon" />
-            <span className="brandWord">LEXGUB <span className="brandAccent">PERÚ</span></span>
-          </div>
+          <Link href="/" className="footerLogoLink" aria-label="LEXGUB PERÚ — Inicio">
+            <Image
+              src="/lexgub-logo.webp"
+              alt="LEXGUB PERÚ"
+              width={420}
+              height={164}
+              className="footerLogo"
+            />
+          </Link>
           <p>Control gubernamental · Derecho público · Gestión pública</p>
         </div>
 
