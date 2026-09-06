@@ -34,6 +34,13 @@ export default function ArticlePage() {
               <span>Control previo · Obras por Impuestos</span>
               <span>Lectura: 6 min</span>
             </div>
+            <div className="articleMobileAuthor" aria-label="Autor del artículo">
+              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="100" height="100" />
+              <div>
+                <strong>Marvyn Enrique Gallo Rojas</strong>
+                <span>Abogado · Control gubernamental y auditoría</span>
+              </div>
+            </div>
           </header>
 
           <div className="articleBody editorialArticleBody">
