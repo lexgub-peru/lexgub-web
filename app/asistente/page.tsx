@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default function AsistentePage() {
-  return <main className={styles.page}>
+  return <div className={styles.page}>
     <header className={styles.hero}>
       <div>
         <div className={styles.eyebrow}>ASISTENTE LEXGUB · BETA · PRIVACIDAD POR DISEÑO</div>
@@ -22,5 +22,5 @@ export default function AsistentePage() {
     </header>
 
     <LexGubAssistant />
-  </main>;
+  </div>;
 }
