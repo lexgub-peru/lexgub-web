@@ -7,22 +7,23 @@ import LexGubBrand from './Brand';
 import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-/** Navegación principal: idéntica en escritorio y móvil. */
+/** Navegación principal: prioriza conocimiento antes que oferta comercial. */
 const primary = [
   { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Biblioteca' },
+  { href: '/tribunales', label: 'Tribunales' },
   { href: '/criterios', label: 'Criterios' },
   { href: '/columna', label: 'Columna' },
-  { href: '/servicios', label: 'Servicios' },
 ];
 
-/** Material de consulta: secundario, agrupado bajo su propio rótulo. */
+/** Material de consulta y perfil, agrupado como capa secundaria. */
 const consulta = [
   { href: '/fuentes', label: 'Fuentes oficiales' },
   { href: '/guias', label: 'Guías' },
   { href: '/herramientas', label: 'Herramientas' },
   { href: '/glosario', label: 'Glosario' },
+  { href: '/servicios', label: 'Perfil y servicios' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
