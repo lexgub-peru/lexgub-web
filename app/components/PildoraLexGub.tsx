@@ -32,6 +32,15 @@ const pills = [
     icon: IconClock,
   },
   {
+    category: 'Actualidad · Obras por Impuestos',
+    title: 'El DU N.° 010-2026 exceptúa temporalmente el informe previo para determinadas intervenciones ante El Niño.',
+    summary:
+      'El artículo 12 dispone que, durante la vigencia del decreto, las entidades comprendidas no requieren solicitar informe previo de la Contraloría para las intervenciones ejecutadas a su amparo. La norma mantiene expresamente el control simultáneo y posterior.',
+    source: 'Diario Oficial El Peruano — DU N.° 010-2026',
+    href: 'https://busquedas.elperuano.pe/dispositivo/EX/2550403-1',
+    icon: IconDocument,
+  },
+  {
     category: 'AOP',
     title: 'La Acción de Oficio Posterior tiene una directiva específica.',
     summary:
