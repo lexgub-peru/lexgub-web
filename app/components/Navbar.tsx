@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import LexGubBrand from './Brand';
 import { IconClose, IconMenu } from './icons';
 
 const links = [
@@ -35,15 +36,8 @@ export default function Navbar() {
     <>
       <a className="skipLink" href="#contenido">Saltar al contenido</a>
       <nav className="navbar" aria-label="Navegación principal">
-        <Link className="brand navBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
-          <img
-            src="/lexgub-logo.webp"
-            alt=""
-            width="420"
-            height="164"
-            loading="eager"
-            className="navBrandLogo"
-          />
+        <Link className="lexgubNavBrand" href="/" aria-label="LEXGUB PERÚ — Inicio">
+          <LexGubBrand compact tone="dark" />
         </Link>
 
         <div className="navlinks" data-state={open ? 'open' : 'closed'}>
