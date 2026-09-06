@@ -89,7 +89,7 @@ export default function ServiciosPage() {
             Para consultas profesionales, propuestas de capacitación, revisión de documentos o colaboración académica y editorial,
             puede escribirse directamente a LEXGUB PERÚ.
           </p>
-          <a className="primaryButton" href="mailto:lexgubperu@gmail.com">Contactar</a>
+          <a className="primaryButton" href="mailto:lexgub.peru@gmail.com">Contactar</a>
         </div>
 
         <p className="ethicsNote">
