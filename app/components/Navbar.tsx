@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import LexGubBrand from './Brand';
+import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
 /** Navegación principal: idéntica en escritorio y móvil. */
@@ -66,6 +67,8 @@ export default function Navbar() {
         <div className="navlinks">
           {primary.map((link) => navLink(link))}
         </div>
+
+        <GlobalSearchButton />
 
         <button
           type="button"
