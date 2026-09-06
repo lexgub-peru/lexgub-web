@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { normas } from './data/normativa';
+import { normas } from './data/normativa-v2';
 import { siteConfig } from './lib/site';
 
 const staticRoutes = [
