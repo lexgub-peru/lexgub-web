@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 const columns = [
@@ -28,11 +27,12 @@ export default function Footer() {
       <div className="footerTop">
         <div className="footerBrand">
           <Link href="/" className="footerLogoLink" aria-label="LEXGUB PERÚ — Inicio">
-            <Image
+            <img
               src="/lexgub-logo.webp"
               alt="LEXGUB PERÚ"
-              width={420}
-              height={164}
+              width="420"
+              height="164"
+              loading="lazy"
               className="footerLogo"
             />
           </Link>
