@@ -13,6 +13,16 @@ const columns = [
     ],
   },
   {
+    heading: 'LexGub',
+    links: [
+      ['Quiénes somos', '/lexgub'],
+      ['Misión, visión e historia', '/lexgub'],
+      ['Fundador', '/lexgub'],
+      ['Asesoría y consultoría', '/servicios'],
+      ['Contacto', '/contacto'],
+    ],
+  },
+  {
     heading: 'Recursos',
     links: [
       ['Asistente LexGub · Beta', '/asistente'],
@@ -21,8 +31,6 @@ const columns = [
       ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
       ['Glosario', '/glosario'],
-      ['Perfil y servicios', '/servicios'],
-      ['Contacto', '/contacto'],
     ],
   },
 ];
@@ -35,7 +43,7 @@ export default function Footer() {
           <Link href="/" className="lexgubFooterBrand" aria-label="LEXGUB PERÚ — Inicio">
             <LexGubBrand compact tone="dark" />
           </Link>
-          <p>Control gubernamental · Derecho público · Auditoría</p>
+          <p>Asesoría · Consultoría · Conocimiento jurídico especializado</p>
         </div>
 
         <div className="footerColumns">
@@ -44,7 +52,7 @@ export default function Footer() {
               <span>{column.heading}</span>
               <ul>
                 {column.links.map(([label, href]) => (
-                  <li key={href}><Link href={href}>{label}</Link></li>
+                  <li key={`${column.heading}-${label}`}><Link href={href}>{label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -53,8 +61,9 @@ export default function Footer() {
       </div>
 
       <p className="footerDisclaimer">
-        LEXGUB PERÚ es una plataforma jurídica independiente. No pertenece ni representa a la Contraloría General de la
-        República ni a otra entidad pública. Verifique siempre la vigencia y fuente oficial de la normativa aplicable.
+        LEXGUB PERÚ es una empresa privada e independiente de asesoría, consultoría y conocimiento jurídico especializado.
+        No pertenece ni representa a la Contraloría General de la República ni a otra entidad pública. La información publicada
+        tiene finalidad profesional, académica e informativa; verifique siempre la vigencia y fuente oficial aplicable al caso concreto.
       </p>
       <div className="footerBottom">© {new Date().getFullYear()} LEXGUB PERÚ · Todos los derechos reservados.</div>
     </footer>
