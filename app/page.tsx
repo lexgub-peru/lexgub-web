@@ -62,9 +62,9 @@ const areas = [
 
 const quickLinks = [
   ['Biblioteca jurídica', '/normativa', IconDocument],
-  ['Guías de trabajo', '/guias', IconBook],
+  ['Tribunales y precedentes', '/tribunales', IconScale],
+  ['Fuentes oficiales', '/fuentes', IconSearch],
   ['Herramientas y checklists', '/herramientas', IconChecklist],
-  ['Glosario de control', '/glosario', IconSearch],
 ] as const;
 
 export default function Home() {
