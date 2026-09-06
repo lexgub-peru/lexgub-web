@@ -8,6 +8,7 @@ const columns = [
       ['Control Gubernamental', '/control-gubernamental'],
       ['Guías prácticas', '/guias'],
       ['Biblioteca normativa', '/normativa'],
+      ['Columna LexGub', '/columna'],
     ],
   },
   {
@@ -15,6 +16,7 @@ const columns = [
     links: [
       ['Herramientas y checklists', '/herramientas'],
       ['Glosario de control', '/glosario'],
+      ['Perfil y servicios', '/servicios'],
       ['Contacto', '/contacto'],
     ],
   },
@@ -34,7 +36,7 @@ export default function Footer() {
               className="footerLogo"
             />
           </Link>
-          <p>Control gubernamental · Derecho público · Gestión pública</p>
+          <p>Control gubernamental · Derecho público · Auditoría · Gestión pública</p>
         </div>
 
         <div className="footerColumns">
