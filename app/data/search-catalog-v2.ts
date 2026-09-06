@@ -6,8 +6,9 @@ import {
   type SearchKind as BaseSearchKind,
 } from './search-catalog';
 import { officialResources } from './official-resources-v2';
+import { jurisprudencia } from './jurisprudencia';
 
-export type SearchKind = BaseSearchKind | 'Fuente';
+export type SearchKind = BaseSearchKind | 'Fuente' | 'Jurisprudencia';
 export type SearchItem = Omit<BaseSearchItem, 'kind'> & { kind: SearchKind };
 
 const centers: SearchItem[] = [
@@ -28,6 +29,26 @@ const centers: SearchItem[] = [
     subtitle: 'TSRA, Tribunal de Contrataciones Públicas/Estado y Tribunal del Servicio Civil en un repertorio verificable.',
     href: '/tribunales',
     keywords: ['tsra', 'tcp', 'tce', 'osce', 'oece', 'tsc', 'servir', 'precedentes', 'sala plena', 'resoluciones'],
+    featured: true,
+    verified: true,
+  },
+  {
+    id: 'centro-jurisprudencia',
+    kind: 'Centro',
+    title: 'Jurisprudencia LexGub',
+    subtitle: 'Corte Suprema y Tribunal Constitucional: problema jurídico, criterio, hechos relevantes, temporalidad y utilidad práctica.',
+    href: '/jurisprudencia',
+    keywords: ['jurisprudencia', 'casación', 'corte suprema', 'tribunal constitucional', 'sentencia fuente', 'prueba', 'contraloría'],
+    featured: true,
+    verified: true,
+  },
+  {
+    id: 'centro-asistente',
+    kind: 'Centro',
+    title: 'Asistente LexGub · Beta',
+    subtitle: 'Orientador privado de consulta que cruza normas, jurisprudencia, fuentes, guías y herramientas sin enviar tu consulta a servicios externos.',
+    href: '/asistente',
+    keywords: ['asistente', 'bot', 'orientador', 'buscar', 'servicio de control', 'vigencia', 'consulta'],
     featured: true,
     verified: true,
   },
@@ -55,8 +76,37 @@ const sourceItems: SearchItem[] = officialResources.map((resource) => ({
   ].includes(resource.id),
 }));
 
-export const searchCatalog: SearchItem[] = [...centers, ...(baseCatalog as SearchItem[]), ...sourceItems];
-export const searchKinds: SearchKind[] = [...baseKinds, 'Fuente'];
+const jurisprudenceItems: SearchItem[] = jurisprudencia.map((item) => ({
+  id: `juris-${item.id}`,
+  kind: 'Jurisprudencia',
+  title: item.numero,
+  subtitle: `${item.organo} · ${item.titulo}`,
+  href: `/jurisprudencia/${item.id}`,
+  keywords: [
+    item.organo,
+    item.sala,
+    item.tipo,
+    item.materia,
+    item.titulo,
+    item.problemaJuridico,
+    item.criterio,
+    item.temporalidad,
+    item.alcance,
+    ...item.temas,
+    ...item.normasInterpretadas,
+    ...item.utilidadPractica,
+  ],
+  verified: true,
+  featured: ['cas-52028-2022-junin', 'cas-241-2019-ancash', 'tc-00026-2021-pi'].includes(item.id),
+}));
+
+export const searchCatalog: SearchItem[] = [
+  ...centers,
+  ...(baseCatalog as SearchItem[]),
+  ...jurisprudenceItems,
+  ...sourceItems,
+];
+export const searchKinds: SearchKind[] = [...baseKinds, 'Jurisprudencia', 'Fuente'];
 
 export function scoreSearchItem(item: SearchItem, rawQuery: string): number {
   const query = normalizeSearch(rawQuery);
@@ -80,7 +130,7 @@ export function scoreSearchItem(item: SearchItem, rawQuery: string): number {
     if (keywords.includes(token)) score += 10;
   }
 
-  if (item.kind === 'Norma' || item.kind === 'Fuente') score += 4;
+  if (item.kind === 'Norma' || item.kind === 'Fuente' || item.kind === 'Jurisprudencia') score += 4;
   if (item.verified) score += 3;
   return score;
 }
