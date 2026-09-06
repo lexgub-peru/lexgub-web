@@ -10,7 +10,7 @@ import { IconClose, IconMenu } from './icons';
 const primary = [
   { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
-  { href: '/normativa', label: 'Normativa' },
+  { href: '/normativa', label: 'Biblioteca' },
   { href: '/columna', label: 'Columna' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/contacto', label: 'Contacto' },
