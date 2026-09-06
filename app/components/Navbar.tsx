@@ -19,6 +19,7 @@ const primary = [
 
 /** Material de consulta: secundario, agrupado bajo su propio rótulo. */
 const consulta = [
+  { href: '/fuentes', label: 'Fuentes oficiales' },
   { href: '/guias', label: 'Guías' },
   { href: '/herramientas', label: 'Herramientas' },
   { href: '/glosario', label: 'Glosario' },
