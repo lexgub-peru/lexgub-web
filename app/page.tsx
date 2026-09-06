@@ -1,9 +1,11 @@
 import PildoraLexGub from './components/PildoraLexGub';
 import { HomeSearchBand } from './components/GlobalSearch';
+import ProblemRoutes from './components/ProblemRoutes';
 import {
   IconAlert,
   IconArrowRight,
   IconBook,
+  IconChecklist,
   IconClock,
   IconContract,
   IconDocument,
@@ -62,8 +64,8 @@ const areas = [
 const quickLinks = [
   ['Biblioteca jurídica', '/normativa', IconDocument],
   ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
-  ['Asistente LexGub · Beta', '/asistente', IconSearch],
-  ['Fuentes oficiales', '/fuentes', IconBook],
+  ['Fuentes oficiales', '/fuentes', IconSearch],
+  ['Herramientas y checklists', '/herramientas', IconChecklist],
 ] as const;
 
 export default function Home() {
@@ -73,14 +75,14 @@ export default function Home() {
         <div className="editorialHomeHeroInner">
           <div className="editorialHomeCopy">
             <div className="eyebrow">LEXGUB PERÚ · CONOCIMIENTO JURÍDICO ESPECIALIZADO</div>
-            <h1>Análisis jurídico para un mejor control público.</h1>
+            <h1>Conocimiento jurídico para analizar mejor el control público.</h1>
             <p>
-              Control gubernamental, auditoría, contrataciones públicas y derecho administrativo explicados con fuente oficial,
-              evidencia y una lectura crítica orientada a problemas reales de la gestión pública peruana.
+              Normas, jurisprudencia, criterios y herramientas para control gubernamental, auditoría, contrataciones públicas
+              y derecho administrativo, conectados con fuente oficial, temporalidad y evidencia.
             </p>
             <div className="heroActions">
-              <a className="primaryButton" href="/control-gubernamental">Centro de control</a>
-              <a className="secondaryButton" href="/columna">Leer la columna</a>
+              <a className="primaryButton" href="/normativa">Explorar Biblioteca</a>
+              <a className="secondaryButton" href="/jurisprudencia">Ver jurisprudencia</a>
             </div>
             <div className="editorialHeroTopics" aria-label="Áreas principales">
               <span>Control</span><span>Auditoría</span><span>Contrataciones</span><span>Gestión pública</span>
@@ -114,6 +116,8 @@ export default function Home() {
       </section>
 
       <HomeSearchBand />
+
+      <ProblemRoutes />
 
       <PildoraLexGub />
 
