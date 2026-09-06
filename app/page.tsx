@@ -1,44 +1,121 @@
-const modules = [
-  ['Auditoría de cumplimiento', 'Estructura hechos, criterios, evidencia, desviaciones y revisión supervisora.'],
-  ['Control gubernamental', 'AOP, control simultáneo, denuncias, alertas, seguimiento y actuaciones de control.'],
-  ['Contrataciones públicas', 'Análisis por régimen aplicable, normativa vigente, criterios OECE y Tribunal.'],
-  ['PAD y SERVIR', 'Procedimiento disciplinario, tipicidad, imputación, defensa, motivación y precedentes.'],
-  ['Análisis probatorio', 'Distingue hechos acreditados, indicios, inferencias, afirmaciones y conclusiones.'],
-  ['Revisión crítica', 'Cuestiona causalidad, suficiencia probatoria, competencia, motivación y solidez jurídica.'],
+const areas = [
+  {
+    title: 'Control gubernamental',
+    description: 'Sistema Nacional de Control, servicios de control previo, simultáneo y posterior, criterios de actuación y fuentes oficiales.',
+    href: '/control-gubernamental',
+    tag: 'Núcleo',
+  },
+  {
+    title: 'Auditoría de cumplimiento',
+    description: 'Planificación, procedimientos, evidencia suficiente y apropiada, desviaciones, comentarios y estructura del informe.',
+    href: '/guias#auditoria-cumplimiento',
+    tag: 'Guía',
+  },
+  {
+    title: 'Acción de Oficio Posterior',
+    description: 'Cuándo corresponde, delimitación del hecho, evidencia disponible, comunicación y seguimiento del plan de acción.',
+    href: '/guias#aop',
+    tag: 'Control posterior',
+  },
+  {
+    title: 'Control simultáneo',
+    description: 'Control concurrente, visita de control y orientación de oficio. Situaciones adversas y seguimiento de acciones preventivas y correctivas.',
+    href: '/guias#control-simultaneo',
+    tag: 'Oportuno',
+  },
+  {
+    title: 'Denuncias y alertas',
+    description: 'Competencia, recepción, evaluación, hechos concretos, evidencia, trazabilidad y decisión sobre la actuación de control pertinente.',
+    href: '/guias#denuncias',
+    tag: 'Ciudadanía',
+  },
+  {
+    title: 'Contrataciones públicas',
+    description: 'Ruta de revisión del expediente contractual, régimen temporal aplicable, actuación preparatoria, selección, ejecución y responsabilidades.',
+    href: '/guias#contrataciones',
+    tag: 'Materia frecuente',
+  },
+];
+
+const quickLinks = [
+  ['Normativa esencial', '/normativa'],
+  ['Guías de trabajo', '/guias'],
+  ['Herramientas y checklists', '/herramientas'],
+  ['Glosario de control', '/glosario'],
 ];
 
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <div className="eyebrow">LEXGUB 2.0 · EN DESARROLLO</div>
-        <h1>Inteligencia jurídica para el control gubernamental y la gestión pública peruana.</h1>
-        <p>Una plataforma privada orientada al análisis normativo, probatorio y documental con trazabilidad de fuentes y revisión crítica.</p>
+      <section className="hero portalHero">
+        <div className="eyebrow">LEXGUB PERÚ · CONTROL GUBERNAMENTAL</div>
+        <h1>Derecho, control y evidencia para trabajar con criterio.</h1>
+        <p>
+          Plataforma jurídica independiente especializada en control gubernamental peruano. Reúne normativa oficial,
+          rutas de análisis, guías prácticas y herramientas para auditores, abogados, servidores y gestores públicos.
+        </p>
         <div className="heroActions">
-          <a className="primaryButton" href="#modulos">Explorar módulos</a>
-          <a className="secondaryButton" href="/normativa">Ver base normativa</a>
+          <a className="primaryButton" href="/control-gubernamental">Entrar al centro de control</a>
+          <a className="secondaryButton" href="/normativa">Consultar normativa</a>
         </div>
+        <div className="heroNote">Contenido informativo especializado. La conclusión jurídica depende siempre del caso concreto, la evidencia y la norma vigente aplicable.</div>
       </section>
 
-      <section className="principles">
-        <article><strong>Fuente oficial primero</strong><span>La norma, resolución o precedente debe poder verificarse.</span></article>
-        <article><strong>No asumir irregularidad</strong><span>Primero se reconstruyen hechos, evidencia, criterio y causalidad.</span></article>
-        <article><strong>Norma temporalmente aplicable</strong><span>El análisis parte de la fecha del hecho y del régimen jurídico correspondiente.</span></article>
+      <section className="statStrip" aria-label="Principios LexGub">
+        <article><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
+        <article><strong>Temporalidad</strong><span>La regla aplicable se determina por la fecha del hecho.</span></article>
+        <article><strong>Evidencia</strong><span>Se distingue hecho acreditado, indicio e inferencia.</span></article>
+        <article><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
 
-      <section id="modulos" className="section">
-        <div className="sectionHeading">
-          <span>Especialización</span>
-          <h2>Núcleo profesional de LexGub</h2>
+      <section className="section portalSection">
+        <div className="sectionHeading splitHeading">
+          <div>
+            <span>ÁREAS DE TRABAJO</span>
+            <h2>Una biblioteca pensada para casos reales</h2>
+          </div>
+          <p>Empieza por el tipo de actuación o la materia que necesitas revisar.</p>
         </div>
-        <div className="moduleGrid">
-          {modules.map(([title, description]) => (
-            <article className="moduleCard" key={title}>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
+        <div className="moduleGrid areaGrid">
+          {areas.map((area) => (
+            <a className="moduleCard areaCard" key={area.title} href={area.href}>
+              <span className="cardTag">{area.tag}</span>
+              <h3>{area.title}</h3>
+              <p>{area.description}</p>
+              <strong className="cardLink">Abrir guía →</strong>
+            </a>
           ))}
         </div>
+      </section>
+
+      <section className="section softSection">
+        <div className="sectionHeading">
+          <span>ACCESO RÁPIDO</span>
+          <h2>Lo que más se consulta</h2>
+        </div>
+        <div className="quickGrid">
+          {quickLinks.map(([label, href], index) => (
+            <a key={href} href={href} className="quickCard">
+              <span>0{index + 1}</span>
+              <strong>{label}</strong>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section methodologySection">
+        <div className="methodologyCopy">
+          <span className="eyebrow">MÉTODO LEXGUB</span>
+          <h2>Antes de concluir, reconstruye.</h2>
+          <p>Una revisión sólida no empieza buscando una infracción. Empieza identificando qué ocurrió, cuándo ocurrió, quién intervino, qué evidencia lo demuestra y qué norma era exigible en ese momento.</p>
+        </div>
+        <ol className="methodSteps">
+          <li><strong>Hecho</strong><span>Delimita conducta, tiempo, lugar, operación y participantes.</span></li>
+          <li><strong>Evidencia</strong><span>Verifica autenticidad, suficiencia, pertinencia y consistencia.</span></li>
+          <li><strong>Criterio</strong><span>Determina la obligación jurídica específica y temporalmente aplicable.</span></li>
+          <li><strong>Contraste</strong><span>Explica la diferencia entre lo acreditado y lo exigido.</span></li>
+          <li><strong>Consecuencia</strong><span>Evalúa efecto, riesgo, causalidad y eventual participación sin anticipar responsabilidad.</span></li>
+        </ol>
       </section>
     </>
   );
