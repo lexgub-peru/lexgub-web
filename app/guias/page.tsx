@@ -71,8 +71,8 @@ const guideSections = [
       'Distingue acción preventiva de acción correctiva y registra el seguimiento según la directiva vigente.',
       'Cuando el proceso ya terminó, reevalúa si corresponde una actuación posterior en lugar de forzar un servicio simultáneo.',
     ],
-    source: 'https://www.gob.pe/institucion/contraloria/normas-legales/3042483-218-2022-cg',
-    sourceLabel: 'RC N.° 218-2022-CG — Directiva N.° 013-2022-CG/NORM',
+    source: 'https://www.gob.pe/institucion/contraloria/normas-legales/3656507-013-2022-cg-norm',
+    sourceLabel: 'Directiva N.° 013-2022-CG/NORM — Servicio de Control Simultáneo (versión integrada y modificatorias)',
   },
   {
     id: 'denuncias',
@@ -89,8 +89,8 @@ const guideSections = [
       'Decide la actuación pertinente según riesgo, momento del hecho, evidencia disponible y normativa específica.',
       'Comunica al denunciante solo aquello que corresponda conforme a las reglas de reserva, protección y procedimiento.',
     ],
-    source: 'https://www.gob.pe/institucion/contraloria/normas-legales/3659545-009-2020-cg-gcsd',
-    sourceLabel: 'Directiva N.° 009-2020-CG/GCSD — Recepción, Evaluación y Atención de Denuncias',
+    source: 'https://www.gob.pe/institucion/contraloria/normas-legales/3464328-020-2022-cg-gcsd',
+    sourceLabel: 'Directiva N.° 020-2022-CG/GCSD — Servicio de Gestión de Denuncias (versión integrada)',
   },
   {
     id: 'contrataciones',

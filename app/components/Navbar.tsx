@@ -4,23 +4,28 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import LexGubBrand from './Brand';
+import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-/** Navegación principal: idéntica en escritorio y móvil. */
+/** Navegación principal: pocas rutas, todas de conocimiento. La marca ya cumple la función de Inicio. */
 const primary = [
-  { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
-  { href: '/normativa', label: 'Normativa' },
+  { href: '/normativa', label: 'Biblioteca' },
+  { href: '/jurisprudencia', label: 'Jurisprudencia' },
+  { href: '/criterios', label: 'Criterios' },
   { href: '/columna', label: 'Columna' },
-  { href: '/servicios', label: 'Servicios' },
-  { href: '/contacto', label: 'Contacto' },
 ];
 
-/** Material de consulta: secundario, agrupado bajo su propio rótulo. */
+/** Capa secundaria: investigación, herramientas, perfil y navegación de apoyo. */
 const consulta = [
-  { href: '/guias', label: 'Guías' },
+  { href: '/tribunales', label: 'Tribunales y precedentes' },
+  { href: '/fuentes', label: 'Fuentes oficiales' },
+  { href: '/asistente', label: 'Asistente LexGub · Beta' },
   { href: '/herramientas', label: 'Herramientas' },
+  { href: '/guias', label: 'Guías' },
   { href: '/glosario', label: 'Glosario' },
+  { href: '/servicios', label: 'Perfil y servicios' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 export default function Navbar() {
@@ -67,6 +72,8 @@ export default function Navbar() {
           {primary.map((link) => navLink(link))}
         </div>
 
+        <GlobalSearchButton />
+
         <button
           type="button"
           className="navToggle"
@@ -81,15 +88,16 @@ export default function Navbar() {
 
       <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
         <div className="navDrawerLinks">
+          <Link href="/" tabIndex={open ? undefined : -1}>Inicio</Link>
           {primary.map((link) => navLink(link, true))}
         </div>
         <div className="navDrawerGroup">
-          <span>Consulta</span>
+          <span>Investigar y trabajar</span>
           <div className="navDrawerChips">
             {consulta.map((link) => navLink(link, true))}
           </div>
         </div>
-        <p className="navDrawerNote">LexGub Perú · análisis jurídico independiente, control gubernamental y derecho público.</p>
+        <p className="navDrawerNote">LexGub Perú · conocimiento jurídico especializado, control gubernamental y derecho público.</p>
       </div>
 
       <button

@@ -6,14 +6,19 @@ const columns = [
     heading: 'Explorar',
     links: [
       ['Control Gubernamental', '/control-gubernamental'],
-      ['Guías prácticas', '/guias'],
-      ['Biblioteca normativa', '/normativa'],
+      ['Biblioteca Jurídica', '/normativa'],
+      ['Jurisprudencia LexGub', '/jurisprudencia'],
+      ['Criterios LexGub', '/criterios'],
       ['Columna LexGub', '/columna'],
     ],
   },
   {
     heading: 'Recursos',
     links: [
+      ['Asistente LexGub · Beta', '/asistente'],
+      ['Tribunales administrativos', '/tribunales'],
+      ['Fuentes oficiales', '/fuentes'],
+      ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
       ['Glosario', '/glosario'],
       ['Perfil y servicios', '/servicios'],

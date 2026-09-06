@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { jurisprudencia } from '../data/jurisprudencia';
 import { IconArrowRight, IconBook, IconClock, IconDocument, IconLandmark, IconScale } from './icons';
 
-const pills = [
+const basePills = [
   {
     category: 'Sabías que · Control gubernamental',
     title: 'El control gubernamental es un proceso integral y permanente.',
@@ -59,6 +60,20 @@ const pills = [
     icon: IconScale,
   },
 ];
+
+const jurisprudencePills = jurisprudencia.flatMap((entry) => {
+  if (!entry.pildora) return [];
+  return [{
+    category: `Jurisprudencia · ${entry.organo}`,
+    title: entry.pildora.title,
+    summary: entry.pildora.summary,
+    source: entry.numero,
+    href: `/jurisprudencia/${entry.id}`,
+    icon: IconScale,
+  }];
+});
+
+const pills = [...basePills, ...jurisprudencePills];
 
 function dayIndex(length: number) {
   const now = new Date();
@@ -121,8 +136,8 @@ export default function PildoraLexGub() {
         <h3>{pill.title}</h3>
         <p>{pill.summary}</p>
         <div className="dailyPillFooter">
-          <a href={pill.href} target="_blank" rel="noreferrer">
-            Ver fuente oficial <IconArrowRight />
+          <a href={pill.href} target={pill.href.startsWith('http') ? '_blank' : undefined} rel={pill.href.startsWith('http') ? 'noreferrer' : undefined}>
+            {pill.href.startsWith('http') ? 'Ver fuente oficial' : 'Abrir ficha LexGub'} <IconArrowRight />
           </a>
           <small>{pill.source}</small>
         </div>

@@ -1,4 +1,6 @@
 import PildoraLexGub from './components/PildoraLexGub';
+import { HomeSearchBand } from './components/GlobalSearch';
+import ProblemRoutes from './components/ProblemRoutes';
 import {
   IconAlert,
   IconArrowRight,
@@ -60,10 +62,10 @@ const areas = [
 ];
 
 const quickLinks = [
-  ['Normativa esencial', '/normativa', IconDocument],
-  ['Guías de trabajo', '/guias', IconBook],
+  ['Biblioteca jurídica', '/normativa', IconDocument],
+  ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
+  ['Fuentes oficiales', '/fuentes', IconSearch],
   ['Herramientas y checklists', '/herramientas', IconChecklist],
-  ['Glosario de control', '/glosario', IconSearch],
 ] as const;
 
 export default function Home() {
@@ -72,15 +74,15 @@ export default function Home() {
       <section className="editorialHomeHero">
         <div className="editorialHomeHeroInner">
           <div className="editorialHomeCopy">
-            <div className="eyebrow">LEXGUB PERÚ · PLATAFORMA JURÍDICA INDEPENDIENTE</div>
-            <h1>Análisis jurídico para un mejor control público.</h1>
+            <div className="eyebrow">LEXGUB PERÚ · CONOCIMIENTO JURÍDICO ESPECIALIZADO</div>
+            <h1>Conocimiento jurídico para analizar mejor el control público.</h1>
             <p>
-              Control gubernamental, auditoría, contrataciones públicas y derecho administrativo explicados con fuente oficial,
-              evidencia y una lectura crítica orientada a problemas reales de la gestión pública peruana.
+              Normas, jurisprudencia, criterios y herramientas para control gubernamental, auditoría, contrataciones públicas
+              y derecho administrativo, conectados con fuente oficial, temporalidad y evidencia.
             </p>
             <div className="heroActions">
-              <a className="primaryButton" href="/control-gubernamental">Centro de control</a>
-              <a className="secondaryButton" href="/columna">Leer la columna</a>
+              <a className="primaryButton" href="/normativa">Explorar Biblioteca</a>
+              <a className="secondaryButton" href="/jurisprudencia">Ver jurisprudencia</a>
             </div>
             <div className="editorialHeroTopics" aria-label="Áreas principales">
               <span>Control</span><span>Auditoría</span><span>Contrataciones</span><span>Gestión pública</span>
@@ -113,15 +115,19 @@ export default function Home() {
         <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
       </section>
 
+      <HomeSearchBand />
+
+      <ProblemRoutes />
+
       <PildoraLexGub />
 
       <section className="section portalSection homeLibrarySection">
         <div className="sectionHeading splitHeading">
           <div>
             <span>CENTRO DE CONSULTA</span>
-            <h2>Una biblioteca jurídica pensada para casos reales.</h2>
+            <h2>Una base jurídica pensada para problemas reales.</h2>
           </div>
-          <p>Empieza por el servicio de control o la materia que necesitas revisar.</p>
+          <p>Busca la norma, entiende el criterio, verifica la fuente y conviértelo en una ruta de trabajo.</p>
         </div>
         <div className="moduleGrid areaGrid">
           {areas.map((area) => (
