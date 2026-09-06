@@ -90,7 +90,7 @@ export default function Navbar() {
         type="button"
         className="navScrim"
         data-state={open ? 'open' : 'closed'}
-        aria-hidden={!open}
+        aria-hidden="true"
         tabIndex={-1}
         onClick={() => setOpen(false)}
       />
