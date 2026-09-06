@@ -1,20 +1,21 @@
 {
   "name": "lexgub-web",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha.1",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "16.3.3",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.2.42"
+    "typescript": "^5.9.2",
+    "@types/node": "^22.18.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9"
   }
 }
