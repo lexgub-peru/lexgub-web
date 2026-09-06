@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { officialResources, type OfficialResource } from '../data/official-resources';
 import styles from './OfficialSources.module.css';
 
@@ -13,6 +13,11 @@ export default function OfficialResourceBrowser() {
   const [institution, setInstitution] = useState('todas');
   const [type, setType] = useState('todos');
   const [matter, setMatter] = useState('todas');
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search).get('q');
+    if (query) setQ(query);
+  }, []);
 
   const institutions = Array.from(new Set(officialResources.map((r) => r.institution)));
   const types = Array.from(new Set(officialResources.map((r) => r.type)));
