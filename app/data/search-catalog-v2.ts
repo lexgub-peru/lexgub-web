@@ -5,7 +5,7 @@ import {
   type SearchItem as BaseSearchItem,
   type SearchKind as BaseSearchKind,
 } from './search-catalog';
-import { officialResources } from './official-resources';
+import { officialResources } from './official-resources-v2';
 
 export type SearchKind = BaseSearchKind | 'Fuente';
 export type SearchItem = Omit<BaseSearchItem, 'kind'> & { kind: SearchKind };
@@ -16,9 +16,20 @@ const sourceItems: SearchItem[] = officialResources.map((resource) => ({
   title: resource.title,
   subtitle: `${resource.institution} · ${resource.subtitle}`,
   href: `/fuentes?q=${encodeURIComponent(resource.title)}`,
-  keywords: [resource.institution, resource.type, resource.matter, ...resource.tags],
+  keywords: [resource.institution, resource.type, resource.matter, resource.status, ...resource.tags],
   verified: true,
-  featured: ['cgr-normas-control', 'cgr-tecnicas-auditoria', 'cgr-tsra-resoluciones', 'oece-tcp', 'servir-precedentes', 'spij-portal', 'el-peruano-normas'].includes(resource.id),
+  featured: [
+    'cgr-normas-control',
+    'cgr-tecnicas-auditoria',
+    'cgr-tsra-resoluciones',
+    'cgr-tsra-ap-002-2024',
+    'oece-tcp',
+    'oece-tce-historico',
+    'servir-precedentes',
+    'servir-precedentes-2025',
+    'spij-portal',
+    'el-peruano-normas',
+  ].includes(resource.id),
 }));
 
 export const searchCatalog: SearchItem[] = [...(baseCatalog as SearchItem[]), ...sourceItems];
