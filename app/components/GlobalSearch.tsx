@@ -25,57 +25,61 @@ function getResults(query: string, kind: FilterKind, limit?: number) {
   return typeof limit === 'number' ? scored.slice(0, limit) : scored;
 }
 
-function SearchControls({
+function SearchInput({
   query,
   setQuery,
-  kind,
-  setKind,
   autoFocus,
 }: {
   query: string;
   setQuery: (value: string) => void;
-  kind: FilterKind;
-  setKind: (value: FilterKind) => void;
   autoFocus?: boolean;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (autoFocus) {
-      const timer = window.setTimeout(() => inputRef.current?.focus(), 20);
-      return () => window.clearTimeout(timer);
-    }
+    if (!autoFocus) return;
+    const timer = window.setTimeout(() => inputRef.current?.focus(), 20);
+    return () => window.clearTimeout(timer);
   }, [autoFocus]);
 
   return (
-    <>
-      <div className={styles.inputWrap}>
-        <IconSearch className={styles.inputIcon} />
-        <input
-          ref={inputRef}
-          className={styles.input}
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Busca AOP, Ley 32069, evidencia, denuncias, PAD…"
-          aria-label="Buscar en LexGub"
-          autoComplete="off"
-        />
-      </div>
-      <div className={styles.filters} aria-label="Filtrar resultados por tipo">
-        {(['Todo', ...searchKinds] as FilterKind[]).map((filter) => (
-          <button
-            type="button"
-            key={filter}
-            className={`${styles.filter} ${filter === kind ? styles.filterActive : ''}`}
-            onClick={() => setKind(filter)}
-            aria-pressed={filter === kind}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
-    </>
+    <div className={styles.inputWrap}>
+      <IconSearch className={styles.inputIcon} />
+      <input
+        ref={inputRef}
+        className={styles.input}
+        type="search"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Busca AOP, Ley 32069, evidencia, denuncias, PAD…"
+        aria-label="Buscar en LexGub"
+        autoComplete="off"
+      />
+    </div>
+  );
+}
+
+function SearchFilters({
+  kind,
+  setKind,
+}: {
+  kind: FilterKind;
+  setKind: (value: FilterKind) => void;
+}) {
+  return (
+    <div className={styles.filters} aria-label="Filtrar resultados por tipo">
+      {(['Todo', ...searchKinds] as FilterKind[]).map((filter) => (
+        <button
+          type="button"
+          key={filter}
+          className={`${styles.filter} ${filter === kind ? styles.filterActive : ''}`}
+          onClick={() => setKind(filter)}
+          aria-pressed={filter === kind}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
   );
 }
 
@@ -167,9 +171,10 @@ export function GlobalSearchButton() {
         }}>
           <section className={styles.dialog} role="dialog" aria-modal="true" aria-label="Buscador LexGub">
             <div className={styles.header}>
-              <SearchControls query={query} setQuery={setQuery} kind={kind} setKind={setKind} autoFocus />
+              <SearchInput query={query} setQuery={setQuery} autoFocus />
               <button type="button" className={styles.close} onClick={close} aria-label="Cerrar buscador">×</button>
             </div>
+            <SearchFilters kind={kind} setKind={setKind} />
             <ResultList query={query} kind={kind} limit={12} onSelect={close} />
           </section>
         </div>
@@ -192,8 +197,9 @@ export function SearchPageExperience({ initialQuery = '' }: { initialQuery?: str
 
       <div className={styles.pagePanel}>
         <div className={styles.header}>
-          <SearchControls query={query} setQuery={setQuery} kind={kind} setKind={setKind} autoFocus />
+          <SearchInput query={query} setQuery={setQuery} autoFocus />
         </div>
+        <SearchFilters kind={kind} setKind={setKind} />
         <ResultList query={query} kind={kind} />
       </div>
     </section>
