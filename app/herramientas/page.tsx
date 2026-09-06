@@ -1,5 +1,5 @@
 import LiveFilter from '../components/LiveFilter';
-import { IconAlert, IconChecklist, IconContract, IconDocument, IconEvidence, IconScale } from '../components/icons';
+import { IconAlert, IconChecklist, IconContract, IconDocument, IconEvidence, IconScale, IconShield } from '../components/icons';
 
 const checklists = [
   {
@@ -102,8 +102,31 @@ export default function HerramientasPage() {
     <>
       <section className="pageHero compactHero">
         <div className="eyebrow">HERRAMIENTAS DE TRABAJO</div>
-        <h1>Checklists para revisar antes de firmar</h1>
-        <p>Listas breves construidas para detectar omisiones frecuentes en control, análisis legal y revisión documental.</p>
+        <h1>De la checklist a la herramienta interactiva</h1>
+        <p>Apoyos breves para ordenar una revisión, detectar omisiones y llegar más rápido a la fuente que realmente necesitas.</p>
+      </section>
+
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <div className="sectionHeading splitHeading">
+          <div><span>HERRAMIENTAS INTERACTIVAS</span><h2>Primero ordena el problema.</h2></div>
+          <p>Estas herramientas no deciden por ti. Estructuran preguntas y te llevan a las directivas y criterios que debes contrastar.</p>
+        </div>
+        <div className="moduleGrid areaGrid">
+          <a className="moduleCard areaCard" href="/herramientas/selector-servicio">
+            <span className="cardIcon"><IconShield /></span>
+            <span className="cardTag">BETA</span>
+            <h3>Selector orientativo de servicio de control</h3>
+            <p>Ordena momento del hecho, alcance y evidencia para contrastar Control Simultáneo, AOP, SCE o Auditoría de Cumplimiento.</p>
+            <strong className="cardLink">Abrir selector →</strong>
+          </a>
+          <a className="moduleCard areaCard" href="/asistente">
+            <span className="cardIcon"><IconEvidence /></span>
+            <span className="cardTag">PRIVACY-FIRST</span>
+            <h3>Asistente LexGub</h3>
+            <p>Describe una duda sin datos sensibles y recibe una ruta de investigación sobre el conocimiento público ya indexado.</p>
+            <strong className="cardLink">Abrir Asistente →</strong>
+          </a>
+        </div>
       </section>
 
       <section className="section toolsIntro">
