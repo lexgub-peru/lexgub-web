@@ -1,0 +1,237 @@
+/* Ajustes finales de composición editorial, cargados al final. */
+
+.articleMobileAuthor {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .articleSidebar {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .articleSidebar > .authorCard {
+    display: none;
+  }
+
+  .articleMobileAuthor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 14px 0 0;
+    border-top: 1px solid #e4ddcf;
+  }
+
+  .articleMobileAuthor img {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e7d6b7;
+    box-shadow: 0 5px 15px rgba(10, 26, 43, .08);
+  }
+
+  .articleMobileAuthor div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .articleMobileAuthor strong {
+    color: #152a3c;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.18;
+  }
+
+  .articleMobileAuthor span {
+    margin-top: 3px;
+    color: #8d682e;
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .editorialNavbar {
+    min-height: 62px;
+    padding: 9px 18px;
+  }
+
+  .lexgubBrand--compact {
+    gap: 8px;
+  }
+
+  .lexgubBrand--compact .lexgubBrandMark {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .lexgubBrand--compact .lexgubBrandName {
+    font-size: .98rem;
+    letter-spacing: .025em;
+  }
+
+  .lexgubBrand--compact .lexgubBrandCountry {
+    font-size: .74rem;
+  }
+
+  .articleMastheadInner {
+    gap: 6px;
+    padding: 17px 20px 18px;
+  }
+
+  .articleMastheadInner span {
+    max-width: 330px;
+    font-size: .79rem;
+    line-height: 1.42;
+    letter-spacing: .105em;
+  }
+
+  .articleMastheadInner small {
+    font-size: .6rem;
+    line-height: 1.5;
+    letter-spacing: .095em;
+  }
+
+  .articleLayout {
+    padding: 27px 20px 58px;
+  }
+
+  .articleBreadcrumb {
+    gap: 6px;
+    font-size: .72rem;
+  }
+
+  .editorialArticleHeader {
+    margin-top: 19px;
+  }
+
+  .editorialArticleHeader .articleMeta {
+    max-width: 330px;
+    font-size: .68rem;
+    line-height: 1.45;
+    letter-spacing: .075em;
+  }
+
+  .editorialArticleHeader h1 {
+    max-width: 340px;
+    margin: 11px 0 16px;
+    font-size: clamp(2rem, 9.2vw, 2.45rem);
+    line-height: 1.015;
+    letter-spacing: -.03em;
+  }
+
+  .editorialArticleHeader .dek {
+    max-width: 340px;
+    font-size: .98rem;
+    line-height: 1.58;
+    color: #5a6877;
+  }
+
+  .articleFacts {
+    margin-top: 18px;
+    gap: 5px;
+  }
+
+  .articleFacts span {
+    font-size: .73rem;
+    line-height: 1.45;
+  }
+
+  .articleMobileAuthor {
+    margin-top: 18px;
+    padding-top: 13px;
+  }
+
+  .articleMobileAuthor img {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .articleMobileAuthor strong {
+    font-size: .94rem;
+  }
+
+  .articleMobileAuthor span {
+    font-size: .73rem;
+  }
+
+  .editorialArticleBody {
+    margin-top: 27px;
+    font-size: .98rem;
+  }
+
+  .editorialArticleBody > p:first-child {
+    font-size: 1.02rem;
+  }
+
+  .editorialArticleBody h2 {
+    margin-top: 34px;
+    font-size: 1.48rem;
+    line-height: 1.18;
+  }
+
+  .articlePillCard {
+    padding: 22px;
+  }
+
+  .articlePillCard h2 {
+    font-size: 1.55rem;
+  }
+
+  .relatedArticles {
+    padding-top: 44px;
+    padding-bottom: 54px;
+  }
+
+  /* La portada también debe conservar proporción editorial en móvil. */
+  .editorialHomeHeroInner {
+    gap: 30px;
+    padding-top: 52px;
+    padding-bottom: 56px;
+  }
+
+  .editorialHomeCopy h1 {
+    max-width: 350px;
+    font-size: clamp(2.45rem, 11vw, 3.15rem);
+    line-height: 1.01;
+  }
+
+  .editorialHomeCopy > p {
+    font-size: .98rem;
+    line-height: 1.65;
+  }
+
+  .homeFeaturedArticle {
+    padding: 25px 22px;
+  }
+
+  .homeFeaturedArticle h2 {
+    font-size: 1.8rem;
+    line-height: 1.08;
+  }
+
+  .homeFeaturedAuthor img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .homeAuthorSection {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+}
+
+@media (max-width: 390px) {
+  .editorialArticleHeader h1 {
+    font-size: 1.92rem;
+  }
+
+  .articleMastheadInner span {
+    font-size: .75rem;
+  }
+}
