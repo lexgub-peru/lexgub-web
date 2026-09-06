@@ -6,6 +6,7 @@ const staticRoutes = [
   '/',
   '/control-gubernamental',
   '/normativa',
+  '/fuentes',
   '/criterios',
   '/columna',
   '/columna/oxi-informe-previo-el-nino-2026',
@@ -22,8 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route, index) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: updatedAt,
-    changeFrequency: index === 0 ? 'daily' : route.startsWith('/columna') || route === '/criterios' ? 'weekly' : 'monthly',
-    priority: route === '/' ? 1 : route === '/normativa' || route === '/columna' || route === '/criterios' ? 0.9 : 0.7,
+    changeFrequency: index === 0 ? 'daily' : route.startsWith('/columna') || route === '/criterios' || route === '/fuentes' ? 'weekly' : 'monthly',
+    priority: route === '/' ? 1 : ['/normativa', '/fuentes', '/columna', '/criterios'].includes(route) ? 0.9 : 0.7,
   }));
 
   const normativeEntries: MetadataRoute.Sitemap = normas
