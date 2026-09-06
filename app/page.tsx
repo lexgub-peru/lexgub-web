@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import PildoraLexGub from './components/PildoraLexGub';
 import {
   IconAlert,
@@ -72,12 +71,12 @@ export default function Home() {
     <>
       <section className="hero portalHero">
         <div className="heroBrandPanel" aria-label="Identidad de LEXGUB PERÚ">
-          <Image
+          <img
             src="/lexgub-logo.webp"
             alt="LEXGUB PERÚ"
-            width={420}
-            height={164}
-            priority
+            width="420"
+            height="164"
+            loading="eager"
             className="heroBrandLogo"
           />
         </div>
