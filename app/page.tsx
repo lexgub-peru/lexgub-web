@@ -4,7 +4,6 @@ import {
   IconAlert,
   IconArrowRight,
   IconBook,
-  IconChecklist,
   IconClock,
   IconContract,
   IconDocument,
@@ -62,9 +61,9 @@ const areas = [
 
 const quickLinks = [
   ['Biblioteca jurídica', '/normativa', IconDocument],
-  ['Tribunales y precedentes', '/tribunales', IconScale],
-  ['Fuentes oficiales', '/fuentes', IconSearch],
-  ['Herramientas y checklists', '/herramientas', IconChecklist],
+  ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
+  ['Asistente LexGub · Beta', '/asistente', IconSearch],
+  ['Fuentes oficiales', '/fuentes', IconBook],
 ] as const;
 
 export default function Home() {
@@ -73,7 +72,7 @@ export default function Home() {
       <section className="editorialHomeHero">
         <div className="editorialHomeHeroInner">
           <div className="editorialHomeCopy">
-            <div className="eyebrow">LEXGUB PERÚ · PLATAFORMA JURÍDICA INDEPENDIENTE</div>
+            <div className="eyebrow">LEXGUB PERÚ · CONOCIMIENTO JURÍDICO ESPECIALIZADO</div>
             <h1>Análisis jurídico para un mejor control público.</h1>
             <p>
               Control gubernamental, auditoría, contrataciones públicas y derecho administrativo explicados con fuente oficial,
@@ -122,9 +121,9 @@ export default function Home() {
         <div className="sectionHeading splitHeading">
           <div>
             <span>CENTRO DE CONSULTA</span>
-            <h2>Una biblioteca jurídica pensada para casos reales.</h2>
+            <h2>Una base jurídica pensada para problemas reales.</h2>
           </div>
-          <p>Empieza por el servicio de control o la materia que necesitas revisar.</p>
+          <p>Busca la norma, entiende el criterio, verifica la fuente y conviértelo en una ruta de trabajo.</p>
         </div>
         <div className="moduleGrid areaGrid">
           {areas.map((area) => (
