@@ -12,9 +12,9 @@ const primary = [
   { href: '/', label: 'Inicio' },
   { href: '/control-gubernamental', label: 'Control' },
   { href: '/normativa', label: 'Biblioteca' },
+  { href: '/criterios', label: 'Criterios' },
   { href: '/columna', label: 'Columna' },
   { href: '/servicios', label: 'Servicios' },
-  { href: '/contacto', label: 'Contacto' },
 ];
 
 /** Material de consulta: secundario, agrupado bajo su propio rótulo. */
@@ -22,6 +22,7 @@ const consulta = [
   { href: '/guias', label: 'Guías' },
   { href: '/herramientas', label: 'Herramientas' },
   { href: '/glosario', label: 'Glosario' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 export default function Navbar() {
