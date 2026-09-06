@@ -8,7 +8,7 @@ import {
   searchCatalog,
   searchKinds,
   type SearchKind,
-} from '../data/search-catalog';
+} from '../data/search-catalog-v2';
 import styles from './GlobalSearch.module.css';
 
 type FilterKind = 'Todo' | SearchKind;
@@ -25,15 +25,7 @@ function getResults(query: string, kind: FilterKind, limit?: number) {
   return typeof limit === 'number' ? scored.slice(0, limit) : scored;
 }
 
-function SearchInput({
-  query,
-  setQuery,
-  autoFocus,
-}: {
-  query: string;
-  setQuery: (value: string) => void;
-  autoFocus?: boolean;
-}) {
+function SearchInput({ query, setQuery, autoFocus }: { query: string; setQuery: (value: string) => void; autoFocus?: boolean }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -51,7 +43,7 @@ function SearchInput({
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Busca AOP, Ley 32069, evidencia, denuncias, PAD…"
+        placeholder="Busca AOP, Ley 32069, TSRA, SPIJ, evidencia, PAD…"
         aria-label="Buscar en LexGub"
         autoComplete="off"
       />
@@ -59,13 +51,7 @@ function SearchInput({
   );
 }
 
-function SearchFilters({
-  kind,
-  setKind,
-}: {
-  kind: FilterKind;
-  setKind: (value: FilterKind) => void;
-}) {
+function SearchFilters({ kind, setKind }: { kind: FilterKind; setKind: (value: FilterKind) => void }) {
   return (
     <div className={styles.filters} aria-label="Filtrar resultados por tipo">
       {(['Todo', ...searchKinds] as FilterKind[]).map((filter) => (
@@ -83,17 +69,7 @@ function SearchFilters({
   );
 }
 
-function ResultList({
-  query,
-  kind,
-  limit,
-  onSelect,
-}: {
-  query: string;
-  kind: FilterKind;
-  limit?: number;
-  onSelect?: () => void;
-}) {
+function ResultList({ query, kind, limit, onSelect }: { query: string; kind: FilterKind; limit?: number; onSelect?: () => void }) {
   const results = useMemo(() => getResults(query, kind, limit), [query, kind, limit]);
   const showingFeatured = !query.trim();
 
@@ -118,7 +94,7 @@ function ResultList({
         ) : (
           <div className={styles.empty}>
             <strong>No encontré una coincidencia exacta.</strong>
-            <p>Prueba con el número de la norma, una sigla o una idea más amplia. LexGub seguirá ampliando este índice con jurisprudencia y criterios.</p>
+            <p>Prueba con el número de la norma, una sigla, tribunal, institución o concepto jurídico.</p>
           </div>
         )}
       </div>
@@ -140,16 +116,13 @@ export function GlobalSearchButton() {
       }
       if (event.key === 'Escape') setOpen(false);
     }
-
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.documentElement.style.overflow = '';
-    };
+    return () => { document.documentElement.style.overflow = ''; };
   }, [open]);
 
   function close() {
@@ -166,9 +139,7 @@ export function GlobalSearchButton() {
       </button>
 
       {open && (
-        <div className={styles.overlay} role="presentation" onMouseDown={(event) => {
-          if (event.target === event.currentTarget) close();
-        }}>
+        <div className={styles.overlay} role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) close(); }}>
           <section className={styles.dialog} role="dialog" aria-modal="true" aria-label="Buscador LexGub">
             <div className={styles.header}>
               <SearchInput query={query} setQuery={setQuery} autoFocus />
@@ -191,14 +162,11 @@ export function SearchPageExperience({ initialQuery = '' }: { initialQuery?: str
     <section className={styles.pageShell}>
       <div className={styles.pageIntro}>
         <span>BUSCADOR LEXGUB</span>
-        <h1>Encuentra la norma, la guía o la herramienta que necesitas.</h1>
-        <p>Una búsqueda transversal sobre la Biblioteca Jurídica, guías, herramientas, glosario y análisis editoriales de LexGub.</p>
+        <h1>Encuentra la norma, el criterio o la fuente oficial que necesitas.</h1>
+        <p>Una búsqueda transversal sobre Biblioteca Jurídica, fuentes oficiales, guías, herramientas, glosario, criterios y análisis editoriales.</p>
       </div>
-
       <div className={styles.pagePanel}>
-        <div className={styles.header}>
-          <SearchInput query={query} setQuery={setQuery} autoFocus />
-        </div>
+        <div className={styles.header}><SearchInput query={query} setQuery={setQuery} autoFocus /></div>
         <SearchFilters kind={kind} setKind={setKind} />
         <ResultList query={query} kind={kind} />
       </div>
@@ -210,7 +178,8 @@ export function HomeSearchBand() {
   const suggestions = [
     ['AOP', 'AOP'],
     ['Ley 32069', 'Ley 32069'],
-    ['Situación adversa', 'situación adversa'],
+    ['TSRA', 'TSRA'],
+    ['SPIJ', 'SPIJ'],
     ['PAD', 'PAD'],
     ['Denuncias', 'denuncias'],
   ];
@@ -221,17 +190,15 @@ export function HomeSearchBand() {
         <div className={styles.bandCopy}>
           <span>BUSCADOR TRANSVERSAL</span>
           <h2 id="home-search-title">Busca como realmente trabajas.</h2>
-          <p>Una sola consulta para recorrer normas, guías, herramientas, conceptos y análisis LexGub.</p>
+          <p>Una sola consulta para recorrer normas, fuentes oficiales, criterios, herramientas y análisis LexGub.</p>
         </div>
         <form className={styles.bandForm} action="/buscar" method="get">
-          <input name="q" type="search" placeholder="Ej. AOP, Ley 32069, evidencia…" aria-label="Buscar en LexGub" />
+          <input name="q" type="search" placeholder="Ej. AOP, Ley 32069, TSRA, evidencia…" aria-label="Buscar en LexGub" />
           <button type="submit">Buscar en LexGub</button>
         </form>
       </div>
       <div className={styles.suggestions} aria-label="Búsquedas sugeridas">
-        {suggestions.map(([label, query]) => (
-          <Link key={label} href={`/buscar?q=${encodeURIComponent(query)}`}>{label}</Link>
-        ))}
+        {suggestions.map(([label, query]) => <Link key={label} href={`/buscar?q=${encodeURIComponent(query)}`}>{label}</Link>)}
       </div>
     </section>
   );
