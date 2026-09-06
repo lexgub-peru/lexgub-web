@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { officialResources, type OfficialResource } from '../data/official-resources';
+import { officialResources, type OfficialResource } from '../data/official-resources-v2';
 import styles from './OfficialSources.module.css';
 
 function norm(value: string) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
+
+const statusLabel = { vigente: 'VIGENTE', historico: 'HISTÓRICO', consulta: 'CONSULTA' } as const;
 
 export default function OfficialResourceBrowser() {
   const [q, setQ] = useState('');
@@ -26,7 +28,7 @@ export default function OfficialResourceBrowser() {
   const results = useMemo(() => {
     const needle = norm(q.trim());
     return officialResources.filter((r) => {
-      const haystack = norm([r.title, r.subtitle, r.institution, r.type, r.matter, ...r.tags].join(' '));
+      const haystack = norm([r.title, r.subtitle, r.institution, r.type, r.matter, r.status, ...r.tags].join(' '));
       if (needle && !haystack.includes(needle)) return false;
       if (institution !== 'todas' && r.institution !== institution) return false;
       if (type !== 'todos' && r.type !== type) return false;
@@ -38,7 +40,7 @@ export default function OfficialResourceBrowser() {
   return (
     <>
       <div className={styles.filters}>
-        <input value={q} onChange={(e) => setQ(e.target.value)} type="search" placeholder="Buscar técnica, directiva, TSRA, SERVIR, SEACE…" aria-label="Buscar recurso oficial" />
+        <input value={q} onChange={(e) => setQ(e.target.value)} type="search" placeholder="Buscar técnica, directiva, TSRA, SERVIR, OSCE/OECE…" aria-label="Buscar recurso oficial" />
         <select value={institution} onChange={(e) => setInstitution(e.target.value)} aria-label="Filtrar por institución">
           <option value="todas">Todas las instituciones</option>
           {institutions.map((i) => <option value={i} key={i}>{i}</option>)}
@@ -60,14 +62,14 @@ export default function OfficialResourceBrowser() {
 
 function ResourceCard({ resource: r }: { resource: OfficialResource }) {
   return <article className={styles.resource}>
-    <div className={styles.resourceMeta}><span>{r.institution}</span><span>{r.type}</span><span>{r.matter}</span></div>
+    <div className={styles.resourceMeta}><span>{r.institution}</span><span>{r.type}</span><span>{r.matter}</span><span>{statusLabel[r.status]}</span></div>
     <h3>{r.title}</h3>
     <p>{r.subtitle}</p>
     {r.note && <p className={styles.note}>{r.note}</p>}
-    {r.formats?.length ? <p className={styles.formats}>Formatos: {r.formats.join(' · ')}</p> : null}
+    {r.formats?.length ? <p className={styles.formats}>Formatos disponibles en la fuente: {r.formats.join(' · ')}</p> : null}
     <div className={styles.actions}>
       <a href={r.verifyUrl} target="_blank" rel="noreferrer">Verificar en fuente oficial ↗</a>
-      {r.downloadUrl && <a href={r.downloadUrl} target="_blank" rel="noreferrer">Descargar / abrir ↗</a>}
+      {r.downloadUrl && <a href={r.downloadUrl} target="_blank" rel="noreferrer">Descargar desde fuente ↗</a>}
       {r.elPeruanoUrl && <a href={r.elPeruanoUrl} target="_blank" rel="noreferrer">El Peruano ↗</a>}
       {r.spijUrl && <a href={r.spijUrl} target="_blank" rel="noreferrer">SPIJ ↗</a>}
     </div>
