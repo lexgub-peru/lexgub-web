@@ -17,6 +17,7 @@ const columns = [
     links: [
       ['Biblioteca jurídica', '/normativa'],
       ['Jurisprudencia LexGub', '/jurisprudencia'],
+      ['Radar normativo', '/radar'],
       ['Criterios LexGub', '/criterios'],
       ['Píldoras LexGub', '/pildoras'],
       ['Columna LexGub', '/columna'],
