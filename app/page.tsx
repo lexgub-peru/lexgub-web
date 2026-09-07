@@ -5,7 +5,6 @@ import {
   IconBook,
   IconChecklist,
   IconDocument,
-  IconEvidence,
   IconLandmark,
   IconScale,
   IconSearch,
