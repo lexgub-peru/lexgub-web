@@ -26,7 +26,7 @@ const busquedasFrecuentes: [string, string][] = [
 const modulos = [
   { titulo: 'Biblioteca jurídica', texto: 'Normas, directivas, manuales y documentos clave.', href: '/normativa', icon: IconBook },
   { titulo: 'Jurisprudencia LexGub', texto: 'Resoluciones, precedentes y criterios relevantes.', href: '/jurisprudencia', icon: IconScale },
-  { titulo: 'Criterios', texto: 'Razonamiento jurídico aplicado a problemas de control.', href: '/criterios', icon: IconEvidence },
+  { titulo: 'Radar normativo', texto: 'Cambios y alertas jurídicas seleccionados por utilidad práctica.', href: '/radar', icon: IconDocument },
   { titulo: 'Píldoras LexGub', texto: 'Explicaciones claras en formato breve.', href: '/pildoras', icon: IconAlert },
   { titulo: 'Herramientas', texto: 'Formatos, matrices y recursos prácticos.', href: '/herramientas', icon: IconChecklist },
   { titulo: 'Asistente LexGub', texto: 'Apoyo para ubicar fuentes y ordenar la consulta.', href: '/asistente', icon: IconSearch },
@@ -56,16 +56,16 @@ const temas = [
   },
   {
     etiqueta: 'ARTÍCULO',
-    titulo: 'Prueba suficiente y apropiada',
-    texto: 'Suficiencia es cantidad; apropiación es pertinencia y fiabilidad. No son intercambiables.',
+    titulo: 'Evidencia suficiente y apropiada',
+    texto: 'La suficiencia se refiere a la cantidad de evidencia; su carácter apropiado, a la calidad, pertinencia y fiabilidad.',
     href: '/auditores',
     audiencia: 'auditores',
   },
 ];
 
 const servicios = [
-  'Asesoría en procedimientos y actuaciones de control',
-  'Revisión jurídica de informes y documentación',
+  'Asesoría ante requerimientos y actuaciones de control',
+  'Revisión jurídica de desviaciones, informes y documentación',
   'Contrataciones públicas',
   'Responsabilidad administrativa',
   'Revisión crítica de casos complejos',
@@ -85,7 +85,6 @@ const fuentes: [string, string][] = [
 export default function Home() {
   return (
     <>
-      {/* ---------- Hero: el buscador es el protagonista ---------- */}
       <section className="v5Hero">
         <div className="v5HeroInner">
           <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
@@ -120,7 +119,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Dos rutas de entrada ---------- */}
       <section className="v5Rutas" aria-label="Rutas de entrada">
         <Link className="v5Ruta v5Ruta--auditores" href="/auditores">
           <span className="v5RutaIcono"><IconShield /></span>
@@ -141,7 +139,7 @@ export default function Home() {
           <span className="v5RutaIcono"><IconLandmark /></span>
           <div className="v5RutaCuerpo">
             <h2>Para autoridades y gestores públicos</h2>
-            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y segura.</p>
+            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y sustentada.</p>
             <ul>
               <li>Cómo responder a un requerimiento</li>
               <li>Cómo leer un informe de control</li>
@@ -153,7 +151,6 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* ---------- Módulos + fundador ---------- */}
       <section className="v5Split">
         <div className="v5SplitMain">
           <div className="v5SectionHead">
@@ -193,7 +190,6 @@ export default function Home() {
         </aside>
       </section>
 
-      {/* ---------- Temas clave + servicios ---------- */}
       <section className="v5Split v5Split--soft">
         <div className="v5SplitMain">
           <div className="v5SectionHead">
@@ -231,7 +227,6 @@ export default function Home() {
         </aside>
       </section>
 
-      {/* ---------- Franja de fuentes ---------- */}
       <section className="v5Fuentes" aria-label="Fuentes oficiales">
         <div className="v5FuentesInner">
           <p className="v5FuentesTitulo">
