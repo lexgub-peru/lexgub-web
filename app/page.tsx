@@ -1,13 +1,9 @@
-import PildoraLexGub from './components/PildoraLexGub';
-import { HomeSearchBand } from './components/GlobalSearch';
-import ProblemRoutes from './components/ProblemRoutes';
+import Link from 'next/link';
 import {
   IconAlert,
   IconArrowRight,
   IconBook,
   IconChecklist,
-  IconClock,
-  IconContract,
   IconDocument,
   IconEvidence,
   IconLandmark,
@@ -16,246 +12,244 @@ import {
   IconShield,
 } from './components/icons';
 
-const areas = [
+const busquedasFrecuentes: [string, string][] = [
+  ['OCI', 'OCI'],
+  ['Informe de control', 'informe de control'],
+  ['Auditoría de cumplimiento', 'auditoría de cumplimiento'],
+  ['SCE', 'control específico'],
+  ['AOP', 'acción de oficio posterior'],
+  ['Contrataciones públicas', 'contrataciones'],
+  ['Responsabilidad administrativa', 'responsabilidad administrativa'],
+  ['SERVIR', 'SERVIR'],
+];
+
+const modulos = [
+  { titulo: 'Biblioteca jurídica', texto: 'Normas, directivas, manuales y documentos clave.', href: '/normativa', icon: IconBook },
+  { titulo: 'Jurisprudencia LexGub', texto: 'Resoluciones, precedentes y criterios relevantes.', href: '/jurisprudencia', icon: IconScale },
+  { titulo: 'Criterios', texto: 'Razonamiento jurídico aplicado a problemas de control.', href: '/criterios', icon: IconEvidence },
+  { titulo: 'Píldoras LexGub', texto: 'Explicaciones claras en formato breve.', href: '/pildoras', icon: IconAlert },
+  { titulo: 'Herramientas', texto: 'Formatos, matrices y recursos prácticos.', href: '/herramientas', icon: IconChecklist },
+  { titulo: 'Asistente LexGub', texto: 'Apoyo para ubicar fuentes y ordenar la consulta.', href: '/asistente', icon: IconSearch },
+];
+
+const temas = [
   {
-    title: 'Control gubernamental',
-    description: 'Sistema Nacional de Control, servicios de control previo, simultáneo y posterior, criterios de actuación y fuentes oficiales.',
-    href: '/control-gubernamental',
-    tag: 'Núcleo',
-    icon: IconShield,
+    etiqueta: 'ACTUALIDAD',
+    titulo: 'Excepción al informe previo en Obras por Impuestos',
+    texto: 'La medida no elimina el control: desplaza el énfasis hacia la entidad y los controles simultáneo y posterior.',
+    href: '/columna/oxi-informe-previo-el-nino-2026',
+    audiencia: 'ambos',
   },
   {
-    title: 'Auditoría de cumplimiento',
-    description: 'Planificación, procedimientos, evidencia suficiente y apropiada, desviaciones, comentarios y estructura del informe.',
-    href: '/guias#auditoria-cumplimiento',
-    tag: 'Guía',
-    icon: IconBook,
+    etiqueta: 'GUÍA PRÁCTICA',
+    titulo: 'Qué hacer ante una solicitud del OCI',
+    texto: 'Qué se pide, en qué plazo y cómo responder de forma completa y verificable.',
+    href: '/autoridades',
+    audiencia: 'autoridades',
   },
   {
-    title: 'Acción de Oficio Posterior',
-    description: 'Cuándo corresponde, delimitación del hecho, evidencia disponible, comunicación y seguimiento del plan de acción.',
-    href: '/guias#aop',
-    tag: 'Control posterior',
-    icon: IconClock,
+    etiqueta: 'ANÁLISIS',
+    titulo: 'Cómo leer un informe de control',
+    texto: 'Distinguir hecho descrito, criterio invocado y recomendación formulada.',
+    href: '/autoridades',
+    audiencia: 'autoridades',
   },
   {
-    title: 'Control simultáneo',
-    description: 'Control concurrente, visita de control y orientación de oficio. Situaciones adversas y seguimiento de acciones preventivas y correctivas.',
-    href: '/guias#control-simultaneo',
-    tag: 'Oportuno',
-    icon: IconLandmark,
-  },
-  {
-    title: 'Denuncias y alertas',
-    description: 'Competencia, recepción, evaluación, hechos concretos, evidencia, trazabilidad y decisión sobre la actuación de control pertinente.',
-    href: '/guias#denuncias',
-    tag: 'Ciudadanía',
-    icon: IconAlert,
-  },
-  {
-    title: 'Contrataciones públicas',
-    description: 'Ruta de revisión del expediente contractual, régimen temporal aplicable, actuación preparatoria, selección, ejecución y responsabilidades.',
-    href: '/guias#contrataciones',
-    tag: 'Materia frecuente',
-    icon: IconContract,
+    etiqueta: 'ARTÍCULO',
+    titulo: 'Prueba suficiente y apropiada',
+    texto: 'Suficiencia es cantidad; apropiación es pertinencia y fiabilidad. No son intercambiables.',
+    href: '/auditores',
+    audiencia: 'auditores',
   },
 ];
 
-const quickLinks = [
-  ['Biblioteca jurídica', '/normativa', IconDocument],
-  ['Jurisprudencia LexGub', '/jurisprudencia', IconScale],
-  ['Asistente LexGub', '/asistente', IconSearch],
-  ['Herramientas y checklists', '/herramientas', IconChecklist],
-  ['Conoce LexGub', '/lexgub', IconShield],
-] as const;
+const servicios = [
+  'Asesoría en procedimientos y actuaciones de control',
+  'Revisión jurídica de informes y documentación',
+  'Contrataciones públicas',
+  'Responsabilidad administrativa',
+  'Revisión crítica de casos complejos',
+  'Capacitación y talleres especializados',
+];
+
+const fuentes: [string, string][] = [
+  ['El Peruano', 'https://elperuano.pe/'],
+  ['SPIJ', 'https://spij.minjus.gob.pe/'],
+  ['Contraloría', 'https://www.gob.pe/contraloria'],
+  ['SERVIR', 'https://www.gob.pe/servir'],
+  ['OECE', 'https://www.gob.pe/oece'],
+  ['Poder Judicial', 'https://www.pj.gob.pe/'],
+  ['Tribunal Constitucional', 'https://www.tc.gob.pe/'],
+];
 
 export default function Home() {
   return (
     <>
-      <section className="editorialHomeHero">
-        <div className="editorialHomeHeroInner">
-          <div className="editorialHomeCopy">
-            <div className="eyebrow">LEXGUB PERÚ · CONTROL GUBERNAMENTAL · DERECHO PÚBLICO</div>
-            <h1>Analiza mejor. Verifica antes. Decide con evidencia.</h1>
-            <p>
-              Asesoría, consultoría y una plataforma de conocimiento jurídico especializado que conecta normas, jurisprudencia,
-              criterios y herramientas con fuente oficial, temporalidad y razonamiento probatorio.
-            </p>
-            <div className="heroActions">
-              <a className="primaryButton" href="/asistente">Preguntar a LexGub</a>
-              <a className="secondaryButton" href="/normativa">Explorar Biblioteca</a>
-            </div>
-            <a className="heroServiceLink" href="/servicios">¿Necesitas revisión o consultoría especializada? Conoce los servicios <IconArrowRight /></a>
-            <div className="heroIntelligence" aria-label="Características del Asistente LexGub">
-              <strong>Asistente LexGub · Beta</strong>
-              <span>orientación documental</span>
-              <span>·</span>
-              <span>fuentes verificables</span>
-              <span>·</span>
-              <span>privacidad por diseño</span>
-            </div>
-            <div className="editorialHeroTopics" aria-label="Áreas principales">
-              <span>Control</span><span>Auditoría</span><span>Contrataciones</span><span>Gestión pública</span>
-            </div>
-          </div>
-
-          <a className="homeFeaturedArticle" href="/columna/oxi-informe-previo-el-nino-2026">
-            <span className="homeFeaturedLabel">EN PORTADA · ACTUALIDAD NORMATIVA</span>
-            <h2>Excepción al informe previo en Obras por Impuestos: rapidez, control y riesgos.</h2>
-            <p>
-              La excepción temporal introducida para determinadas intervenciones ante El Niño no elimina el control gubernamental:
-              desplaza parte del énfasis hacia la responsabilidad de la entidad y los controles simultáneo y posterior.
-            </p>
-            <div className="homeFeaturedAuthor">
-              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
-              <div>
-                <strong>Marvyn Enrique Gallo Rojas</strong>
-                <span>Abogado · Fundador de LexGub</span>
-              </div>
-            </div>
-            <strong className="homeFeaturedLink">Leer análisis <IconArrowRight /></strong>
-          </a>
-        </div>
-      </section>
-
-      <section className="homeAuthorityBand" aria-label="Fuentes oficiales verificadas por LexGub">
-        <div className="homeAuthorityLead">
-          <span>TRAZABILIDAD</span>
-          <strong>Verificamos antes de explicar.</strong>
-        </div>
-        <div className="homeAuthoritySources">
-          <span>Contraloría</span>
-          <span>El Peruano</span>
-          <span>Poder Judicial</span>
-          <span>Tribunal Constitucional</span>
-          <span>OECE</span>
-          <span>SERVIR</span>
-          <a href="/fuentes">Ver fuentes oficiales →</a>
-          <span className="authorityNote">Sin afiliación institucional</span>
-        </div>
-      </section>
-
-      <section className="homePrinciples" aria-label="Principios LexGub">
-        <article><IconDocument /><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
-        <article><IconClock /><strong>Temporalidad</strong><span>La regla se determina por la fecha del hecho.</span></article>
-        <article><IconEvidence /><strong>Evidencia</strong><span>Hecho, indicio e inferencia no son lo mismo.</span></article>
-        <article><IconScale /><strong>Revisión crítica</strong><span>No se presume irregularidad ni responsabilidad.</span></article>
-      </section>
-
-      <HomeSearchBand />
-
-      <ProblemRoutes />
-
-      <section className="homeRadar" aria-labelledby="radar-lexgub-title">
-        <header className="homeRadarHeader">
-          <div>
-            <span>RADAR LEXGUB</span>
-            <h2 id="radar-lexgub-title">Lo que cambió, lo que importa y dónde verificarlo.</h2>
-          </div>
-          <p>
-            Actualidad jurídica seleccionada por utilidad práctica: una norma, un criterio o un cambio relevante siempre acompañado de una ruta para revisar su fuente y alcance.
+      {/* ---------- Hero: el buscador es el protagonista ---------- */}
+      <section className="v5Hero">
+        <div className="v5HeroInner">
+          <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
+          <h1>
+            Conocimiento jurídico y asesoría estratégica para <em>decidir con criterio.</em>
+          </h1>
+          <p className="v5HeroDek">
+            En LexGub Perú ayudamos a auditores, autoridades y gestores públicos a trabajar con normas, evidencia,
+            informes y fuentes oficiales para tomar decisiones mejor sustentadas y responder adecuadamente frente a los
+            desafíos del control gubernamental.
           </p>
-        </header>
 
-        <div className="homeRadarGrid">
-          <article className="homeRadarCard featured">
-            <div className="homeRadarMeta"><span>ANÁLISIS</span><span>06 SEP 2026</span></div>
-            <h3>Obras por Impuestos ante El Niño: la excepción al informe previo no elimina el control.</h3>
-            <p>Una lectura jurídica del D.U. N.° 010-2026 para distinguir aceleración procedimental, responsabilidad de la entidad y controles que permanecen vigentes.</p>
-            <a href="/columna/oxi-informe-previo-el-nino-2026">Leer análisis <IconArrowRight /></a>
-          </article>
+          <form className="v5Search" action="/buscar" method="get" role="search">
+            <label className="srOnly" htmlFor="hero-q">Buscar en LexGub Perú</label>
+            <IconSearch className="v5SearchIcon" />
+            <input
+              id="hero-q"
+              name="q"
+              type="search"
+              placeholder="Buscar norma, criterio, resolución, precedente o tema…"
+              autoComplete="off"
+            />
+            <button type="submit">Buscar</button>
+          </form>
 
-          <article className="homeRadarCard">
-            <div className="homeRadarMeta"><span>NORMA VERIFICADA</span><span>LPAG</span></div>
-            <h3>Nuevo TUO de la Ley N.° 27444: D.S. N.° 006-2026-JUS.</h3>
-            <p>La Biblioteca LexGub conserva la versión vigente y advierte por qué la fecha del hecho es decisiva antes de aplicar una norma administrativa.</p>
-            <a href="/normativa/ds-006-2026-jus">Abrir ficha normativa <IconArrowRight /></a>
-          </article>
-
-          <article className="homeRadarCard">
-            <div className="homeRadarMeta"><span>JURISPRUDENCIA</span><span>SENTENCIA FUENTE</span></div>
-            <h3>Casación N.° 52028-2022, Junín: temporalidad no sustituye el examen de la prueba.</h3>
-            <p>Una ficha para separar efectos temporales, controversia de fondo y acreditación material de responsabilidad administrativa funcional.</p>
-            <a href="/jurisprudencia/cas-52028-2022-junin">Ver ficha explicada <IconArrowRight /></a>
-          </article>
-        </div>
-      </section>
-
-      <PildoraLexGub />
-
-      <section className="section portalSection homeLibrarySection">
-        <div className="sectionHeading splitHeading">
-          <div>
-            <span>ÁREAS DE PRÁCTICA Y CONOCIMIENTO</span>
-            <h2>Una base jurídica pensada para problemas reales.</h2>
-          </div>
-          <p>Investiga, contrasta y convierte la información jurídica en una ruta de trabajo concreta, sin perder trazabilidad ni contexto.</p>
-        </div>
-        <div className="moduleGrid areaGrid">
-          {areas.map((area) => (
-            <a className="moduleCard areaCard" key={area.title} href={area.href}>
-              <span className="cardIcon"><area.icon /></span>
-              <span className="cardTag">{area.tag}</span>
-              <h3>{area.title}</h3>
-              <p>{area.description}</p>
-              <strong className="cardLink">Abrir guía <IconArrowRight /></strong>
-            </a>
-          ))}
-        </div>
-        <nav className="quickGrid" aria-label="Accesos rápidos">
-          {quickLinks.map(([label, href, Icon]) => (
-            <a key={href} href={href} className="quickCard">
-              <Icon />
-              <strong>{label}</strong>
-            </a>
-          ))}
-        </nav>
-      </section>
-
-      <section className="section softSection methodologySection">
-        <div className="methodologyCopy">
-          <span className="sectionKicker">MÉTODO LEXGUB</span>
-          <h2>Antes de concluir, reconstruye.</h2>
-          <p>Una revisión sólida empieza identificando qué ocurrió, cuándo ocurrió, quién intervino, qué evidencia lo demuestra y qué norma era exigible en ese momento.</p>
-        </div>
-        <ol className="methodSteps">
-          <li><strong>Hecho</strong><span>Delimita conducta, tiempo, lugar, operación y participantes.</span></li>
-          <li><strong>Evidencia</strong><span>Verifica autenticidad, suficiencia, pertinencia y consistencia.</span></li>
-          <li><strong>Criterio</strong><span>Determina la obligación jurídica específica y temporalmente aplicable.</span></li>
-          <li><strong>Contraste</strong><span>Explica la diferencia entre lo acreditado y lo exigido.</span></li>
-          <li><strong>Consecuencia</strong><span>Evalúa efecto, riesgo, causalidad y participación sin anticipar responsabilidad.</span></li>
-        </ol>
-      </section>
-
-      <section className="homeAuthorSection">
-        <div className="homeAuthorInner">
-          <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
-          <div className="homeAuthorCopy">
-            <span className="sectionKicker">FUNDADOR</span>
-            <h2>Marvyn Enrique Gallo Rojas</h2>
-            <p>
-              Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo. Fundador y director de la línea jurídica y editorial de LexGub Perú.
-            </p>
-          </div>
-          <div className="homeAuthorActions">
-            <a className="authorOutlineButton" href="/lexgub">Conocer LexGub</a>
-            <a className="authorOutlineButton" href="/columna">Publicaciones</a>
+          <div className="v5Frecuentes">
+            <span>Búsquedas frecuentes:</span>
+            {busquedasFrecuentes.map(([label, q]) => (
+              <Link key={label} href={`/buscar?q=${encodeURIComponent(q)}`}>{label}</Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="homeServicesBand">
-          <div>
-            <span className="eyebrow">ASESORÍA Y CONSULTORÍA</span>
-            <h2>Especialización para problemas complejos de la gestión pública.</h2>
-            <p>
-              LexGub brinda asesoría y consultoría especializada en control gubernamental, auditoría, contrataciones públicas,
-              derecho administrativo y análisis jurídico de evidencia, con independencia de criterio y respeto de las reglas éticas aplicables.
-            </p>
+      {/* ---------- Dos rutas de entrada ---------- */}
+      <section className="v5Rutas" aria-label="Rutas de entrada">
+        <Link className="v5Ruta v5Ruta--auditores" href="/auditores">
+          <span className="v5RutaIcono"><IconShield /></span>
+          <div className="v5RutaCuerpo">
+            <h2>Para auditores</h2>
+            <p>Herramientas y conocimiento para un control más efectivo.</p>
+            <ul>
+              <li>Normativa aplicable</li>
+              <li>Jurisprudencia útil</li>
+              <li>Herramientas y matrices</li>
+              <li>Píldoras de control</li>
+            </ul>
           </div>
-          <a className="primaryButton" href="/servicios">Ver servicios</a>
+          <span className="v5RutaCta">Entrar para auditores <IconArrowRight /></span>
+        </Link>
+
+        <Link className="v5Ruta v5Ruta--autoridades" href="/autoridades">
+          <span className="v5RutaIcono"><IconLandmark /></span>
+          <div className="v5RutaCuerpo">
+            <h2>Para autoridades y gestores públicos</h2>
+            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y segura.</p>
+            <ul>
+              <li>Cómo responder a un requerimiento</li>
+              <li>Cómo leer un informe de control</li>
+              <li>Riesgos frecuentes</li>
+              <li>Asesoría especializada</li>
+            </ul>
+          </div>
+          <span className="v5RutaCta">Entrar para autoridades <IconArrowRight /></span>
+        </Link>
+      </section>
+
+      {/* ---------- Módulos + fundador ---------- */}
+      <section className="v5Split">
+        <div className="v5SplitMain">
+          <div className="v5SectionHead">
+            <h2>Qué puedes hacer en LexGub</h2>
+            <span>TODO EN UN SOLO LUGAR, PARA UNA MEJOR GESTIÓN PÚBLICA</span>
+          </div>
+          <div className="v5Modulos">
+            {modulos.map((m) => (
+              <Link className="v5Modulo" key={m.titulo} href={m.href}>
+                <span className="v5ModuloIcono"><m.icon /></span>
+                <h3>{m.titulo}</h3>
+                <p>{m.texto}</p>
+                <span className="v5ModuloFlecha" aria-hidden="true"><IconArrowRight /></span>
+              </Link>
+            ))}
+          </div>
         </div>
+
+        <aside className="v5Fundador" aria-label="Fundador">
+          <span className="v5FundadorTitulo">Fundador</span>
+          <img
+            src="/marvyn-gallo-retrato.webp"
+            alt="Marvyn Enrique Gallo Rojas"
+            width="640"
+            height="800"
+            className="v5FundadorFoto"
+          />
+          <h3>Marvyn Enrique Gallo Rojas</h3>
+          <p className="v5FundadorRol">Abogado · Fundador de LexGub Perú</p>
+          <p className="v5FundadorBio">
+            Especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo, con
+            enfoque en evidencia, fuente oficial, temporalidad normativa y análisis jurídico riguroso.
+          </p>
+          <p className="v5FundadorBio">Fundador y director de la línea jurídica y editorial de LexGub Perú.</p>
+          <blockquote className="v5FundadorCita">Instituciones más fuertes para un país más justo.</blockquote>
+          <Link className="cardLink" href="/lexgub">Conocer LexGub <IconArrowRight /></Link>
+        </aside>
+      </section>
+
+      {/* ---------- Temas clave + servicios ---------- */}
+      <section className="v5Split v5Split--soft">
+        <div className="v5SplitMain">
+          <div className="v5SectionHead">
+            <h2>Temas clave para el día a día</h2>
+            <span>GUÍAS Y ANÁLISIS PARA MEJORES DECISIONES</span>
+          </div>
+          <div className="v5Temas">
+            {temas.map((t) => (
+              <Link className={`v5Tema v5Tema--${t.audiencia}`} key={t.titulo} href={t.href}>
+                <span className="v5TemaEtiqueta">{t.etiqueta}</span>
+                <h3>{t.titulo}</h3>
+                <p>{t.texto}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <aside className="v5Servicios" aria-label="Nuestros servicios">
+          <div className="v5SectionHead">
+            <h2>Nuestros servicios</h2>
+            <span>ASESORÍA ESPECIALIZADA</span>
+          </div>
+          <ul className="v5ServiciosLista">
+            {servicios.map((s) => (
+              <li key={s}><IconDocument />{s}</li>
+            ))}
+          </ul>
+          <div className="v5ServiciosCta">
+            <Link className="wineButton" href="/contacto">Solicitar asesoría <IconArrowRight /></Link>
+            <Link className="ghostButton" href="/servicios">Ver todos los servicios</Link>
+          </div>
+          <p className="v5ServiciosNota">
+            El acompañamiento es técnico y jurídico. No garantizamos resultados en procedimientos de control.
+          </p>
+        </aside>
+      </section>
+
+      {/* ---------- Franja de fuentes ---------- */}
+      <section className="v5Fuentes" aria-label="Fuentes oficiales">
+        <div className="v5FuentesInner">
+          <p className="v5FuentesTitulo">
+            <IconShield />
+            FUENTES OFICIALES QUE RESPALDAN NUESTRO CONTENIDO
+          </p>
+          <ul>
+            {fuentes.map(([label, href]) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noreferrer">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="v5FuentesNota">
+          LexGub es una iniciativa privada e independiente y no representa a dichas entidades. Verifique siempre la
+          vigencia y la fuente oficial de la normativa aplicable.
+        </p>
       </section>
     </>
   );

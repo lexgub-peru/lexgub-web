@@ -7,24 +7,30 @@ import LexGubBrand from './Brand';
 import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-const primary = [
-  { href: '/control-gubernamental', label: 'Control' },
+/** Menú principal. Solo rutas que existen: no se enlaza nada que devuelva 404. */
+const principal = [
+  { href: '/', label: 'Inicio' },
+  { href: '/auditores', label: 'Para auditores' },
+  { href: '/autoridades', label: 'Para autoridades' },
   { href: '/normativa', label: 'Biblioteca' },
   { href: '/jurisprudencia', label: 'Jurisprudencia' },
-  { href: '/criterios', label: 'Criterios' },
-  { href: '/columna', label: 'Columna' },
+  { href: '/pildoras', label: 'Píldoras' },
+  { href: '/herramientas', label: 'Herramientas' },
+  { href: '/asistente', label: 'Asistente' },
+  { href: '/servicios', label: 'Servicios' },
   { href: '/lexgub', label: 'LexGub' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
-const consulta = [
-  { href: '/tribunales', label: 'Tribunales y precedentes' },
-  { href: '/fuentes', label: 'Fuentes oficiales' },
-  { href: '/asistente', label: 'Asistente LexGub · Beta' },
-  { href: '/herramientas', label: 'Herramientas' },
+/** Material complementario, agrupado en el menú móvil. */
+const complementario = [
+  { href: '/control-gubernamental', label: 'Control gubernamental' },
+  { href: '/criterios', label: 'Criterios' },
+  { href: '/columna', label: 'Columna' },
   { href: '/guias', label: 'Guías' },
   { href: '/glosario', label: 'Glosario' },
-  { href: '/servicios', label: 'Asesoría y consultoría' },
-  { href: '/contacto', label: 'Contacto' },
+  { href: '/tribunales', label: 'Tribunales y precedentes' },
+  { href: '/fuentes', label: 'Fuentes oficiales' },
 ];
 
 export default function Navbar() {
@@ -68,40 +74,38 @@ export default function Navbar() {
         </Link>
 
         <div className="navlinks">
-          {primary.map((link) => navLink(link))}
+          {principal.map((link) => navLink(link))}
         </div>
 
-        <Link className="navAssistant" href="/asistente" aria-label="Abrir Asistente LexGub">
-          <span className="navAssistantDot" aria-hidden="true" />
-          Asistente
-        </Link>
-
-        <GlobalSearchButton />
-
-        <button
-          type="button"
-          className="navToggle"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <IconClose /> : <IconMenu />}
-        </button>
+        <div className="navActions">
+          <GlobalSearchButton />
+          <Link className="navCta" href="/contacto">Solicitar asesoría</Link>
+          <button
+            type="button"
+            className="navToggle"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <IconClose /> : <IconMenu />}
+          </button>
+        </div>
       </nav>
 
       <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
         <div className="navDrawerLinks">
-          <Link href="/" tabIndex={open ? undefined : -1}>Inicio</Link>
-          {primary.map((link) => navLink(link, true))}
+          {principal.map((link) => navLink(link, true))}
         </div>
         <div className="navDrawerGroup">
-          <span>Investigar y trabajar</span>
+          <span>Consulta y análisis</span>
           <div className="navDrawerChips">
-            {consulta.map((link) => navLink(link, true))}
+            {complementario.map((link) => navLink(link, true))}
           </div>
         </div>
-        <p className="navDrawerNote">LexGub Perú · asesoría, consultoría y conocimiento jurídico especializado.</p>
+        <p className="navDrawerNote">
+          LexGub Perú · conocimiento jurídico y asesoría especializada en control gubernamental.
+        </p>
       </div>
 
       <button

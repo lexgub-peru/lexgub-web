@@ -1,7 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0a1a2b"/>
-  <text x="32" y="41" text-anchor="middle"
-        font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700"
-        letter-spacing="1" fill="#c9a35f">LG</text>
-  <rect x="19" y="47" width="26" height="1.6" fill="#c9a35f" opacity=".75"/>
+  <rect width="64" height="64" rx="12" fill="#071B2D"/>
+  <g transform="translate(2 -1) scale(0.94)">
+    <path fill="#C8A35D" d="M34 44c13 2 22-7 26-25 4 22-4 36-19 40-1-5-3-10-7-15Z"/>
+    <path fill="#F4F1E8" d="M26 14c5 0 8 4 8 9 0 3-1 5-2 7 3 4 4 9 4 15 0 8-4 13-10 13-7 0-11-6-10-14 1-6 2-11 4-15-2-2-3-4-3-7 0-5 4-8 9-8Z"/>
+    <path fill="#74172B" d="m21 14 1-7 3 5 2-7 3 7 3-5 1 8c-4-2-9-2-13-1Z"/>
+    <path fill="#C8A35D" d="m19 20-10 3 10 3Z"/>
+    <path fill="none" stroke="#C8A35D" stroke-width="2.2" stroke-linecap="round" d="M25 58v5M32 58v5"/>
+    <circle cx="24.5" cy="18.5" r="1.6" fill="#0B2137"/>
+  </g>
 </svg>
