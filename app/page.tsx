@@ -75,16 +75,17 @@ export default function Home() {
       <section className="editorialHomeHero">
         <div className="editorialHomeHeroInner">
           <div className="editorialHomeCopy">
-            <div className="eyebrow">LEXGUB PERÚ · CONOCIMIENTO JURÍDICO ESPECIALIZADO</div>
+            <div className="eyebrow">LEXGUB PERÚ · CONTROL GUBERNAMENTAL · DERECHO PÚBLICO</div>
             <h1>Analiza mejor. Verifica antes. Decide con evidencia.</h1>
             <p>
-              Normas, jurisprudencia, criterios y herramientas para control gubernamental, auditoría, contrataciones públicas
-              y derecho administrativo, conectados con fuente oficial, temporalidad y razonamiento probatorio.
+              Asesoría, consultoría y una plataforma de conocimiento jurídico especializado que conecta normas, jurisprudencia,
+              criterios y herramientas con fuente oficial, temporalidad y razonamiento probatorio.
             </p>
             <div className="heroActions">
               <a className="primaryButton" href="/asistente">Preguntar a LexGub</a>
               <a className="secondaryButton" href="/normativa">Explorar Biblioteca</a>
             </div>
+            <a className="heroServiceLink" href="/servicios">¿Necesitas revisión o consultoría especializada? Conoce los servicios <IconArrowRight /></a>
             <div className="heroIntelligence" aria-label="Características del Asistente LexGub">
               <strong>Asistente LexGub · Beta</strong>
               <span>orientación documental</span>
@@ -117,6 +118,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="homeAuthorityBand" aria-label="Fuentes oficiales verificadas por LexGub">
+        <div className="homeAuthorityLead">
+          <span>TRAZABILIDAD</span>
+          <strong>Verificamos antes de explicar.</strong>
+        </div>
+        <div className="homeAuthoritySources">
+          <span>Contraloría</span>
+          <span>El Peruano</span>
+          <span>Poder Judicial</span>
+          <span>Tribunal Constitucional</span>
+          <span>OECE</span>
+          <span>SERVIR</span>
+          <a href="/fuentes">Ver fuentes oficiales →</a>
+          <span className="authorityNote">Sin afiliación institucional</span>
+        </div>
+      </section>
+
       <section className="homePrinciples" aria-label="Principios LexGub">
         <article><IconDocument /><strong>Fuente oficial</strong><span>Norma y documento verificable.</span></article>
         <article><IconClock /><strong>Temporalidad</strong><span>La regla se determina por la fecha del hecho.</span></article>
@@ -128,15 +146,50 @@ export default function Home() {
 
       <ProblemRoutes />
 
+      <section className="homeRadar" aria-labelledby="radar-lexgub-title">
+        <header className="homeRadarHeader">
+          <div>
+            <span>RADAR LEXGUB</span>
+            <h2 id="radar-lexgub-title">Lo que cambió, lo que importa y dónde verificarlo.</h2>
+          </div>
+          <p>
+            Actualidad jurídica seleccionada por utilidad práctica: una norma, un criterio o un cambio relevante siempre acompañado de una ruta para revisar su fuente y alcance.
+          </p>
+        </header>
+
+        <div className="homeRadarGrid">
+          <article className="homeRadarCard featured">
+            <div className="homeRadarMeta"><span>ANÁLISIS</span><span>06 SEP 2026</span></div>
+            <h3>Obras por Impuestos ante El Niño: la excepción al informe previo no elimina el control.</h3>
+            <p>Una lectura jurídica del D.U. N.° 010-2026 para distinguir aceleración procedimental, responsabilidad de la entidad y controles que permanecen vigentes.</p>
+            <a href="/columna/oxi-informe-previo-el-nino-2026">Leer análisis <IconArrowRight /></a>
+          </article>
+
+          <article className="homeRadarCard">
+            <div className="homeRadarMeta"><span>NORMA VERIFICADA</span><span>LPAG</span></div>
+            <h3>Nuevo TUO de la Ley N.° 27444: D.S. N.° 006-2026-JUS.</h3>
+            <p>La Biblioteca LexGub conserva la versión vigente y advierte por qué la fecha del hecho es decisiva antes de aplicar una norma administrativa.</p>
+            <a href="/normativa/ds-006-2026-jus">Abrir ficha normativa <IconArrowRight /></a>
+          </article>
+
+          <article className="homeRadarCard">
+            <div className="homeRadarMeta"><span>JURISPRUDENCIA</span><span>SENTENCIA FUENTE</span></div>
+            <h3>Casación N.° 52028-2022, Junín: temporalidad no sustituye el examen de la prueba.</h3>
+            <p>Una ficha para separar efectos temporales, controversia de fondo y acreditación material de responsabilidad administrativa funcional.</p>
+            <a href="/jurisprudencia/cas-52028-2022-junin">Ver ficha explicada <IconArrowRight /></a>
+          </article>
+        </div>
+      </section>
+
       <PildoraLexGub />
 
       <section className="section portalSection homeLibrarySection">
         <div className="sectionHeading splitHeading">
           <div>
-            <span>CENTRO DE CONSULTA</span>
+            <span>ÁREAS DE PRÁCTICA Y CONOCIMIENTO</span>
             <h2>Una base jurídica pensada para problemas reales.</h2>
           </div>
-          <p>Busca la norma, entiende el criterio, verifica la fuente y conviértelo en una ruta de trabajo.</p>
+          <p>Investiga, contrasta y convierte la información jurídica en una ruta de trabajo concreta, sin perder trazabilidad ni contexto.</p>
         </div>
         <div className="moduleGrid areaGrid">
           {areas.map((area) => (
