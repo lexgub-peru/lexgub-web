@@ -2,63 +2,63 @@ import AuthorCard from '../components/AuthorCard';
 
 export const metadata = {
   title: 'Asesoría y consultoría especializada',
-  description: 'Servicios jurídicos especializados en control gubernamental, auditoría, contrataciones públicas, derecho administrativo y revisión legal de actuaciones de gestión pública.',
+  description: 'Asesoría jurídica especializada para autoridades, gestores públicos, equipos y profesionales frente a requerimientos, auditorías, informes de control, contrataciones públicas y responsabilidad administrativa.',
 };
 
 const services = [
   {
-    tag: 'Control gubernamental',
-    title: 'Asesoría y revisión jurídica especializada',
-    text: 'Análisis de actuaciones de control, delimitación de hechos, identificación del criterio aplicable, revisión de evidencia y consistencia jurídica de conclusiones.',
-    deliverables: 'Informe de revisión · matriz de observaciones · ruta normativa · comentarios de consistencia',
+    tag: 'Requerimientos OCI · CGR',
+    title: 'Respuesta técnica ante solicitudes y actuaciones de control',
+    text: 'Revisión del alcance del requerimiento, identificación de plazos, organización de la documentación existente y estructuración de una respuesta completa, trazable y jurídicamente consistente.',
+    deliverables: 'Matriz de requerimiento · inventario documental · ruta de respuesta · revisión jurídica del proyecto',
   },
   {
-    tag: 'Auditoría',
-    title: 'Soporte legal para auditorías y servicios de control',
-    text: 'Revisión de matrices, desviaciones, comentarios, atribución de participación, causalidad y suficiencia del sustento documental.',
-    deliverables: 'Segunda lectura · matriz hecho-evidencia-criterio · observaciones al sustento · propuesta de mejora',
+    tag: 'Auditoría · SCE · AOP',
+    title: 'Revisión de desviaciones, hechos e informes de control',
+    text: 'Análisis del hecho comunicado, criterio invocado, evidencia citada, participación atribuida y argumentos disponibles, respetando las reglas propias de cada servicio de control.',
+    deliverables: 'Matriz hecho-evidencia-criterio · revisión de argumentos · línea temporal · observaciones de consistencia',
   },
   {
     tag: 'Contrataciones públicas',
-    title: 'Revisión de expedientes y controversias',
-    text: 'Análisis de actuaciones preparatorias, selección, ejecución contractual, modificaciones, penalidades, conformidades y responsabilidades.',
+    title: 'Revisión de expedientes y decisiones de contratación',
+    text: 'Análisis de actuaciones preparatorias, selección, ejecución contractual, modificaciones, penalidades, conformidades y responsabilidades bajo el régimen temporalmente aplicable.',
     deliverables: 'Mapa del expediente · línea temporal · matriz de actuaciones · análisis jurídico focalizado',
   },
   {
+    tag: 'Responsabilidad administrativa',
+    title: 'Análisis de participación, deber funcional y sustento probatorio',
+    text: 'Revisión de la actuación concreta atribuida, deberes funcionales, causalidad, evidencia y motivación, diferenciando irregularidad, participación y responsabilidad.',
+    deliverables: 'Matriz de participación · contraste normativo · vacíos probatorios · memorando de riesgos jurídicos',
+  },
+  {
     tag: 'Gestión pública',
-    title: 'Informes, opiniones y estrategia jurídica',
-    text: 'Elaboración y revisión de informes legales, respuestas institucionales, procedimientos administrativos y documentos de sustento técnico-jurídico.',
+    title: 'Informes, opiniones y estrategia jurídica preventiva',
+    text: 'Elaboración y revisión de informes legales, respuestas institucionales y documentos de sustento para decisiones que deben poder explicarse y verificarse posteriormente.',
     deliverables: 'Opinión legal · revisión de proyecto · estructura argumental · control de motivación y vigencia',
   },
   {
     tag: 'Capacitación',
     title: 'Talleres y formación especializada',
-    text: 'Capacitación práctica para equipos legales, servidores y profesionales sobre control, evidencia, redacción y razonamiento jurídico.',
+    text: 'Capacitación aplicada para autoridades, equipos legales, auditores, servidores y profesionales sobre control, evidencia, contrataciones, redacción y razonamiento jurídico.',
     deliverables: 'Taller aplicado · casos prácticos · materiales de trabajo · checklists y rutas de consulta',
-  },
-  {
-    tag: 'Revisión crítica',
-    title: 'Segunda lectura de casos complejos',
-    text: 'Revisión independiente de expedientes, hipótesis de irregularidad, argumentos, fuentes normativas y riesgos antes de adoptar una posición final.',
-    deliverables: 'Memorando de riesgos · argumentos a favor y en contra · vacíos probatorios · fuentes por verificar',
   },
 ];
 
 const audiences = [
   {
+    kicker: 'AUTORIDADES Y GESTORES',
+    title: 'Entender el control antes de responder',
+    text: 'Para quienes reciben requerimientos, comunicaciones, desviaciones o informes y necesitan ordenar el expediente, comprender la actuación y preparar una respuesta técnicamente sustentada.',
+  },
+  {
+    kicker: 'EQUIPOS Y ORGANIZACIONES',
+    title: 'Prevenir, ordenar y documentar mejor',
+    text: 'Para equipos técnicos y legales que requieren criterios comunes, trazabilidad documental, capacitación o revisión independiente de decisiones y expedientes.',
+  },
+  {
     kicker: 'PROFESIONALES',
-    title: 'Decisiones con mejor sustento',
-    text: 'Para abogados, auditores y especialistas que necesitan una segunda lectura, ordenar fuentes o poner a prueba una conclusión antes de cerrarla.',
-  },
-  {
-    kicker: 'EQUIPOS',
-    title: 'Criterio común y trazabilidad',
-    text: 'Para equipos técnicos y legales que requieren una metodología compartida para revisar expedientes, evidencia, temporalidad y motivación.',
-  },
-  {
-    kicker: 'ORGANIZACIONES',
-    title: 'Capacitación y análisis especializado',
-    text: 'Para organizaciones que requieren formación, revisión jurídica o soporte metodológico en materias de control y gestión pública, sujeto a las reglas aplicables.',
+    title: 'Segunda lectura para casos complejos',
+    text: 'Para abogados, auditores y especialistas que necesitan contrastar una hipótesis, reconstruir la temporalidad o poner a prueba el sustento antes de cerrar una posición.',
   },
 ];
 
@@ -69,14 +69,14 @@ export default function ServiciosPage() {
         <div className="servicesEditorialHeroInner">
           <div>
             <div className="eyebrow">LEXGUB PERÚ · ASESORÍA Y CONSULTORÍA</div>
-            <h1>Especialización jurídica para decisiones que deben poder explicarse y verificarse.</h1>
+            <h1>Cuando llega el control, entender el problema cambia la calidad de la respuesta.</h1>
             <p>
-              LexGub combina práctica jurídica, metodología probatoria y fuentes oficiales para revisar problemas complejos de control gubernamental,
-              auditoría, contrataciones públicas, derecho administrativo y gestión pública.
+              LexGub brinda asesoría y consultoría especializada para autoridades, gestores públicos, equipos y profesionales que
+              deben responder requerimientos, comprender auditorías o informes de control, revisar contrataciones o analizar posibles responsabilidades.
             </p>
             <div className="heroActions">
-              <a className="primaryButton" href="mailto:lexgub.peru@gmail.com">Plantear una consulta</a>
-              <a className="secondaryButton" href="/lexgub">Conocer LexGub</a>
+              <a className="primaryButton" href="mailto:lexgub.peru@gmail.com?subject=Consulta%20profesional%20LexGub">Plantear una consulta</a>
+              <a className="secondaryButton" href="/autoridades">Guía para autoridades</a>
             </div>
           </div>
           <AuthorCard compact />
@@ -87,11 +87,11 @@ export default function ServiciosPage() {
         <div className="professionalIntro">
           <div>
             <span className="sectionKicker">PARA QUIÉN</span>
-            <h2>El servicio empieza por entender la decisión que necesitas sustentar.</h2>
+            <h2>La asesoría empieza por identificar la actuación y la decisión que debe sustentarse.</h2>
           </div>
           <p>
-            No todos los problemas requieren un informe extenso. Algunos necesitan una segunda lectura, otros una reconstrucción temporal,
-            una matriz de evidencia, una ruta normativa o una capacitación focalizada. El alcance se define según el problema real.
+            No todos los casos requieren el mismo producto. A veces la necesidad es ordenar una respuesta a un OCI; otras, entender una
+            desviación, reconstruir qué norma regía, revisar un expediente contractual o someter una conclusión a una segunda lectura crítica.
           </p>
         </div>
 
@@ -108,11 +108,11 @@ export default function ServiciosPage() {
         <div className="professionalIntro">
           <div>
             <span className="sectionKicker">ÁREAS DE SERVICIO</span>
-            <h2>Servicios construidos sobre evidencia, fuente oficial y criterio jurídico.</h2>
+            <h2>Del requerimiento a la evidencia: servicios para problemas concretos.</h2>
           </div>
           <p>
-            El enfoque no consiste en confirmar una hipótesis previamente asumida. Cada caso se reconstruye desde los hechos,
-            la evidencia disponible, el régimen temporal aplicable y los argumentos que puedan sostener —o debilitar— una conclusión.
+            El enfoque no consiste en confirmar una versión previamente asumida. Cada asunto se reconstruye desde los hechos, la documentación,
+            el régimen temporal aplicable y los argumentos que puedan sostener —o debilitar— una conclusión.
           </p>
         </div>
 
@@ -148,22 +148,22 @@ export default function ServiciosPage() {
           </div>
           <p>
             Entregamos análisis que muestra qué está acreditado, qué norma corresponde, dónde existe incertidumbre y qué debe verificarse antes de decidir.
-            Esa transparencia es parte del servicio y también una protección frente a conclusiones apresuradas.
+            La asesoría no garantiza resultados ni sustituye las competencias de los órganos de control o de las autoridades que deban resolver.
           </p>
         </section>
 
         <div className="professionalCta">
           <p>
-            Para consultas profesionales, propuestas de capacitación, revisión de documentos o colaboración académica y editorial,
-            puede escribirse directamente a LexGub Perú.
+            Si recibió un requerimiento, una comunicación de desviación, un informe de control o necesita revisar un expediente antes de adoptar una decisión,
+            puede plantear el caso inicialmente de forma general para evaluar el alcance posible de la asesoría.
           </p>
-          <a className="primaryButton" href="mailto:lexgub.peru@gmail.com">Contactar</a>
+          <a className="primaryButton" href="mailto:lexgub.peru@gmail.com?subject=Consulta%20profesional%20LexGub">Solicitar contacto</a>
         </div>
 
         <p className="ethicsNote">
           LexGub Perú es una iniciativa jurídica privada e independiente. La aceptación de cualquier encargo profesional queda sujeta a la
           normativa de incompatibilidades, impedimentos, deberes éticos, confidencialidad y conflictos de interés aplicables a los profesionales involucrados.
-          LexGub no utiliza ni solicita información reservada o no pública para alimentar su plataforma abierta.
+          LexGub no orienta a ocultar información, alterar documentos, retrasar actuaciones u obstruir el control, ni utiliza información reservada o no pública para alimentar su plataforma abierta.
         </p>
       </section>
     </>
