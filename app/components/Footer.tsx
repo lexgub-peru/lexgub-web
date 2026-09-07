@@ -21,7 +21,6 @@ const columns = [
       ['Radar normativo', '/radar'],
       ['Criterios LexGub', '/criterios'],
       ['Píldoras LexGub', '/pildoras'],
-      ['Radar normativo', '/radar'],
       ['Columna LexGub', '/columna'],
     ],
   },
