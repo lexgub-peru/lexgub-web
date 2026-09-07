@@ -6,7 +6,6 @@ import {
   IconChecklist,
   IconClock,
   IconContract,
-  IconDocument,
   IconEvidence,
   IconLandmark,
   IconScale,
@@ -59,7 +58,7 @@ const servicios = [
 ];
 
 const razonamiento = [
-  ['Evidencia suficiente y apropiada', 'Suficiencia es cantidad; apropiación es pertinencia y fiabilidad. No son intercambiables.'],
+  ['Evidencia suficiente y apropiada', 'La suficiencia se refiere a la cantidad de evidencia; su carácter apropiado, a la calidad, pertinencia y fiabilidad.'],
   ['Hecho acreditado', 'Afirmación respaldada por evidencia identificada, contrastada y valorada.'],
   ['Indicio', 'Dato que permite una hipótesis razonable, pero que por sí solo no acredita el hecho final.'],
   ['Inferencia', 'Conclusión razonada a partir de hechos o indicios. Debe explicitarse, no presentarse como dato directo.'],
