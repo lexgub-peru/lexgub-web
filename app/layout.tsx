@@ -33,11 +33,15 @@ export const metadata: Metadata = {
   keywords: [
     'control gubernamental Perú',
     'asesoría control gubernamental',
-    'consultoría derecho público',
+    'consultoría derecho público Perú',
+    'OCI',
     'Contraloría General de la República',
+    'informe de control',
     'auditoría de cumplimiento',
-    'acción de oficio posterior',
+    'Servicio de Control Específico SCE',
+    'acción de oficio posterior AOP',
     'control simultáneo',
+    'responsabilidad administrativa funcional',
     'contrataciones públicas',
     'derecho administrativo',
     'gestión pública',
@@ -71,7 +75,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#111824',
+  themeColor: '#071B2D',
 };
 
 const websiteJsonLd = {
