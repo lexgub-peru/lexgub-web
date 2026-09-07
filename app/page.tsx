@@ -84,6 +84,112 @@ const fuentes: [string, string][] = [
 export default function Home() {
   return (
     <>
+      <style>{`
+        @media (max-width: 640px) {
+          .navbar {
+            min-height: 64px;
+            padding: 9px 14px;
+          }
+
+          .lgBrand--compact {
+            gap: 8px;
+          }
+
+          .lgBrand--compact .lgBrandMark {
+            width: 34px;
+            height: 34px;
+            flex-basis: 34px;
+          }
+
+          .lgBrand--compact .lgBrandName {
+            font-size: 1.02rem;
+            letter-spacing: .085em;
+          }
+
+          .lgBrand--compact .lgBrandCountry {
+            font-size: .72rem;
+            letter-spacing: .12em;
+          }
+
+          .v5Hero {
+            background:
+              radial-gradient(circle at 88% 4%, rgba(200, 163, 93, .15), transparent 30%),
+              radial-gradient(circle at 12% 94%, rgba(116, 23, 43, .14), transparent 34%),
+              linear-gradient(145deg, #04121f 0%, #071b2d 58%, #0b2b45 100%);
+          }
+
+          .v5HeroInner {
+            padding: 36px 22px 32px;
+          }
+
+          .v5HeroKicker {
+            margin-bottom: 10px;
+            font-size: .62rem;
+            line-height: 1.45;
+            letter-spacing: .16em;
+          }
+
+          .v5Hero h1 {
+            margin-bottom: 16px;
+            font-size: clamp(2rem, 9vw, 2.34rem);
+            line-height: 1.035;
+            letter-spacing: -.03em;
+          }
+
+          .v5HeroDek {
+            max-width: 100%;
+            margin-bottom: 22px;
+            font-size: .98rem;
+            line-height: 1.58;
+            color: #d2dce5;
+          }
+
+          .v5Search {
+            padding: 10px;
+            gap: 8px;
+            border-radius: 14px;
+            box-shadow: 0 16px 34px rgba(2, 13, 23, .26);
+          }
+
+          .v5Search input {
+            min-height: 44px;
+            padding: 6px 7px;
+            font-size: .95rem;
+          }
+
+          .v5Search button {
+            min-height: 48px;
+            border-radius: 9px;
+          }
+
+          .v5Frecuentes {
+            margin-top: 18px;
+            gap: 7px 6px;
+            align-items: center;
+          }
+
+          .v5Frecuentes > span {
+            flex-basis: 100%;
+            margin-bottom: 1px;
+          }
+
+          .v5Frecuentes a {
+            padding: 5px 8px;
+            border: 1px solid rgba(224, 197, 132, .24);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: .75rem;
+            line-height: 1.2;
+          }
+        }
+
+        @media (max-width: 430px) {
+          .v5Hero h1 {
+            font-size: 2.04rem;
+          }
+        }
+      `}</style>
+
       <section className="v5Hero">
         <div className="v5HeroInner">
           <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
@@ -91,9 +197,9 @@ export default function Home() {
             Conocimiento jurídico y asesoría estratégica para <em>decidir con criterio.</em>
           </h1>
           <p className="v5HeroDek">
-            En LexGub Perú ayudamos a auditores, autoridades y gestores públicos a trabajar con normas, evidencia,
-            informes y fuentes oficiales para tomar decisiones mejor sustentadas y responder adecuadamente frente a los
-            desafíos del control gubernamental.
+            LexGub Perú reúne conocimiento jurídico, herramientas y asesoría especializada para auditores, autoridades y
+            gestores públicos que necesitan interpretar normas, atender requerimientos y tomar decisiones sustentadas
+            frente al control gubernamental.
           </p>
 
           <form className="v5Search" action="/buscar" method="get" role="search">
@@ -103,7 +209,7 @@ export default function Home() {
               id="hero-q"
               name="q"
               type="search"
-              placeholder="Buscar norma, criterio, resolución, precedente o tema…"
+              placeholder="Buscar norma, resolución, criterio o tema…"
               autoComplete="off"
             />
             <button type="submit">Buscar</button>
