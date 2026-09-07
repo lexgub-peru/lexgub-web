@@ -1,0 +1,269 @@
+/*
+ * LEXGUB PERÚ — Design System V4
+ * Aprendizajes aplicados de plataformas jurídicas, firmas y legal intelligence:
+ * - propuesta de valor por resultado
+ * - confianza mediante fuentes verificables
+ * - actualidad curada y recursos prácticos
+ * - servicios especializados sin perder la identidad editorial
+ *
+ * Mantiene la identidad LexGub: navy + ivory + gold + wine.
+ */
+
+/* Hero: empresa + plataforma, sin convertir la portada en una landing comercial genérica. */
+.editorialHomeCopy > p {
+  max-width: 760px;
+}
+
+.heroServiceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  color: #e9d5a6;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.heroServiceLink:hover { color: #fff2d6; }
+
+/* Banda de autoridad: nombres de fuentes, nunca logos ni apariencia de patrocinio. */
+.homeAuthorityBand {
+  display: grid;
+  grid-template-columns: minmax(170px, .7fr) minmax(0, 2.3fr);
+  gap: 22px;
+  align-items: center;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 18px clamp(20px, 6vw, 84px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 250, .72);
+}
+.homeAuthorityLead span {
+  display: block;
+  color: var(--wine);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.homeAuthorityLead strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--navy);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+}
+.homeAuthoritySources {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.homeAuthoritySources a,
+.homeAuthoritySources span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: #465563;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.homeAuthoritySources a:hover {
+  border-color: var(--wine-line);
+  background: var(--wine-soft);
+  color: var(--wine);
+}
+.homeAuthoritySources .authorityNote {
+  border-style: dashed;
+  color: #7a858e;
+  font-weight: 500;
+}
+
+/* Radar: actualidad jurídica curada, no un feed de noticias indiscriminado. */
+.homeRadar {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: clamp(58px, 7vw, 92px) clamp(20px, 7vw, 100px);
+}
+.homeRadarHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: end;
+  margin-bottom: 26px;
+}
+.homeRadarHeader span {
+  color: var(--wine);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.homeRadarHeader h2 {
+  max-width: 760px;
+  margin: 8px 0 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.02;
+}
+.homeRadarHeader p {
+  margin: 0;
+  color: var(--muted);
+}
+.homeRadarGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 14px;
+}
+.homeRadarCard {
+  position: relative;
+  min-height: 300px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgba(8, 22, 35, .045);
+  overflow: hidden;
+}
+.homeRadarCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--wine), var(--gold));
+  opacity: .76;
+}
+.homeRadarCard.featured {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(111, 36, 50, .18), transparent 32%),
+    linear-gradient(145deg, #fffdfa 0%, #f8f2ed 100%);
+}
+.homeRadarMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.homeRadarMeta span {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--wine-soft);
+  color: var(--wine);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.homeRadarCard h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.08;
+}
+.homeRadarCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.homeRadarCard a {
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--wine);
+  font-size: .8rem;
+  font-weight: 800;
+}
+.homeRadarCard a:hover { color: var(--wine-bright); }
+
+/* La base jurídica se presenta como capacidades, no solo como categorías. */
+.homeLibrarySection .sectionHeading > p {
+  max-width: 470px;
+}
+.areaCard h3 { text-wrap: balance; }
+
+/* Servicios: productizar el conocimiento sin prometer resultados. */
+.servicesAudience {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 42px;
+}
+.servicesAudience article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.servicesAudience article > span {
+  display: inline-flex;
+  color: var(--wine);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.servicesAudience h3 { margin: 10px 0 8px; font-size: 1.08rem; }
+.servicesAudience p { margin: 0; color: var(--muted); font-size: .84rem; }
+
+.professionalCard .serviceDeliverables {
+  display: block;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  color: #5f6d78;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+.professionalCard .serviceDeliverables strong {
+  color: var(--navy);
+}
+
+.servicesPromiseBand {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: clamp(26px, 5vw, 64px);
+  align-items: center;
+  margin: 46px 0 0;
+  padding: 28px clamp(22px, 4vw, 42px);
+  border: 1px solid rgba(111, 36, 50, .15);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 96% 10%, rgba(111, 36, 50, .08), transparent 28%),
+    var(--surface-soft);
+}
+.servicesPromiseBand span {
+  color: var(--wine);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.servicesPromiseBand h2 { margin: 8px 0 0; font-size: clamp(1.7rem, 3vw, 2.45rem); }
+.servicesPromiseBand p { margin: 0; color: var(--muted); }
+
+@media (max-width: 980px) {
+  .homeRadarHeader,
+  .servicesPromiseBand { grid-template-columns: 1fr; }
+  .homeRadarGrid { grid-template-columns: 1fr 1fr; }
+  .homeRadarCard:first-child { grid-column: 1 / -1; }
+  .servicesAudience { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .homeAuthorityBand { grid-template-columns: 1fr; }
+  .homeAuthoritySources { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; scrollbar-width: none; }
+  .homeAuthoritySources::-webkit-scrollbar { display: none; }
+  .homeAuthoritySources a,
+  .homeAuthoritySources span { flex: 0 0 auto; }
+  .homeRadar { padding-top: 48px; padding-bottom: 52px; }
+  .homeRadarGrid { grid-template-columns: 1fr; }
+  .homeRadarCard:first-child { grid-column: auto; }
+  .homeRadarCard { min-height: 280px; }
+}
