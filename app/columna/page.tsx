@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 export const metadata = {
   title: 'Columna LexGub',
-  description: 'Análisis, debate normativo, actualidad, jurisprudencia comentada y pastillas de control gubernamental peruano.',
+  description: 'Análisis, debate normativo y actualidad para auditores, autoridades y gestores públicos, con fuente oficial y enfoque en control gubernamental.',
 };
 
 const topics = [
@@ -17,17 +19,21 @@ export default function ColumnaPage() {
         <div className="columnEditorialHeroInner">
           <div>
             <div className="eyebrow">COLUMNA LEXGUB</div>
-            <h1>Ideas, debate normativo y actualidad para pensar mejor el control.</h1>
+            <h1>Ideas, debate normativo y actualidad para decidir mejor.</h1>
             <p>
-              Un espacio editorial independiente para analizar cambios normativos, jurisprudencia, decisiones públicas y problemas
-              reales de control gubernamental sin reducirlos a titulares.
+              Análisis independiente para auditores, autoridades y gestores públicos. Cada nota busca separar el dato de la inferencia,
+              explicar el alcance real de la norma y ofrecer una ruta de verificación en fuente oficial.
             </p>
+            <div className="heroActions">
+              <Link className="primaryButton" href="/auditores">Contenido para auditores</Link>
+              <Link className="secondaryButton" href="/autoridades">Contenido para autoridades</Link>
+            </div>
           </div>
           <div className="columnEditorialSignature">
-            <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
+            <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="800" />
             <div>
               <strong>Marvyn Enrique Gallo Rojas</strong>
-              <span>Abogado · Autor de LexGub</span>
+              <span>Abogado · Fundador de LexGub Perú</span>
             </div>
           </div>
         </div>
@@ -36,7 +42,7 @@ export default function ColumnaPage() {
       <div className="columnLanding editorialColumnLanding">
         <a className="editorialFeaturedStory" href="/columna/oxi-informe-previo-el-nino-2026">
           <div className="editorialFeaturedStoryCopy">
-            <span>ACTUALIDAD NORMATIVA · 06 SEPTIEMBRE 2026</span>
+            <span>ACTUALIDAD NORMATIVA · PARA AMBAS AUDIENCIAS · 06 SEPTIEMBRE 2026</span>
             <h2>Excepción al informe previo en Obras por Impuestos: rapidez, control y riesgos.</h2>
             <p>
               El Decreto de Urgencia N.° 010-2026 introduce una excepción temporal para determinadas intervenciones ejecutadas mediante

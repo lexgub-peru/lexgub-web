@@ -5,10 +5,13 @@ import { siteConfig } from './lib/site';
 
 const staticRoutes = [
   '/',
+  '/auditores',
+  '/autoridades',
   '/lexgub',
   '/control-gubernamental',
   '/normativa',
   '/jurisprudencia',
+  '/radar',
   '/fuentes',
   '/tribunales',
   '/criterios',
@@ -18,13 +21,14 @@ const staticRoutes = [
   '/herramientas',
   '/herramientas/selector-servicio',
   '/glosario',
+  '/pildoras',
   '/asistente',
   '/servicios',
   '/contacto',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updatedAt = new Date('2026-09-06T00:00:00-05:00');
+  const updatedAt = new Date('2026-09-07T00:00:00-05:00');
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route, index) => ({
     url: `${siteConfig.url}${route}`,
@@ -32,17 +36,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency:
       index === 0
         ? 'daily'
-        : route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia'].includes(route)
+        : route === '/radar' || route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia'].includes(route)
           ? 'weekly'
           : 'monthly',
     priority:
       route === '/'
         ? 1
-        : ['/lexgub', '/normativa', '/jurisprudencia', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
-          ? 0.9
-          : route === '/asistente' || route === '/herramientas/selector-servicio'
-            ? 0.75
-            : 0.7,
+        : ['/auditores', '/autoridades'].includes(route)
+          ? 0.95
+          : ['/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
+            ? 0.9
+            : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio'
+              ? 0.75
+              : 0.7,
   }));
 
   const normativeEntries: MetadataRoute.Sitemap = normas

@@ -3,34 +3,42 @@ import LexGubBrand from './Brand';
 
 const columns = [
   {
-    heading: 'Explorar',
+    heading: 'Rutas',
     links: [
-      ['Control Gubernamental', '/control-gubernamental'],
-      ['Biblioteca Jurídica', '/normativa'],
-      ['Jurisprudencia LexGub', '/jurisprudencia'],
-      ['Criterios LexGub', '/criterios'],
-      ['Columna LexGub', '/columna'],
+      ['Para auditores', '/auditores'],
+      ['Para autoridades y gestores', '/autoridades'],
+      ['Control gubernamental', '/control-gubernamental'],
+      ['Asesoría y consultoría', '/servicios'],
+      ['Contacto', '/contacto'],
     ],
   },
   {
-    heading: 'LexGub',
+    heading: 'Conocimiento',
     links: [
-      ['Quiénes somos', '/lexgub'],
-      ['Misión, visión e historia', '/lexgub'],
-      ['Fundador', '/lexgub'],
-      ['Asesoría y consultoría', '/servicios'],
-      ['Contacto', '/contacto'],
+      ['Biblioteca jurídica', '/normativa'],
+      ['Jurisprudencia LexGub', '/jurisprudencia'],
+      ['Radar normativo', '/radar'],
+      ['Criterios LexGub', '/criterios'],
+      ['Píldoras LexGub', '/pildoras'],
+      ['Columna LexGub', '/columna'],
     ],
   },
   {
     heading: 'Recursos',
     links: [
       ['Asistente LexGub · Beta', '/asistente'],
-      ['Tribunales administrativos', '/tribunales'],
-      ['Fuentes oficiales', '/fuentes'],
-      ['Guías prácticas', '/guias'],
       ['Herramientas', '/herramientas'],
+      ['Guías prácticas', '/guias'],
       ['Glosario', '/glosario'],
+      ['Tribunales y precedentes', '/tribunales'],
+      ['Fuentes oficiales', '/fuentes'],
+    ],
+  },
+  {
+    heading: 'LexGub',
+    links: [
+      ['Quiénes somos', '/lexgub'],
+      ['Fundador', '/lexgub'],
     ],
   },
 ];

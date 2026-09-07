@@ -177,10 +177,10 @@ export default function LexGubPage() {
       <section className={styles.founderSection}>
         <div className={styles.portraitWrap}>
           <img
-            src="/marvyn-gallo-author.webp"
+            src="/marvyn-gallo-retrato.webp"
             alt="Marvyn Enrique Gallo Rojas, fundador de LexGub Perú"
-            width="560"
-            height="700"
+            width="640"
+            height="800"
           />
         </div>
         <div className={styles.founderCopy}>

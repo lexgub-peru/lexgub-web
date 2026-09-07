@@ -318,10 +318,12 @@
 .independence p { margin: 0; color: var(--muted); }
 
 @media (max-width: 980px) {
+  /* minmax(0, 1fr): sin el mínimo explícito la pista no baja del min-content
+     de sus hijos y desborda en pantallas estrechas. */
   .hero,
   .sectionHeading,
   .founderSection,
-  .independence { grid-template-columns: 1fr; }
+  .independence { grid-template-columns: minmax(0, 1fr); }
   .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .valuesGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .valuesGrid article:last-child { grid-column: 1 / -1; }

@@ -35,10 +35,10 @@ export default function ArticlePage() {
               <span>Lectura: 6 min</span>
             </div>
             <div className="articleMobileAuthor" aria-label="Autor del artículo">
-              <img src="/marvyn-gallo-author.webp" alt="Marvyn Enrique Gallo Rojas" width="560" height="700" />
+              <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="800" />
               <div>
                 <strong>Marvyn Enrique Gallo Rojas</strong>
-                <span>Abogado · Control gubernamental y auditoría</span>
+                <span>Abogado · Fundador de LexGub Perú</span>
               </div>
             </div>
           </header>
