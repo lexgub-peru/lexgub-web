@@ -1,108 +1,69 @@
 /**
- * LEXGUB PERÚ — sistema de marca V5.
+ * LEXGUB PERÚ — sistema de marca.
  *
- * Tres variantes funcionales:
- *   <LexGubIsotipo />              solo el gallo
- *   <LexGubBrand />                lockup horizontal: gallo + LEXGUB | PERÚ
- *   <LexGubBrand compact />        versión reducida para barra y pie
+ * Decisión de diseño: el logotipo es tipográfico. Se descartó el isotipo
+ * figurativo del gallo porque ningún gesto (cresta, perfil, pluma) sobrevivía
+ * la prueba de 16–20 px sin volverse ilustración; a tamaño de cabecera leía
+ * como un dibujo, no como una marca.
  *
- * El isotipo evita una representación literal del ave: combina barridos curvos
- * de cola en oro con una silueta compacta de cuello/cabeza. La cresta vino es
- * el único acento cálido. El resultado debe leerse como marca, no como dibujo.
+ * Las letras van como trazados, no como <text>, para que el logotipo se vea
+ * idéntico aunque la tipografía no esté disponible (un PDF, LinkedIn, una
+ * tarjeta) y para que no baile mientras la fuente carga.
+ *
+ * Variantes:
+ *   <LexGubWordmark />   LEXGUB | PERÚ — la marca principal
+ *   <LexGubMarca />      monograma LG en caja — favicon, avatar, usos mínimos
+ *   <LexGubBrand />      lockup: wordmark + bajada institucional opcional
+ *
+ * Color: «LEXGUB» hereda `currentColor` y «PERÚ» toma `--brand-peru`, de modo
+ * que un mismo SVG sirve sobre fondo claro y sobre fondo oscuro.
  */
+
+/** Proporción ancho/alto del wordmark, incluido el aire del acento de la Ú. */
+export const WORDMARK_RATIO = 8.1972;
 
 type Tone = 'dark' | 'light';
 
-const CUERPO: Record<Tone, string> = {
-  light: '#0B2137',
-  dark: '#F4F1E8',
-};
-
-export function LexGubIsotipo({ className = '', tone = 'light' }: { className?: string; tone?: Tone }) {
-  const body = CUERPO[tone];
-
+export function LexGubWordmark({ className = '' }: { className?: string }) {
   return (
     <svg
-      className={className}
-      viewBox="0 0 72 72"
+      className={`lgWordmark ${className}`.trim()}
+      viewBox="0 -130.0 1180.4 144.0"
       role="img"
-      aria-label="Isotipo LexGub Perú"
+      aria-label="LEXGUB PERÚ"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Cola: tres barridos ascendentes, inspirados en una pluma y no en un ave literal. */}
-      <path
-        d="M10 52C16 31 29 17 50 13C39 20 31 31 28 44C26 52 20 58 12 61"
-        fill="none"
-        stroke="#C8A35D"
-        strokeWidth="6.4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M15 54C21 36 31 25 46 21C37 28 32 37 31 47C30 53 27 58 22 62"
-        fill="none"
-        stroke="#E0C584"
-        strokeWidth="3.8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M20 55C24 43 31 35 40 31C35 37 33 43 34 50C34 55 32 59 29 62"
-        fill="none"
-        stroke="#8A6526"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-      />
+      <g fill="currentColor"><g transform="translate(0.0 0.0) scale(0.15215)"><path d="M32 0V-65L163 -72H178V0ZM111 0Q112 -50 112 -100Q112 -150 112 -198Q112 -246 112 -291V-357Q112 -407 112 -457Q112 -508 112 -558Q112 -608 111 -657H290Q290 -608 290 -558Q289 -508 289 -458Q289 -408 289 -357V-293Q289 -247 289 -198Q289 -150 290 -100Q290 -51 290 0ZM210 0V-65H509L470 -28L507 -205H586L577 0ZM32 -593V-657H381V-593L241 -585H163Z M740 0V-65L872 -72H888V0ZM820 0Q821 -50 821 -100Q821 -150 821 -200Q821 -251 821 -301V-357Q821 -406 821 -457Q821 -507 821 -558Q821 -608 820 -657H999Q999 -608 999 -558Q998 -508 998 -458Q998 -407 998 -357V-304Q998 -253 998 -202Q998 -151 999 -101Q999 -50 999 0ZM919 0V-64H1229L1191 -26L1223 -178H1304L1296 0ZM908 -304V-371H1140V-304ZM1118 -230 1103 -327V-351L1118 -445H1185V-230ZM740 -593V-657H888V-585H872ZM1203 -485 1171 -631 1212 -593H919V-657H1276L1284 -485Z M1445 0V-65L1553 -69H1576L1675 -65V0ZM1474 0 1715 -351 1773 -309H1737L1702 -229L1560 0ZM1770 0V-65L1899 -72H1977L2111 -65V0ZM1826 -323 1772 -377H1812L1846 -456L1967 -657H2053ZM1888 0 1477 -657H1670L2080 0ZM1448 -593V-657H1778V-593L1651 -585H1570ZM1855 -593V-657H2081V-593L1980 -590H1950Z M2620 16Q2541 16 2474 -5Q2408 -26 2358 -69Q2308 -112 2282 -176Q2255 -240 2255 -326Q2255 -411 2283 -476Q2310 -542 2360 -586Q2410 -630 2479 -652Q2548 -675 2630 -675Q2673 -675 2712 -669Q2751 -663 2784 -652Q2817 -642 2842 -629L2847 -472H2768L2727 -624L2800 -617V-558Q2766 -584 2729 -597Q2693 -609 2652 -609Q2593 -609 2545 -579Q2497 -548 2468 -487Q2439 -425 2439 -331Q2439 -236 2467 -173Q2494 -111 2542 -80Q2589 -49 2649 -49Q2687 -49 2714 -59Q2742 -69 2771 -87L2694 -16V-87Q2694 -146 2694 -205Q2694 -264 2693 -325H2863Q2862 -266 2862 -205Q2861 -145 2861 -85V-39Q2813 -13 2754 2Q2695 16 2620 16ZM2601 -261V-325H2918V-261L2808 -253H2731Z M3414 16Q3334 16 3273 -10Q3212 -37 3178 -96Q3143 -155 3143 -249V-361Q3143 -411 3143 -460Q3143 -509 3143 -559Q3143 -609 3142 -657H3321Q3320 -609 3320 -560Q3319 -510 3319 -461Q3319 -412 3319 -361V-269Q3319 -196 3336 -153Q3353 -110 3386 -89Q3419 -69 3466 -69Q3513 -69 3546 -90Q3578 -110 3596 -154Q3614 -199 3614 -270V-657H3686V-268Q3686 -172 3654 -108Q3623 -45 3562 -14Q3501 16 3414 16ZM3066 -593V-657H3407V-593L3268 -585H3200ZM3523 -593V-657H3770V-593L3663 -589H3636Z M3920 0V-65L4049 -72H4065V0ZM4000 0Q4000 -51 4000 -101Q4000 -152 4000 -202Q4000 -253 4000 -303V-355Q4000 -406 4000 -456Q4000 -506 4000 -557Q4000 -608 4000 -657H4177Q4177 -608 4177 -558Q4176 -508 4176 -457Q4176 -406 4176 -355V-306Q4176 -254 4176 -203Q4176 -152 4177 -102Q4177 -51 4177 0ZM4114 0V-66H4214Q4290 -66 4327 -97Q4365 -128 4365 -188Q4365 -250 4329 -281Q4293 -312 4217 -312H4105V-373H4211Q4253 -373 4280 -386Q4308 -400 4321 -425Q4334 -450 4334 -486Q4334 -521 4321 -545Q4309 -569 4283 -581Q4258 -593 4218 -593H4114V-657H4245Q4334 -657 4392 -638Q4450 -620 4479 -586Q4507 -552 4507 -504Q4507 -461 4484 -429Q4460 -397 4413 -378Q4365 -358 4291 -353V-346Q4377 -344 4433 -326Q4489 -307 4517 -273Q4545 -239 4545 -187Q4545 -149 4527 -115Q4510 -81 4472 -55Q4435 -29 4374 -15Q4312 0 4223 0ZM3920 -593V-657H4065V-585H4049Z"/></g></g><rect x="738.2" y="-104.0" width="3.0" height="110.0" fill="#C8A35D" opacity=".82"/><g fill="var(--brand-peru, #C8A35D)"><g transform="translate(783.2 0.0) scale(0.12172)"><path d="M35 0V-59L170 -66H221L364 -59V0ZM124 0Q125 -51 125 -102Q125 -153 125 -204Q125 -255 125 -306V-359Q125 -410 125 -460Q125 -511 125 -563Q125 -614 124 -664H263Q263 -614 263 -563Q262 -512 262 -461Q262 -410 262 -359V-292Q262 -246 262 -198Q262 -151 263 -101Q263 -51 263 0ZM203 -256V-314H307Q366 -314 402 -332Q438 -350 455 -384Q472 -417 472 -463Q472 -535 433 -570Q395 -605 311 -605H211V-664H320Q418 -664 482 -640Q545 -616 577 -572Q608 -527 608 -465Q608 -405 577 -358Q546 -310 480 -283Q414 -256 308 -256ZM35 -606V-664H176V-598H162Z M848 0V-59L981 -66H995V0ZM938 0Q938 -51 938 -102Q938 -153 938 -204Q938 -255 938 -306V-359Q938 -409 938 -460Q938 -511 938 -563Q938 -614 938 -664H1076Q1076 -614 1076 -563Q1075 -512 1075 -461Q1075 -410 1075 -359V-311Q1075 -258 1075 -206Q1075 -154 1076 -102Q1076 -51 1076 0ZM1010 0V-60H1345L1305 -24L1338 -182H1408L1400 0ZM1007 -310V-370H1243V-310ZM1220 -227 1203 -330V-354L1220 -453H1279V-227ZM848 -606V-664H995V-598H981ZM1318 -488 1285 -640 1326 -604H1010V-664H1380L1388 -488Z M1657 0V-59L1792 -66H1839L1973 -59V0ZM1746 0Q1747 -52 1747 -102Q1747 -153 1747 -204Q1747 -256 1747 -306V-359Q1747 -409 1747 -460Q1747 -511 1747 -562Q1747 -614 1746 -664H1884Q1884 -613 1884 -561Q1883 -509 1883 -457Q1883 -404 1883 -348V-313Q1883 -260 1883 -207Q1883 -155 1884 -103Q1884 -52 1884 0ZM2219 11Q2160 11 2128 -11Q2096 -32 2085 -83L2056 -207Q2048 -245 2034 -266Q2020 -287 1998 -295Q1977 -303 1942 -303H1819V-359H1951Q2002 -359 2034 -376Q2067 -392 2082 -421Q2097 -450 2097 -487Q2097 -547 2062 -576Q2027 -605 1956 -605H1833V-664H1973Q2100 -664 2167 -620Q2235 -575 2235 -496Q2235 -450 2208 -416Q2182 -381 2132 -361Q2082 -341 2012 -338V-331Q2056 -331 2087 -323Q2118 -316 2138 -300Q2159 -284 2173 -258Q2187 -232 2196 -193L2238 -27L2178 -69L2315 -57V0Q2300 2 2286 5Q2271 7 2255 9Q2238 11 2219 11ZM1657 -606V-664H1798V-598H1784Z M2886 16Q2807 16 2747 -12Q2688 -40 2655 -99Q2622 -158 2622 -249V-361Q2622 -412 2622 -462Q2622 -512 2622 -563Q2622 -614 2621 -664H2760Q2759 -614 2758 -564Q2758 -513 2758 -463Q2758 -413 2758 -361V-271Q2758 -195 2777 -148Q2796 -102 2832 -81Q2868 -60 2918 -60Q2971 -60 3007 -82Q3043 -104 3062 -152Q3082 -199 3082 -276V-664H3147V-267Q3147 -171 3115 -108Q3084 -46 3026 -15Q2967 16 2886 16ZM2536 -606V-664H2856V-606L2723 -598H2665ZM2982 -606V-664H3236V-606L3126 -601H3098ZM2837 -746Q2862 -771 2888 -795Q2914 -820 2939 -843Q2960 -863 2975 -872Q2990 -880 3008 -880Q3028 -880 3042 -867Q3054 -855 3054 -836Q3054 -819 3043 -805Q3031 -790 3002 -775Q2967 -758 2933 -742Q2899 -725 2866 -708Z"/></g></g>
+    </svg>
+  );
+}
 
-      {/* Cuello/cabeza: una sola masa limpia, sin patas ni detalles figurativos. */}
-      <path
-        fill={body}
-        d="M29 59C26 51 26 42 28 34C30 25 36 18 44 16C50 14 57 16 61 21C55 19 50 21 47 25C42 31 41 39 45 46C47 50 50 53 54 55C46 53 38 54 29 59Z"
-      />
-
-      {/* Pico mínimo. */}
-      <path fill="#C8A35D" d="M57 23L69 27L57 30Z" />
-
-      {/* Cresta: tres pétalos geométricos. */}
-      <path fill="#74172B" d="M43 15C41 11 42 7 45 5C47 8 47 12 46 15Z" />
-      <path fill="#74172B" d="M47 15C46 10 49 6 52 5C53 9 51 13 50 16Z" />
-      <path fill="#74172B" d="M51 16C52 11 56 9 59 10C58 14 55 16 51 18Z" />
-
-      {/* Ojo discreto para conservar reconocimiento a tamaños medianos. */}
-      <circle cx="53.5" cy="22.5" r="1.4" fill={tone === 'dark' ? '#0B2137' : '#F8F5EE'} />
+export function LexGubMarca({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={`lgMarca ${className}`.trim()}
+      viewBox="0 0 100 100"
+      role="img"
+      aria-label="LEXGUB PERÚ"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100" height="100" rx="21.0" fill="#071B2D"/><rect x="6.5" y="6.5" width="87.0" height="87.0" rx="14.5" fill="none" stroke="#C8A35D" stroke-width="2" opacity=".85"/><g fill="#F8F5EE"><g transform="translate(2.0 72.8) scale(0.06923)"><path d="M32 0V-65L163 -72H178V0ZM111 0Q112 -50 112 -100Q112 -150 112 -198Q112 -246 112 -291V-357Q112 -407 112 -457Q112 -508 112 -558Q112 -608 111 -657H290Q290 -608 290 -558Q289 -508 289 -458Q289 -408 289 -357V-293Q289 -247 289 -198Q289 -150 290 -100Q290 -51 290 0ZM210 0V-65H509L470 -28L507 -205H586L577 0ZM32 -593V-657H381V-593L241 -585H163Z M1064 16Q985 16 918 -5Q852 -26 802 -69Q752 -112 726 -176Q699 -240 699 -326Q699 -411 727 -476Q754 -542 804 -586Q854 -630 923 -652Q992 -675 1074 -675Q1117 -675 1156 -669Q1195 -663 1228 -652Q1261 -642 1286 -629L1291 -472H1212L1171 -624L1244 -617V-558Q1210 -584 1173 -597Q1137 -609 1096 -609Q1037 -609 989 -579Q941 -548 912 -487Q883 -425 883 -331Q883 -236 911 -173Q938 -111 986 -80Q1033 -49 1093 -49Q1131 -49 1158 -59Q1186 -69 1215 -87L1138 -16V-87Q1138 -146 1138 -205Q1138 -264 1137 -325H1307Q1306 -266 1306 -205Q1305 -145 1305 -85V-39Q1257 -13 1198 2Q1139 16 1064 16ZM1045 -261V-325H1362V-261L1252 -253H1175Z"/></g></g>
     </svg>
   );
 }
 
 type BrandProps = {
   className?: string;
-  /** Una sola línea, sin bajada. Para barra de navegación y pie. */
+  /** Sin bajada institucional. Para barra de navegación y pie. */
   compact?: boolean;
   tone?: Tone;
-  /** Oculta la bajada institucional incluso en la versión completa. */
-  sinBajada?: boolean;
 };
 
-export default function LexGubBrand({
-  className = '',
-  compact = false,
-  tone = 'dark',
-  sinBajada = false,
-}: BrandProps) {
+export default function LexGubBrand({ className = '', compact = false, tone = 'dark' }: BrandProps) {
   return (
-    <span
-      className={`lgBrand lgBrand--${tone} ${compact ? 'lgBrand--compact' : ''} ${className}`.trim()}
-      aria-label="LEXGUB PERÚ"
-    >
-      <LexGubIsotipo className="lgBrandMark" tone={tone} />
-      <span className="lgBrandText">
-        <span className="lgBrandLine">
-          <span className="lgBrandName">LEXGUB</span>
-          <span className="lgBrandBar" aria-hidden="true" />
-          <span className="lgBrandCountry">PERÚ</span>
-        </span>
-        {!compact && !sinBajada && (
-          <span className="lgBrandTagline">ASESORÍA · CONTROL · DERECHO PÚBLICO</span>
-        )}
-      </span>
+    <span className={`lgBrand lgBrand--${tone} ${compact ? 'lgBrand--compact' : ''} ${className}`.trim()}>
+      <LexGubWordmark />
+      {!compact && <span className="lgBrandTagline">DERECHO PÚBLICO PARA UN MEJOR ESTADO</span>}
     </span>
   );
 }

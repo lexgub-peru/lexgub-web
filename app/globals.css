@@ -50,7 +50,7 @@
   /* ---- Tipografía -------------------------------------------------- */
   --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --fs-hero: clamp(2.1rem, 5vw, 4.05rem);
+  --fs-hero: clamp(1.9rem, 4.4vw, 3.8rem);
   --fs-h1: clamp(1.95rem, 4.4vw, 3.4rem);
   --fs-h2: clamp(1.55rem, 3vw, 2.5rem);
   --fs-h3: clamp(1.1rem, 1.6vw, 1.32rem);
@@ -59,10 +59,11 @@
   /* ---- Superficie -------------------------------------------------- */
   --max: 1240px;
   --wide: 1380px;
-  --radius: 10px;
-  --radius-lg: 18px;
-  --shadow-card: 0 16px 38px rgba(8, 22, 35, .065);
-  --shadow-card-hover: 0 24px 58px rgba(8, 22, 35, .13);
+  --radius: 8px;
+  --radius-lg: 12px;
+  /* Sombras discretas: la jerarquia la marcan el filete y el color, no el relieve. */
+  --shadow-card: 0 10px 26px rgba(8, 22, 35, .05);
+  --shadow-card-hover: 0 16px 38px rgba(8, 22, 35, .09);
 }
 
 /* ============================================================
@@ -139,9 +140,14 @@ h1, h2 {
 /* ============================================================
    3. Marca
    ============================================================ */
-/* Logotipo tipográfico: sin isotipo. El peso lo llevan el interletrado,
-   el filete dorado y la línea de bajada. */
-.lexgubBrand {
+/* Logotipo tipografico. El isotipo figurativo se descarto tras comprobar que
+   ningun gesto (cresta, perfil, pluma) sobrevivia a 16-20 px sin volverse
+   ilustracion. La marca reducida es el monograma LG (app/icon.svg).
+
+   El SVG lleva las letras como trazados: «LEXGUB» hereda `currentColor` y
+   «PERU» toma `--brand-peru`, de modo que un mismo archivo sirve sobre fondo
+   claro y sobre fondo oscuro. */
+.lgBrand {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -149,60 +155,46 @@ h1, h2 {
   line-height: 1;
 }
 
-.lexgubBrandLine {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
-  white-space: nowrap;
-}
-
-.lexgubBrandName {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.34rem;
-  letter-spacing: .13em;
-}
-
-.lexgubBrandCountry {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: .8rem;
-  letter-spacing: .28em;
-}
-
-.lexgubBrandRule {
+/* La altura manda: el ancho lo fija la proporcion 8.2:1 del lockup. */
+.lgWordmark {
   display: block;
-  width: 100%;
-  min-width: 92px;
-  height: 1px;
-  background: currentColor;
-  opacity: .45;
+  height: 30px;
+  width: auto;
 }
 
-.lexgubBrandTagline {
+.lgBrand--dark { color: #FFFDFC; --brand-peru: var(--gold); }
+.lgBrand--light { color: var(--navy); --brand-peru: var(--gold-dark); }
+
+.lgBrandTagline {
   font-family: var(--font-sans);
-  font-size: .53rem;
+  font-size: .54rem;
   font-weight: 600;
-  letter-spacing: .21em;
+  letter-spacing: .19em;
+  color: var(--brand-peru);
   white-space: nowrap;
 }
 
-.lexgubBrand--dark { color: var(--gold); }
-.lexgubBrand--dark .lexgubBrandName { color: #fffdf8; }
-.lexgubBrand--dark .lexgubBrandCountry,
-.lexgubBrand--dark .lexgubBrandTagline { color: var(--gold); }
-.lexgubBrand--light { color: var(--gold-dark); }
-.lexgubBrand--light .lexgubBrandName { color: var(--navy); }
-.lexgubBrand--light .lexgubBrandCountry,
-.lexgubBrand--light .lexgubBrandTagline { color: var(--gold-dark); }
+.lgBrand--compact .lgWordmark { height: 25px; }
 
-/* Una sola línea para barra y pie. */
-.lexgubBrand--compact { flex-direction: row; align-items: baseline; gap: 9px; }
-.lexgubBrand--compact .lexgubBrandName { font-size: 1.1rem; letter-spacing: .12em; }
-.lexgubBrand--compact .lexgubBrandCountry { font-size: .7rem; letter-spacing: .24em; }
+@media (max-width: 700px) {
+  /* 21 px de alto -> 172 px de ancho: el 48 % del ancho util a 390 px. */
+  .lgBrand--compact .lgWordmark { height: 21px; }
+  .navbar { min-height: 62px; }
+
+  /* Ocho pastillas en cuatro filas ocupaban demasiado: se aprietan a tres. */
+  .v5Frecuentes { gap: 6px; font-size: .72rem; }
+  .v5Frecuentes a { padding: 5px 10px; }
+  .v5Frecuentes > span { width: 100%; margin: 0 0 2px; }
+}
+
+.lgMarca { display: block; border-radius: 21%; }
 
 .lexgubNavBrand,
-.lexgubFooterBrand { display: inline-flex; align-items: center; min-width: fit-content; }
+.lexgubFooterBrand { display: inline-flex; align-items: center; }
+/* flex: 0 0 auto — sin esto la barra encoge la marca hasta 0 px antes de
+   permitir que los enlaces (nowrap) se desborden, y acaban pisándola. */
+.lexgubNavBrand { flex: 0 0 auto; }
+
 
 /* ============================================================
    4. Navegación
@@ -214,51 +206,89 @@ h1, h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
+  /* 68 px: cabe la marca a 30 px con 19 px de aire arriba y abajo. */
   min-height: 68px;
-  padding: 12px clamp(20px, 5vw, 72px);
-  background: rgba(8, 24, 39, .985);
+  padding: 10px clamp(16px, 4vw, 64px);
+  background: rgba(6, 17, 29, .97);
   backdrop-filter: blur(14px);
   color: #fff;
-  border-bottom: 1px solid rgba(201, 163, 95, .26);
+  border-bottom: 1px solid rgba(199, 161, 95, .2);
+}
+
+/* Filete inferior: el oro es el elemento comun a las dos audiencias. */
+.navbar::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 32%, var(--gold) 68%, transparent);
+  opacity: .5;
 }
 
 .navlinks {
   display: flex;
+  flex: 1;
+  justify-content: center;
   align-items: center;
-  gap: clamp(15px, 2.1vw, 30px);
-  color: #dbe4ec;
-  font-size: .88rem;
+  gap: clamp(9px, 1.15vw, 18px);
+  color: #d6dfe7;
+  font-size: .81rem;
   font-weight: 500;
 }
-.navlinks a { position: relative; padding: 8px 1px; transition: color .2s ease; }
+.navlinks a {
+  position: relative;
+  padding: 7px 0;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
 .navlinks a::after {
   content: '';
   position: absolute;
   left: 0;
   right: 100%;
   bottom: 0;
-  height: 1px;
+  height: 1.5px;
   background: var(--gold);
   transition: right .2s ease;
 }
+.navlinks a:hover { color: #fff; }
 .navlinks a:hover::after,
 .navlinks a.navActive::after { right: 0; }
-.navlinks a.navActive { color: var(--gold); }
+.navlinks a.navActive { color: #fff; }
+
+.navActions { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+
+.navCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid rgba(216, 178, 187, .42);
+  border-radius: 999px;
+  background: var(--wine);
+  color: #FFFDFC;
+  font-size: .77rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease;
+}
+.navCta:hover { background: var(--wine-bright); border-color: var(--wine-line); }
 
 .navToggle {
-  display: none;
+  /* Visible en toda anchura: el cajon guarda el mapa completo del sitio. */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, .22);
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 9px;
   background: transparent;
   color: #fff;
   cursor: pointer;
 }
-.navToggle svg { width: 22px; height: 22px; }
+.navToggle svg { width: 21px; height: 21px; }
 
 .navDrawer {
   position: fixed;
@@ -278,6 +308,8 @@ h1, h2 {
   transition: transform .24s ease, opacity .2s ease;
 }
 .navDrawer[data-state='open'] { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.navDrawerInner { width: 100%; max-width: var(--wide); margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+
 
 .navDrawerLinks { display: flex; flex-direction: column; }
 .navDrawerLinks a {
@@ -288,6 +320,12 @@ h1, h2 {
   border-bottom: 1px solid rgba(255, 255, 255, .09);
 }
 .navDrawerLinks a.navActive { color: var(--gold); }
+
+/* En pantallas anchas el cajon se lee en tres columnas, no como una lista larga.
+   Va despues de .navDrawerLinks: con la misma especificidad, gana la ultima. */
+@media (min-width: 900px) {
+  .navDrawerLinks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 44px; }
+}
 
 .navDrawerGroup { display: flex; flex-direction: column; gap: 11px; }
 .navDrawerGroup > span {
@@ -329,9 +367,6 @@ h1, h2 {
 }
 .navScrim[data-state='open'] { opacity: 1; pointer-events: auto; }
 
-@media (min-width: 861px) {
-  .navDrawer, .navScrim { display: none; }
-}
 
 /* ============================================================
    5. Componentes comunes
@@ -1799,10 +1834,6 @@ footer {
 }
 
 @media (max-width: 860px) {
-  html { scroll-padding-top: 78px; }
-  .navlinks { display: none; }
-  .navToggle { display: inline-flex; }
-
   .section { padding-top: 50px; padding-bottom: 50px; }
   .splitHeading { display: block; }
   .splitHeading p { margin-top: 16px; }
@@ -1875,11 +1906,6 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .navbar { min-height: 58px; padding: 9px 18px; }
-  .lexgubBrand--compact { gap: 7px; }
-  .lexgubBrand--compact .lexgubBrandName { font-size: .98rem; letter-spacing: .1em; }
-  .lexgubBrand--compact .lexgubBrandCountry { font-size: .64rem; letter-spacing: .2em; }
-
   .editorialHomeHeroInner { padding: 46px 20px 48px; gap: 28px; }
   .editorialHeroTopics span + span::before { margin-right: 10px; }
   .homeFeaturedArticle { padding: 24px 20px; }
@@ -1989,57 +2015,6 @@ body {
 
 :focus-visible {
   outline-color: var(--wine-bright);
-}
-
-/* Navegación: más limpia y con una señal vino discreta. */
-.navbar {
-  min-height: 72px;
-  background: rgba(6, 17, 29, .965);
-  border-bottom: 1px solid rgba(199, 161, 95, .18);
-  box-shadow: 0 12px 34px rgba(3, 10, 18, .16);
-}
-
-.navbar::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--wine) 18%, var(--gold) 50%, var(--wine) 82%, transparent 100%);
-  opacity: .62;
-}
-
-.navlinks { gap: clamp(13px, 1.8vw, 26px); }
-.navlinks a { color: #d8e0e7; }
-.navlinks a::after { background: var(--wine-bright); height: 2px; }
-.navlinks a.navActive { color: #fff; }
-
-.navAssistant {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 0 14px;
-  border: 1px solid rgba(214, 177, 185, .34);
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(111, 36, 50, .82), rgba(74, 23, 32, .92));
-  color: #fff8f4;
-  font-size: .78rem;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.035);
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
-}
-.navAssistant:hover {
-  transform: translateY(-1px);
-  border-color: rgba(232, 200, 207, .62);
-  background: linear-gradient(135deg, #7b2b3b, #581d28);
-}
-.navAssistantDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #e3bd74;
-  box-shadow: 0 0 0 4px rgba(227, 189, 116, .11);
 }
 
 .navDrawer { background: linear-gradient(155deg, #081827 0%, #111d2b 70%, #3b1720 130%); }
@@ -2226,9 +2201,6 @@ footer::before {
   opacity: .72;
 }
 
-@media (max-width: 1060px) {
-  .navAssistant { display: none; }
-}
 
 @media (max-width: 860px) {
   .editorialHomeHeroInner { gap: 28px; }
@@ -2236,7 +2208,6 @@ footer::before {
 }
 
 @media (max-width: 620px) {
-  .navbar { min-height: 66px; padding-inline: 14px; }
   .editorialHomeHeroInner { padding-top: 44px; padding-bottom: 44px; }
   .editorialHomeCopy h1 { line-height: 1.01; }
   .heroActions { display: grid; grid-template-columns: 1fr; }
@@ -2327,104 +2298,110 @@ footer::before {
   font-weight: 500;
 }
 
-/* Radar: actualidad jurídica curada, no un feed de noticias indiscriminado. */
-.homeRadar {
-  max-width: 1380px;
-  margin: 0 auto;
-  padding: clamp(58px, 7vw, 92px) clamp(20px, 7vw, 100px);
+/* ---------- Radar normativo ---------- */
+.radarAviso {
+  max-width: 78ch;
+  margin: 0 0 22px;
+  padding: 15px 18px;
+  border: 1px solid var(--gold);
+  border-left-width: 3px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--gold-soft);
+  color: var(--ink-soft);
+  font-size: .87rem;
+  line-height: 1.62;
 }
-.homeRadarHeader {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
-  gap: clamp(28px, 5vw, 70px);
-  align-items: end;
-  margin-bottom: 26px;
-}
-.homeRadarHeader span {
-  color: var(--wine);
-  font-size: .7rem;
-  font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-.homeRadarHeader h2 {
-  max-width: 760px;
-  margin: 8px 0 0;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 1.02;
-}
-.homeRadarHeader p {
+.radarAviso strong { color: var(--navy); }
+
+.radarTimeline { display: flex; flex-direction: column; gap: 34px; margin-top: 26px; }
+
+.radarAnio { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 0 24px; }
+.radarAnioTitulo {
+  position: sticky;
+  top: 88px;
+  align-self: start;
   margin: 0;
-  color: var(--muted);
+  padding-top: 2px;
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: .01em;
 }
-.homeRadarGrid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
-  gap: 14px;
+
+/* La linea de tiempo es el borde izquierdo de la lista: un elemento, no un adorno. */
+.radarEntradas {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0 0 0 22px;
+  border-left: 1px solid var(--line);
+  list-style: none;
 }
-.homeRadarCard {
-  position: relative;
-  min-height: 300px;
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--surface);
-  box-shadow: 0 12px 30px rgba(8, 22, 35, .045);
-  overflow: hidden;
-}
-.homeRadarCard::before {
+
+.radarEntrada { position: relative; padding: 16px 0 20px; border-bottom: 1px solid var(--line-soft); }
+.radarEntrada:last-child { border-bottom: 0; }
+.radarEntrada::before {
   content: '';
   position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--wine), var(--gold));
-  opacity: .76;
+  left: -27px;
+  top: 24px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--gold);
 }
-.homeRadarCard.featured {
-  background:
-    radial-gradient(circle at 92% 10%, rgba(111, 36, 50, .18), transparent 32%),
-    linear-gradient(145deg, #fffdfa 0%, #f8f2ed 100%);
-}
-.homeRadarMeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-.homeRadarMeta span {
-  display: inline-flex;
-  padding: 5px 8px;
+.radarEntrada--jurisprudencia::before { background: var(--wine); }
+.radarEntrada--norma::before { background: var(--navy-2); }
+
+.radarEntradaMeta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 8px; }
+.radarTipo {
+  padding: 3px 9px;
   border-radius: 999px;
-  background: var(--wine-soft);
-  color: var(--wine);
-  font-size: .64rem;
+  font-size: .62rem;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: .09em;
   text-transform: uppercase;
 }
-.homeRadarCard h3 {
-  margin: 0 0 12px;
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-  line-height: 1.08;
+.radarTipo--norma { background: #E7EDF3; color: var(--navy-2); }
+.radarTipo--modificatoria { background: var(--gold-soft); color: var(--gold-dark); }
+.radarTipo--jurisprudencia { background: var(--wine-soft); color: var(--wine); }
+.radarEntradaMeta time { color: var(--muted); font-size: .78rem; }
+.radarPendiente {
+  padding: 3px 9px;
+  border: 1px solid var(--wine-line);
+  border-radius: 999px;
+  color: var(--wine);
+  font-size: .62rem;
+  font-weight: 700;
 }
-.homeRadarCard p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .9rem;
-}
-.homeRadarCard a {
-  position: absolute;
-  left: 26px;
-  bottom: 24px;
+
+.radarEntrada h3 { margin: 0 0 4px; font-family: var(--font-serif); font-size: 1.06rem; line-height: 1.3; }
+.radarContexto { margin: 0 0 6px; color: var(--gold-dark); font-size: .76rem; font-weight: 600; letter-spacing: .03em; }
+.radarSumilla { max-width: 74ch; margin: 0 0 11px; color: var(--muted); font-size: .88rem; line-height: 1.62; }
+
+.radarEnlaces { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.radarEnlaces a {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  color: var(--wine);
-  font-size: .8rem;
-  font-weight: 800;
+  gap: 6px;
+  color: var(--navy);
+  font-size: .81rem;
+  font-weight: 700;
 }
-.homeRadarCard a:hover { color: var(--wine-bright); }
+.radarEnlaces a:hover { color: var(--wine); }
+.radarEnlaces svg { width: 14px; height: 14px; }
+
+.radarVacio { margin-top: 24px; color: var(--muted); }
+
+@media (max-width: 700px) {
+  .radarAnio { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .radarAnioTitulo { position: static; font-size: 1.28rem; }
+  .radarEntradas { padding-left: 18px; }
+  .radarEntrada::before { left: -23px; }
+}
 
 /* La base jurídica se presenta como capacidades, no solo como categorías. */
 .homeLibrarySection .sectionHeading > p {
@@ -2493,10 +2470,7 @@ footer::before {
 .servicesPromiseBand p { margin: 0; color: var(--muted); }
 
 @media (max-width: 980px) {
-  .homeRadarHeader,
   .servicesPromiseBand { grid-template-columns: 1fr; }
-  .homeRadarGrid { grid-template-columns: 1fr 1fr; }
-  .homeRadarCard:first-child { grid-column: 1 / -1; }
   .servicesAudience { grid-template-columns: 1fr; }
 }
 
@@ -2506,33 +2480,12 @@ footer::before {
   .homeAuthoritySources::-webkit-scrollbar { display: none; }
   .homeAuthoritySources a,
   .homeAuthoritySources span { flex: 0 0 auto; }
-  .homeRadar { padding-top: 48px; padding-bottom: 52px; }
-  .homeRadarGrid { grid-template-columns: 1fr; }
-  .homeRadarCard:first-child { grid-column: auto; }
-  .homeRadarCard { min-height: 280px; }
 }
 
 
 /* ==========================================================
    V5 — Marca, portada y rutas de audiencia
    ========================================================== */
-
-/* ---------- Marca ---------- */
-.lgBrand { display: inline-flex; align-items: center; gap: 12px; line-height: 1; }
-.lgBrandMark { width: 40px; height: 40px; flex: 0 0 40px; }
-.lgBrandText { display: flex; flex-direction: column; gap: 5px; }
-.lgBrandLine { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
-.lgBrandName { font-family: var(--font-serif); font-weight: 700; font-size: 1.36rem; letter-spacing: .1em; }
-.lgBrandBar { width: 1px; height: 1.05em; background: var(--gold); opacity: .75; }
-.lgBrandCountry { font-family: var(--font-serif); font-weight: 700; font-size: 1.06rem; letter-spacing: .16em; color: var(--gold); }
-.lgBrandTagline { font-family: var(--font-sans); font-size: .53rem; font-weight: 600; letter-spacing: .17em; color: var(--gold); white-space: nowrap; }
-.lgBrand--dark .lgBrandName { color: #FFFDFC; }
-.lgBrand--light .lgBrandName { color: var(--navy); }
-.lgBrand--light .lgBrandCountry, .lgBrand--light .lgBrandTagline { color: var(--gold-dark); }
-.lgBrand--compact { gap: 9px; }
-.lgBrand--compact .lgBrandMark { width: 30px; height: 30px; flex-basis: 30px; }
-.lgBrand--compact .lgBrandName { font-size: 1.06rem; letter-spacing: .09em; }
-.lgBrand--compact .lgBrandCountry { font-size: .82rem; letter-spacing: .14em; }
 
 /* ---------- Hero ---------- */
 .v5Hero {
@@ -2543,32 +2496,59 @@ footer::before {
     linear-gradient(118deg, var(--navy-deep) 0%, var(--navy) 52%, var(--navy-2) 100%);
   border-bottom: 1px solid rgba(200, 163, 93, .22);
 }
-.v5HeroInner { max-width: var(--wide); margin: 0 auto; padding: clamp(46px, 6vw, 84px) clamp(20px, 6vw, 84px) clamp(40px, 5vw, 66px); }
-.v5HeroKicker { margin: 0 0 14px; color: var(--gold); font-size: .7rem; font-weight: 800; letter-spacing: .18em; }
-.v5Hero h1 { max-width: 900px; margin: 0 0 18px; font-size: var(--fs-hero); line-height: 1.06; letter-spacing: -.025em; }
-.v5Hero h1 em { color: var(--gold-light); font-style: normal; }
-.v5HeroDek { max-width: 680px; margin: 0 0 30px; color: #C6D2DD; font-size: var(--fs-dek); line-height: 1.72; }
+.v5HeroInner { max-width: var(--wide); margin: 0 auto; padding: clamp(38px, 5.2vw, 76px) clamp(20px, 6vw, 84px) clamp(36px, 4.4vw, 60px); }
 
-.v5Search { display: flex; align-items: center; gap: 10px; max-width: 720px; padding: 7px 7px 7px 18px; border-radius: 10px; background: #FFFDFC; box-shadow: 0 18px 42px rgba(4, 18, 31, .3); }
+/* El filete dorado sustituye al punto: mismo recurso que separa LEXGUB de PERÚ. */
+.v5HeroKicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 15px;
+  color: var(--gold);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .19em;
+}
+.v5HeroKicker::before { content: ''; width: 26px; height: 1px; background: var(--gold); opacity: .8; }
+
+/* 20ch de medida: el titular cabe en tres líneas a 390 px sin partir palabras. */
+.v5Hero h1 {
+  max-width: 20ch;
+  margin: 0 0 20px;
+  font-size: var(--fs-hero);
+  line-height: 1.09;
+  letter-spacing: -.022em;
+  text-wrap: balance;
+}
+.v5Hero h1 em { color: var(--gold-light); font-style: normal; }
+.v5HeroDek { max-width: 58ch; margin: 0 0 28px; color: #C3D0DC; font-size: var(--fs-dek); line-height: 1.68; }
+
+.v5Search { display: flex; align-items: center; gap: 10px; max-width: 700px; padding: 6px 6px 6px 16px; border-radius: var(--radius); background: #FFFDFC; box-shadow: 0 12px 30px rgba(4, 18, 31, .24); }
 .v5SearchIcon { width: 20px; height: 20px; flex: 0 0 20px; color: var(--muted); }
 .v5Search input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 12px 0; font-size: 1rem; color: var(--ink); }
 .v5Search input:focus { outline: none; }
 .v5Search input::placeholder { color: #93A0AC; }
-.v5Search button { flex: 0 0 auto; min-height: 46px; padding: 12px 24px; border: 0; border-radius: 7px; background: var(--wine); color: #FFFDFC; font-weight: 700; cursor: pointer; }
+.v5Search button { flex: 0 0 auto; min-height: 44px; padding: 11px 22px; border: 0; border-radius: 6px; background: var(--wine); color: #FFFDFC; font-weight: 700; cursor: pointer; }
 .v5Search button:hover { background: var(--wine-bright); }
 
-.v5Frecuentes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 18px; font-size: .78rem; }
-.v5Frecuentes > span { color: #8FA2B2; font-weight: 700; }
-.v5Frecuentes a { color: #D8E2EA; padding-bottom: 2px; border-bottom: 1px solid rgba(200, 163, 93, .38); }
-.v5Frecuentes a:hover { color: var(--gold-light); border-color: var(--gold-light); }
+.v5Frecuentes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; font-size: .76rem; }
+.v5Frecuentes > span { margin-right: 4px; color: #8FA2B2; font-weight: 600; letter-spacing: .02em; }
+.v5Frecuentes a {
+  padding: 6px 12px;
+  border: 1px solid rgba(200, 163, 93, .3);
+  border-radius: 999px;
+  color: #D8E2EA;
+  transition: border-color .18s ease, color .18s ease, background .18s ease;
+}
+.v5Frecuentes a:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(200, 163, 93, .1); }
 
 /* ---------- Dos rutas de entrada ---------- */
 .v5Rutas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: var(--wide); margin: -34px auto 0; padding: 0 clamp(20px, 6vw, 84px); position: relative; z-index: 2; }
-.v5Ruta { display: flex; flex-direction: column; gap: 16px; padding: clamp(24px, 3vw, 34px); border-radius: var(--radius-lg); color: #FFFDFC; box-shadow: 0 20px 48px rgba(4, 18, 31, .22); transition: transform .18s ease, box-shadow .18s ease; }
-.v5Ruta:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(4, 18, 31, .3); }
+.v5Ruta { display: flex; flex-direction: column; gap: 16px; padding: clamp(22px, 2.7vw, 32px); border-radius: var(--radius-lg); color: #FFFDFC; box-shadow: 0 14px 34px rgba(4, 18, 31, .16); transition: transform .18s ease, box-shadow .18s ease; }
+.v5Ruta:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(4, 18, 31, .22); }
 .v5Ruta--auditores { background: linear-gradient(142deg, var(--navy) 0%, var(--navy-2) 100%); border: 1px solid rgba(200, 163, 93, .26); }
 .v5Ruta--autoridades { background: linear-gradient(142deg, var(--wine-deep) 0%, var(--wine) 100%); border: 1px solid rgba(224, 197, 132, .3); }
-.v5RutaIcono { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 12px; background: rgba(255, 253, 252, .12); color: var(--gold-light); }
+.v5RutaIcono { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 9px; background: rgba(255, 253, 252, .12); color: var(--gold-light); }
 .v5RutaIcono svg { width: 24px; height: 24px; }
 .v5RutaCuerpo h2 { margin: 0 0 7px; font-size: clamp(1.3rem, 2.1vw, 1.8rem); line-height: 1.14; }
 .v5RutaCuerpo > p { margin: 0 0 14px; color: rgba(255, 253, 252, .82); font-size: .93rem; }
@@ -2599,7 +2579,33 @@ footer::before {
 /* ---------- Fundador ---------- */
 .v5Fundador { align-self: start; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-card); text-align: center; }
 .v5FundadorTitulo { display: inline-block; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--gold); color: var(--navy); font-family: var(--font-serif); font-size: 1.02rem; font-weight: 700; }
-.v5FundadorFoto { display: block; width: 168px; height: 210px; margin: 0 auto 14px; object-fit: cover; }
+/* Retrato contenido en ovalo, con filete dorado fino. Nunca domina la portada:
+   168 px de ancho dentro de una columna de 340 px. */
+.v5FundadorMarco {
+  position: relative;
+  width: 168px;
+  margin: 0 auto 16px;
+  padding: 6px;
+  border: 1px solid var(--gold);
+  border-radius: 50% / 42%;
+  background: linear-gradient(160deg, var(--gold-soft), var(--surface));
+}
+.v5FundadorMarco::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(200, 163, 93, .35);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.v5FundadorFoto {
+  display: block;
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  object-position: 50% 18%;
+  border-radius: 50% / 42%;
+}
 .v5Fundador h3 { margin: 0 0 4px; font-family: var(--font-serif); font-size: 1.16rem; line-height: 1.2; }
 .v5FundadorRol { margin: 0 0 12px; color: var(--wine); font-size: .82rem; font-weight: 600; }
 .v5FundadorBio { margin: 0 0 10px; color: var(--muted); font-size: .82rem; line-height: 1.58; text-align: left; }
@@ -2746,41 +2752,18 @@ footer::before {
   .v5Modulos { grid-template-columns: 1fr; }
   .v5Modulo { padding: 18px 18px 40px; }
   .pildoraGrid, .pildoraGrid--compacta, .audienceGrid { grid-template-columns: 1fr; }
-  .v5FundadorFoto { width: 146px; height: 182px; }
+  .v5FundadorMarco { width: 146px; }
+  .v5FundadorFoto { height: 170px; }
   .v5Fuentes { padding: 22px 20px 28px; }
   .audienceHeroInner { padding-left: 20px; padding-right: 20px; }
   .preguntaCard { grid-template-columns: 1fr; gap: 12px; }
   .v5SectionHead { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 
-/* ---------- V5: barra de navegación con menú extendido ---------- */
-.navbar { gap: 16px; }
-.navlinks { flex: 1; justify-content: center; gap: clamp(8px, 1.1vw, 17px); font-size: .8rem; }
-.navlinks a { padding: 7px 0; white-space: nowrap; }
-.navActions { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
-.navCta {
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 16px;
-  border: 1px solid var(--wine-bright);
-  border-radius: 999px;
-  background: var(--wine);
-  color: #FFFDFC;
-  font-size: .78rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.navCta:hover { background: var(--wine-bright); }
-
-@media (max-width: 1240px) {
+/* Por debajo de 1260 px los nueve enlaces no caben y el cajon es la unica via. */
+@media (max-width: 1259px) {
   .navlinks { display: none; }
-  .navToggle { display: inline-flex; }
 }
 @media (max-width: 560px) {
   .navCta { display: none; }
-}
-@media (min-width: 1241px) {
-  .navToggle { display: none; }
-  .navDrawer, .navScrim { display: none; }
 }

@@ -5,6 +5,7 @@ import {
   IconBook,
   IconChecklist,
   IconDocument,
+  IconEvidence,
   IconLandmark,
   IconScale,
   IconSearch,
@@ -25,7 +26,7 @@ const busquedasFrecuentes: [string, string][] = [
 const modulos = [
   { titulo: 'Biblioteca jurídica', texto: 'Normas, directivas, manuales y documentos clave.', href: '/normativa', icon: IconBook },
   { titulo: 'Jurisprudencia LexGub', texto: 'Resoluciones, precedentes y criterios relevantes.', href: '/jurisprudencia', icon: IconScale },
-  { titulo: 'Radar normativo', texto: 'Cambios y alertas jurídicas seleccionados por utilidad práctica.', href: '/radar', icon: IconDocument },
+  { titulo: 'Criterios', texto: 'Razonamiento jurídico aplicado a problemas de control.', href: '/criterios', icon: IconEvidence },
   { titulo: 'Píldoras LexGub', texto: 'Explicaciones claras en formato breve.', href: '/pildoras', icon: IconAlert },
   { titulo: 'Herramientas', texto: 'Formatos, matrices y recursos prácticos.', href: '/herramientas', icon: IconChecklist },
   { titulo: 'Asistente LexGub', texto: 'Apoyo para ubicar fuentes y ordenar la consulta.', href: '/asistente', icon: IconSearch },
@@ -55,16 +56,16 @@ const temas = [
   },
   {
     etiqueta: 'ARTÍCULO',
-    titulo: 'Evidencia suficiente y apropiada',
-    texto: 'La suficiencia se refiere a la cantidad de evidencia; su carácter apropiado, a la calidad, pertinencia y fiabilidad.',
+    titulo: 'Prueba suficiente y apropiada',
+    texto: 'Suficiencia es cantidad; apropiación es pertinencia y fiabilidad. No son intercambiables.',
     href: '/auditores',
     audiencia: 'auditores',
   },
 ];
 
 const servicios = [
-  'Asesoría ante requerimientos y actuaciones de control',
-  'Revisión jurídica de desviaciones, informes y documentación',
+  'Asesoría en procedimientos y actuaciones de control',
+  'Revisión jurídica de informes y documentación',
   'Contrataciones públicas',
   'Responsabilidad administrativa',
   'Revisión crítica de casos complejos',
@@ -84,112 +85,7 @@ const fuentes: [string, string][] = [
 export default function Home() {
   return (
     <>
-      <style>{`
-        @media (max-width: 640px) {
-          .navbar {
-            min-height: 64px;
-            padding: 9px 14px;
-          }
-
-          .lgBrand--compact {
-            gap: 8px;
-          }
-
-          .lgBrand--compact .lgBrandMark {
-            width: 34px;
-            height: 34px;
-            flex-basis: 34px;
-          }
-
-          .lgBrand--compact .lgBrandName {
-            font-size: 1.02rem;
-            letter-spacing: .085em;
-          }
-
-          .lgBrand--compact .lgBrandCountry {
-            font-size: .72rem;
-            letter-spacing: .12em;
-          }
-
-          .v5Hero {
-            background:
-              radial-gradient(circle at 88% 4%, rgba(200, 163, 93, .15), transparent 30%),
-              radial-gradient(circle at 12% 94%, rgba(116, 23, 43, .14), transparent 34%),
-              linear-gradient(145deg, #04121f 0%, #071b2d 58%, #0b2b45 100%);
-          }
-
-          .v5HeroInner {
-            padding: 36px 22px 32px;
-          }
-
-          .v5HeroKicker {
-            margin-bottom: 10px;
-            font-size: .62rem;
-            line-height: 1.45;
-            letter-spacing: .16em;
-          }
-
-          .v5Hero h1 {
-            margin-bottom: 16px;
-            font-size: clamp(2rem, 9vw, 2.34rem);
-            line-height: 1.035;
-            letter-spacing: -.03em;
-          }
-
-          .v5HeroDek {
-            max-width: 100%;
-            margin-bottom: 22px;
-            font-size: .98rem;
-            line-height: 1.58;
-            color: #d2dce5;
-          }
-
-          .v5Search {
-            padding: 10px;
-            gap: 8px;
-            border-radius: 14px;
-            box-shadow: 0 16px 34px rgba(2, 13, 23, .26);
-          }
-
-          .v5Search input {
-            min-height: 44px;
-            padding: 6px 7px;
-            font-size: .95rem;
-          }
-
-          .v5Search button {
-            min-height: 48px;
-            border-radius: 9px;
-          }
-
-          .v5Frecuentes {
-            margin-top: 18px;
-            gap: 7px 6px;
-            align-items: center;
-          }
-
-          .v5Frecuentes > span {
-            flex-basis: 100%;
-            margin-bottom: 1px;
-          }
-
-          .v5Frecuentes a {
-            padding: 5px 8px;
-            border: 1px solid rgba(224, 197, 132, .24);
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: .75rem;
-            line-height: 1.2;
-          }
-        }
-
-        @media (max-width: 430px) {
-          .v5Hero h1 {
-            font-size: 2.04rem;
-          }
-        }
-      `}</style>
-
+      {/* ---------- Hero: el buscador es el protagonista ---------- */}
       <section className="v5Hero">
         <div className="v5HeroInner">
           <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
@@ -197,9 +93,8 @@ export default function Home() {
             Conocimiento jurídico y asesoría estratégica para <em>decidir con criterio.</em>
           </h1>
           <p className="v5HeroDek">
-            LexGub Perú reúne conocimiento jurídico, herramientas y asesoría especializada para auditores, autoridades y
-            gestores públicos que necesitan interpretar normas, atender requerimientos y tomar decisiones sustentadas
-            frente al control gubernamental.
+            Trabajamos con auditores, autoridades y gestores públicos sobre normas, evidencia, informes y fuentes
+            oficiales, para sustentar mejor cada decisión frente al control gubernamental.
           </p>
 
           <form className="v5Search" action="/buscar" method="get" role="search">
@@ -209,7 +104,8 @@ export default function Home() {
               id="hero-q"
               name="q"
               type="search"
-              placeholder="Buscar norma, resolución, criterio o tema…"
+              placeholder="Buscar norma, criterio o resolución…"
+              title="Buscar norma, criterio, resolución, precedente o tema"
               autoComplete="off"
             />
             <button type="submit">Buscar</button>
@@ -224,6 +120,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- Dos rutas de entrada ---------- */}
       <section className="v5Rutas" aria-label="Rutas de entrada">
         <Link className="v5Ruta v5Ruta--auditores" href="/auditores">
           <span className="v5RutaIcono"><IconShield /></span>
@@ -244,7 +141,7 @@ export default function Home() {
           <span className="v5RutaIcono"><IconLandmark /></span>
           <div className="v5RutaCuerpo">
             <h2>Para autoridades y gestores públicos</h2>
-            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y sustentada.</p>
+            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y segura.</p>
             <ul>
               <li>Cómo responder a un requerimiento</li>
               <li>Cómo leer un informe de control</li>
@@ -256,6 +153,7 @@ export default function Home() {
         </Link>
       </section>
 
+      {/* ---------- Módulos + fundador ---------- */}
       <section className="v5Split">
         <div className="v5SplitMain">
           <div className="v5SectionHead">
@@ -276,13 +174,15 @@ export default function Home() {
 
         <aside className="v5Fundador" aria-label="Fundador">
           <span className="v5FundadorTitulo">Fundador</span>
-          <img
-            src="/marvyn-gallo-retrato.webp"
-            alt="Marvyn Enrique Gallo Rojas"
-            width="640"
-            height="800"
-            className="v5FundadorFoto"
-          />
+          <div className="v5FundadorMarco">
+            <img
+              src="/marvyn-gallo-retrato.webp"
+              alt="Marvyn Enrique Gallo Rojas"
+              width={168}
+              height={195}
+              className="v5FundadorFoto"
+            />
+          </div>
           <h3>Marvyn Enrique Gallo Rojas</h3>
           <p className="v5FundadorRol">Abogado · Fundador de LexGub Perú</p>
           <p className="v5FundadorBio">
@@ -295,6 +195,7 @@ export default function Home() {
         </aside>
       </section>
 
+      {/* ---------- Temas clave + servicios ---------- */}
       <section className="v5Split v5Split--soft">
         <div className="v5SplitMain">
           <div className="v5SectionHead">
@@ -332,6 +233,7 @@ export default function Home() {
         </aside>
       </section>
 
+      {/* ---------- Franja de fuentes ---------- */}
       <section className="v5Fuentes" aria-label="Fuentes oficiales">
         <div className="v5FuentesInner">
           <p className="v5FuentesTitulo">

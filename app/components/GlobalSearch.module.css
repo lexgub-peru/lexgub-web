@@ -233,9 +233,14 @@
 .suggestions a { padding:.45rem .65rem; border:1px solid rgba(255,255,255,.13); border-radius:999px; color:rgba(255,255,255,.72); text-decoration:none; font:600 .68rem/1 var(--font-sans),sans-serif; }
 .suggestions a:hover { color:#fff; border-color:rgba(224,190,198,.52); background:rgba(111,36,50,.15); }
 
-@media (max-width:860px) {
+/* Por debajo de 1440 px el disparador pasa a solo icono: es lo que libera el
+   ancho que necesitan los nueve enlaces de la barra sin pisar la marca. */
+@media (max-width:1439px) {
   .trigger span,.trigger kbd { display:none; }
   .trigger { width:42px; padding:0; justify-content:center; border-radius:12px; }
+}
+
+@media (max-width:860px) {
   .bandTop { grid-template-columns:1fr; align-items:stretch; }
 }
 @media (max-width:620px) {
