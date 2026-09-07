@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {
   IconAlert,
-  IconArrowRight,
   IconChecklist,
   IconClock,
   IconContract,
@@ -16,7 +15,6 @@ export const metadata = {
     'Orientación jurídica para responder correctamente ante requerimientos, auditorías, desviaciones e informes de control: qué significa cada actuación, qué derechos y obligaciones existen y cómo ordenar la documentación.',
 };
 
-/** Preguntas reales, en el lenguaje del problema que enfrenta el usuario. */
 const preguntas = [
   {
     pregunta: 'Recibí una solicitud de información del OCI. ¿Qué debo hacer?',
@@ -27,31 +25,31 @@ const preguntas = [
   {
     pregunta: 'Me notificaron el inicio de una auditoría. ¿Cómo organizo la información?',
     respuesta:
-      'Ubique el expediente por proceso y por periodo, verifique que esté completo y ordenado, e identifique quién intervino en cada acto. Un expediente ordenado es la mejor posición frente a cualquier revisión.',
+      'Ubique el expediente por proceso y por periodo, verifique que esté completo y ordenado, e identifique quién intervino en cada acto. Una trazabilidad documental clara facilita una respuesta técnica y verificable.',
     icon: IconChecklist,
   },
   {
     pregunta: 'Me comunicaron una desviación de cumplimiento.',
     respuesta:
-      'La comunicación abre su derecho a formular comentarios. Lea con precisión qué hecho se describe, qué norma se invoca como criterio y qué evidencia se cita; responda punto por punto y acompañe la documentación que respalde su posición.',
+      'La comunicación abre la oportunidad de formular comentarios conforme al marco aplicable. Lea con precisión qué hecho se describe, qué norma se invoca como criterio y qué evidencia se cita; responda punto por punto y acompañe la documentación que respalde su posición.',
     icon: IconAlert,
   },
   {
     pregunta: 'Recibí un informe de control. ¿Qué significa?',
     respuesta:
-      'Un informe de control no es por sí mismo una sanción. Distinga qué es hecho descrito, qué es criterio invocado, qué recomendación se formula y qué instancia decidirá después. De esa lectura depende la respuesta que corresponde.',
+      'Un informe de control no es por sí mismo una sanción. Distinga el hecho descrito, el criterio invocado, las conclusiones, recomendaciones y las actuaciones posteriores que correspondan según el tipo de servicio.',
     icon: IconEvidence,
   },
   {
     pregunta: 'Me atribuyen participación en determinados hechos.',
     respuesta:
-      'La participación debe sustentarse en actos concretos y deberes funcionales específicos, no en el cargo ocupado. Revise qué función tenía, qué decidió efectivamente y qué documentación acredita su actuación.',
+      'Revise qué actuación concreta se atribuye, qué deber funcional se invoca y qué evidencia sustenta esa relación. El análisis debe individualizar la intervención y no agotarse en la sola denominación del cargo.',
     icon: IconScale,
   },
   {
     pregunta: 'Existe un SCE o una AOP relacionada con mi gestión.',
     respuesta:
-      'Cada servicio de control tiene su propia directiva, alcance y reglas de procedimiento. Identificar cuál se está aplicando permite saber qué etapa se está desarrollando y qué corresponde en cada momento.',
+      'Cada servicio de control tiene su propia directiva, alcance y reglas de procedimiento. Identificar cuál se está aplicando permite comprender la etapa, el objeto de la actuación y las obligaciones o posibilidades de respuesta pertinentes.',
     icon: IconClock,
   },
   {
@@ -63,7 +61,7 @@ const preguntas = [
   {
     pregunta: '¿Qué diferencia hay entre irregularidad, responsabilidad y prueba?',
     respuesta:
-      'Son planos distintos. Una deficiencia no equivale a una irregularidad; una irregularidad no equivale a responsabilidad; y ninguna conclusión se sostiene sin evidencia suficiente y apropiada que la respalde.',
+      'Son planos distintos. Una observación o deficiencia no equivale automáticamente a responsabilidad; para cualquier conclusión deben identificarse el hecho, la obligación aplicable, la evidencia y la participación que corresponda analizar.',
     icon: IconScale,
   },
 ];
@@ -83,19 +81,19 @@ const momentos = [
   },
   {
     etapa: 'Al recibir una desviación',
-    texto: 'Ejercicio del derecho a formular comentarios, argumento por argumento y con respaldo documental.',
+    texto: 'Formular comentarios de acuerdo con las reglas del servicio, argumento por argumento y con respaldo documental.',
   },
   {
     etapa: 'Al recibir un informe',
-    texto: 'Lectura técnica del hecho, el criterio y la recomendación, y determinación de la vía que corresponde.',
+    texto: 'Lectura técnica del hecho, el criterio, conclusiones y recomendaciones, y determinación de las actuaciones posteriores que correspondan.',
   },
   {
     etapa: 'Responsabilidad administrativa',
-    texto: 'Marco aplicable, debido procedimiento, plazos y derecho de defensa.',
+    texto: 'Marco aplicable, debido procedimiento, plazos, imputación y posibilidades de defensa conforme al régimen correspondiente.',
   },
   {
     etapa: 'Contrataciones',
-    texto: 'Revisión por etapas y bajo el régimen vigente en la fecha del procedimiento examinado.',
+    texto: 'Revisión por etapas y bajo el régimen vigente en la fecha del procedimiento o hecho examinado.',
   },
   {
     etapa: 'Plan de acción',
@@ -109,10 +107,10 @@ export default function AutoridadesPage() {
       <section className="audienceHero audienceHero--autoridades">
         <div className="audienceHeroInner">
           <span className="audienceKicker">PARA AUTORIDADES Y GESTORES PÚBLICOS</span>
-          <h1>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y segura.</h1>
+          <h1>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y sustentada.</h1>
           <p>
             Entender qué está ocurriendo es el primer paso para responder correctamente. Aquí encontrará qué significa
-            cada actuación de control, qué derechos y obligaciones tiene y cómo ordenar su documentación.
+            cada actuación de control, qué obligaciones y posibilidades de actuación existen y cómo ordenar su documentación.
           </p>
           <div className="audienceHeroLinks">
             <Link className="wineButton" href="/contacto">Solicitar asesoría especializada</Link>
@@ -121,7 +119,7 @@ export default function AutoridadesPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="situaciones">
         <div className="sectionHeading">
           <span>SITUACIONES FRECUENTES</span>
           <h2>Empiece por la situación que está enfrentando</h2>
@@ -139,7 +137,7 @@ export default function AutoridadesPage() {
         </ul>
       </section>
 
-      <section className="section softSection">
+      <section className="section softSection" id="momentos">
         <div className="sectionHeading">
           <span>MOMENTOS DEL CONTROL</span>
           <h2>Cada etapa exige algo distinto</h2>
@@ -164,7 +162,7 @@ export default function AutoridadesPage() {
             Toda la orientación de esta sección se dirige a responder correctamente, conservar la evidencia existente,
             ordenar la documentación, comprender el procedimiento y conocer derechos y obligaciones. LexGub no orienta
             ni asiste a ocultar información, alterar documentos, retrasar actuaciones ni obstruir el control: hacerlo
-            sería contrario a derecho y agravaría la situación de quien lo intentara.
+            sería contrario a derecho y podría agravar la situación de quien lo intentara.
           </p>
         </div>
       </section>
@@ -175,8 +173,8 @@ export default function AutoridadesPage() {
             <span className="audienceKicker">ASESORÍA ESPECIALIZADA</span>
             <h2>Cuando el caso exige acompañamiento jurídico</h2>
             <p>
-              Revisión jurídica de informes y documentación, análisis de expedientes de contratación, evaluación de
-              argumentos y sustento técnico para procedimientos ante el Sistema Nacional de Control.
+              Revisión jurídica de requerimientos, informes y documentación, análisis de expedientes de contratación,
+              evaluación de argumentos y sustento técnico para actuaciones relacionadas con el Sistema Nacional de Control.
             </p>
           </div>
           <div className="wineBandActions">
@@ -186,7 +184,7 @@ export default function AutoridadesPage() {
         </div>
         <p className="conceptNote">
           LexGub Perú es una iniciativa privada e independiente. No representa a la Contraloría General de la República
-          ni a ninguna otra entidad pública, y no garantiza resultados en procedimientos de control.
+          ni a ninguna otra entidad pública, y no garantiza resultados en procedimientos o actuaciones de control.
         </p>
       </section>
     </div>
