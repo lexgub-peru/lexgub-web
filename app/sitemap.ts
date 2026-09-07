@@ -11,6 +11,7 @@ const staticRoutes = [
   '/control-gubernamental',
   '/normativa',
   '/jurisprudencia',
+  '/radar',
   '/fuentes',
   '/tribunales',
   '/criterios',
@@ -35,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency:
       index === 0
         ? 'daily'
-        : route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia'].includes(route)
+        : route === '/radar' || route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia'].includes(route)
           ? 'weekly'
           : 'monthly',
     priority:
@@ -43,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : ['/auditores', '/autoridades'].includes(route)
           ? 0.95
-          : ['/lexgub', '/normativa', '/jurisprudencia', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
+          : ['/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
             ? 0.9
             : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio'
               ? 0.75
