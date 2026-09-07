@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency:
       index === 0
         ? 'daily'
-        : route === '/radar' || route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia'].includes(route)
+        : route.startsWith('/columna') || ['/criterios', '/fuentes', '/tribunales', '/jurisprudencia', '/radar'].includes(route)
           ? 'weekly'
           : 'monthly',
     priority:

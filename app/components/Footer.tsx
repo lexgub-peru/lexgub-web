@@ -9,6 +9,7 @@ const columns = [
       ['Para autoridades y gestores', '/autoridades'],
       ['Control gubernamental', '/control-gubernamental'],
       ['Asesoría y consultoría', '/servicios'],
+      ['Quiénes somos', '/lexgub'],
       ['Contacto', '/contacto'],
     ],
   },
@@ -34,14 +35,8 @@ const columns = [
       ['Fuentes oficiales', '/fuentes'],
     ],
   },
-  {
-    heading: 'LexGub',
-    links: [
-      ['Quiénes somos', '/lexgub'],
-      ['Fundador', '/lexgub'],
-    ],
-  },
 ];
+
 
 export default function Footer() {
   return (

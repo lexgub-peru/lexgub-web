@@ -7,22 +7,36 @@ import LexGubBrand from './Brand';
 import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
-/** Menú principal. Solo rutas que existen: no se enlaza nada que devuelva 404. */
+/**
+ * Barra superior: nueve destinos. Es el máximo que cabe a 1440 px junto a la
+ * marca, el buscador y el CTA sin que los enlaces pisen el logotipo.
+ * «Inicio» no aparece porque esa función la cumple la marca.
+ * Solo rutas que existen: no se enlaza nada que devuelva 404.
+ */
 const principal = [
-  { href: '/', label: 'Inicio' },
   { href: '/auditores', label: 'Para auditores' },
   { href: '/autoridades', label: 'Para autoridades' },
   { href: '/normativa', label: 'Biblioteca' },
   { href: '/jurisprudencia', label: 'Jurisprudencia' },
-  { href: '/pildoras', label: 'Píldoras' },
+  { href: '/radar', label: 'Radar' },
   { href: '/herramientas', label: 'Herramientas' },
-  { href: '/asistente', label: 'Asistente' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/lexgub', label: 'LexGub' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
-/** Material complementario, agrupado en el menú móvil. */
+/**
+ * Mapa completo del cajón. El cajón está disponible en todas las anchuras
+ * —no solo en móvil— para que ninguna ruta dependa de que quepa en la barra.
+ */
+const enCajon = [
+  { href: '/', label: 'Inicio' },
+  ...principal,
+  { href: '/pildoras', label: 'Píldoras' },
+  { href: '/asistente', label: 'Asistente LexGub' },
+];
+
+/** Material complementario, en pastillas al pie del cajón. */
 const complementario = [
   { href: '/control-gubernamental', label: 'Control gubernamental' },
   { href: '/criterios', label: 'Criterios' },
@@ -85,7 +99,7 @@ export default function Navbar() {
             className="navToggle"
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label={open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-label={open ? 'Cerrar el menú' : 'Abrir el menú completo'}
             onClick={() => setOpen((value) => !value)}
           >
             {open ? <IconClose /> : <IconMenu />}
@@ -94,8 +108,9 @@ export default function Navbar() {
       </nav>
 
       <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
+        <div className="navDrawerInner">
         <div className="navDrawerLinks">
-          {principal.map((link) => navLink(link, true))}
+          {enCajon.map((link) => navLink(link, true))}
         </div>
         <div className="navDrawerGroup">
           <span>Consulta y análisis</span>
@@ -106,6 +121,7 @@ export default function Navbar() {
         <p className="navDrawerNote">
           LexGub Perú · conocimiento jurídico y asesoría especializada en control gubernamental.
         </p>
+        </div>
       </div>
 
       <button
