@@ -119,6 +119,13 @@ export default function HerramientasPage() {
             <p>Ordena momento del hecho, alcance y evidencia para contrastar Control Simultáneo, AOP, SCE o Auditoría de Cumplimiento.</p>
             <strong className="cardLink">Abrir selector →</strong>
           </a>
+          <a className="moduleCard areaCard" href="/herramientas/validez-control">
+            <span className="cardIcon"><IconScale /></span>
+            <span className="cardTag">NUEVO</span>
+            <h3>Mapa de validez y riesgos procedimentales</h3>
+            <p>Separa fecha del hecho y actuación, ubica la versión aplicable y ordena los puntos que deben revisarse antes de sostener un vicio procedimental.</p>
+            <strong className="cardLink">Abrir mapa →</strong>
+          </a>
           <a className="moduleCard areaCard" href="/asistente">
             <span className="cardIcon"><IconEvidence /></span>
             <span className="cardTag">PRIVACY-FIRST</span>
