@@ -70,6 +70,7 @@ const razonamiento = [
 const trabajo = [
   ['Matrices y checklists', 'Instrumentos de revisión antes de cerrar un informe.', '/herramientas'],
   ['Selector de servicio de control', 'Ayuda a discriminar qué actuación corresponde a un caso.', '/herramientas/selector-servicio'],
+  ['Mapa de validez procedimental', 'Separa temporalidad, fuente aplicable y puntos de revisión antes de sostener un vicio o riesgo de invalidez.', '/herramientas/validez-control'],
   ['Delimitación de hechos', 'Conducta, tiempo, lugar, operación y participantes.', '/guias'],
   ['Evaluación de comentarios', 'Argumento por argumento, contrastado con la evidencia.', '/herramientas'],
   ['Normativa temporalmente aplicable', 'Qué versión regía en la fecha del hecho examinado.', '/normativa'],
