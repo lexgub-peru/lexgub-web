@@ -62,6 +62,16 @@ const centers: SearchItem[] = [
     featured: true,
     verified: true,
   },
+  {
+    id: 'herramienta-validez-control',
+    kind: 'Herramienta',
+    title: 'Mapa de validez y riesgos procedimentales',
+    subtitle: 'Ordena servicio, temporalidad, fuente oficial y puntos de revisión antes de sostener un vicio o riesgo de invalidez en una actuación de control.',
+    href: '/herramientas/validez-control',
+    keywords: ['validez', 'nulidad', 'invalidez', 'procedimiento de control', 'temporalidad', 'fecha del hecho', 'fecha de actuación', 'competencia', 'debido procedimiento', 'auditoría', 'sce', 'aop', 'control simultáneo'],
+    featured: true,
+    verified: true,
+  },
 ];
 
 const sourceItems: SearchItem[] = officialResources.map((resource) => ({
