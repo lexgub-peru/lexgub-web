@@ -3,40 +3,24 @@ import LexGubBrand from './Brand';
 
 const columns = [
   {
-    heading: 'Rutas',
+    heading: 'Empieza aquí',
     links: [
       ['Para auditores', '/auditores'],
       ['Para autoridades y gestores', '/autoridades'],
-      ['Control gubernamental', '/control-gubernamental'],
+      ['Conocimiento', '/conocimiento'],
+      ['Herramientas', '/herramientas'],
+    ],
+  },
+  {
+    heading: 'LexGub',
+    links: [
       ['Asesoría y consultoría', '/servicios'],
       ['Quiénes somos', '/lexgub'],
       ['Contacto', '/contacto'],
-    ],
-  },
-  {
-    heading: 'Conocimiento',
-    links: [
-      ['Biblioteca jurídica', '/normativa'],
-      ['Jurisprudencia LexGub', '/jurisprudencia'],
-      ['Radar normativo', '/radar'],
-      ['Criterios LexGub', '/criterios'],
-      ['Píldoras LexGub', '/pildoras'],
-      ['Columna LexGub', '/columna'],
-    ],
-  },
-  {
-    heading: 'Recursos',
-    links: [
-      ['Asistente LexGub · Beta', '/asistente'],
-      ['Herramientas', '/herramientas'],
-      ['Guías prácticas', '/guias'],
-      ['Glosario', '/glosario'],
-      ['Tribunales y precedentes', '/tribunales'],
       ['Fuentes oficiales', '/fuentes'],
     ],
   },
 ];
-
 
 export default function Footer() {
   return (
