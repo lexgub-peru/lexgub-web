@@ -20,6 +20,7 @@ const staticRoutes = [
   '/guias',
   '/herramientas',
   '/herramientas/selector-servicio',
+  '/herramientas/validez-control',
   '/glosario',
   '/pildoras',
   '/asistente',
@@ -46,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? 0.95
           : ['/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
             ? 0.9
-            : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio'
+            : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio' || route === '/herramientas/validez-control'
               ? 0.75
               : 0.7,
   }));
