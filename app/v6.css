@@ -1,0 +1,152 @@
+/* LEXGUB V6 — simplificación de arquitectura y jerarquía visual. */
+
+.v6Hero .v5HeroInner { max-width: 980px; }
+.v6Hero .v5HeroDek { max-width: 760px; }
+.v6Rutas .v5Ruta { min-height: 0; }
+.v6Rutas .v5RutaCuerpo ul { display: none; }
+
+.v6ResolveSection { max-width: var(--wide); margin: 0 auto; }
+.v6ResolveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.v6ResolveCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 112px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(8, 22, 35, .045);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.v6ResolveCard:hover { transform: translateY(-2px); border-color: #ccb98f; box-shadow: var(--shadow-card); }
+.v6ResolveCard .cardIcon { margin: 0; }
+.v6ResolveCard h3 { margin: 0 0 5px; font-family: var(--font-serif); font-size: 1.05rem; }
+.v6ResolveCard p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.v6ResolveCard > svg { width: 17px; height: 17px; color: var(--gold-dark); }
+
+.v6CurrentSection { border-block: 1px solid var(--line); }
+.v6CurrentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.v6CurrentCard {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.v6CurrentCard > span { color: var(--gold-dark); font-size: .69rem; font-weight: 800; letter-spacing: .13em; }
+.v6CurrentCard h3 { margin: 10px 0 22px; font-family: var(--font-serif); font-size: 1.2rem; }
+
+.v6BottomGrid {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 22px;
+}
+.v6ToolPanel,
+.v6Founder {
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+.v6ToolPanel h2,
+.v6Founder h2 { margin: 8px 0 12px; font-size: clamp(1.45rem, 2.5vw, 2.15rem); }
+.v6ToolPanel p,
+.v6Founder p { color: var(--muted); }
+
+.v6Founder {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.v6Founder img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 163, 93, .85);
+  box-shadow: 0 14px 32px rgba(7, 27, 45, .12);
+}
+.v6Founder > div > span { color: var(--gold-dark); font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
+.v6FounderRole { color: var(--ink-soft) !important; font-weight: 600; }
+
+.v6ServiceBand {
+  max-width: var(--wide);
+  margin: 0 auto 64px;
+  padding: 34px clamp(24px, 5vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  background: linear-gradient(120deg, var(--navy), var(--wine-deep));
+  color: #fff;
+  border-radius: 18px;
+}
+.v6ServiceBand > div:first-child { max-width: 760px; }
+.v6ServiceBand span { color: var(--gold-light); font-size: .72rem; font-weight: 800; letter-spacing: .14em; }
+.v6ServiceBand h2 { margin: 8px 0; font-size: clamp(1.5rem, 2.6vw, 2.25rem); }
+.v6ServiceBand p { margin: 0; color: #dbe4ec; }
+.v6ServiceBand .heroActions { margin: 0; flex: 0 0 auto; }
+
+.v6KnowledgeHero { padding-bottom: 42px; }
+.v6KnowledgeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.v6KnowledgeCard {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.v6KnowledgeCard h3 { margin: 0 0 8px; font-family: var(--font-serif); font-size: 1.15rem; }
+.v6KnowledgeCard p { color: var(--muted); font-size: .9rem; }
+
+/* V6: el retrato deja de presentarse como óvalo. */
+.v5FundadorMarco { width: 168px; padding: 0; border-radius: 16px; overflow: hidden; }
+.v5FundadorFoto { width: 168px; height: 168px; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+.authorCardPhoto,
+.columnEditorialSignature img,
+.articleMobileAuthor img { border-radius: 12px !important; object-fit: cover; aspect-ratio: 1; }
+
+@media (max-width: 980px) {
+  .v6ResolveGrid,
+  .v6KnowledgeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .v6BottomGrid { grid-template-columns: 1fr; }
+  .v6ServiceBand { margin-inline: 20px; }
+}
+
+@media (max-width: 620px) {
+  .v6Hero .v5HeroInner { padding-top: 38px; padding-bottom: 42px; }
+  .v6Hero h1 { font-size: clamp(2rem, 10.2vw, 2.55rem); line-height: 1.04; }
+  .v6ResolveGrid,
+  .v6CurrentGrid,
+  .v6KnowledgeGrid { grid-template-columns: 1fr; }
+  .v6ResolveCard { min-height: 0; }
+  .v6Founder { grid-template-columns: 104px 1fr; gap: 16px; padding: 20px; }
+  .v6Founder img { width: 104px; height: 104px; border-radius: 12px; }
+  .v6Founder h2 { font-size: 1.25rem; }
+  .v6Founder p:not(.v6FounderRole) { grid-column: 1 / -1; }
+  .v6ServiceBand { margin: 0 16px 40px; padding: 26px 22px; align-items: flex-start; flex-direction: column; }
+  .v6ServiceBand .heroActions { width: 100%; }
+  .v6ServiceBand .heroActions a { flex: 1 1 160px; }
+}

@@ -8,39 +8,36 @@ import { GlobalSearchButton } from './GlobalSearch';
 import { IconClose, IconMenu } from './icons';
 
 /**
- * Barra superior: nueve destinos. Es el máximo que cabe a 1440 px junto a la
- * marca, el buscador y el CTA sin que los enlaces pisen el logotipo.
- * «Inicio» no aparece porque esa función la cumple la marca.
- * Solo rutas que existen: no se enlaza nada que devuelva 404.
+ * V6: la barra principal muestra solo decisiones de primer nivel.
+ * El resto del ecosistema permanece accesible desde Conocimiento y el cajón.
  */
 const principal = [
   { href: '/auditores', label: 'Para auditores' },
   { href: '/autoridades', label: 'Para autoridades' },
-  { href: '/normativa', label: 'Biblioteca' },
-  { href: '/jurisprudencia', label: 'Jurisprudencia' },
-  { href: '/radar', label: 'Radar' },
+  { href: '/conocimiento', label: 'Conocimiento' },
   { href: '/herramientas', label: 'Herramientas' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/lexgub', label: 'LexGub' },
-  { href: '/contacto', label: 'Contacto' },
 ];
 
-/**
- * Mapa completo del cajón. El cajón está disponible en todas las anchuras
- * —no solo en móvil— para que ninguna ruta dependa de que quepa en la barra.
- */
 const enCajon = [
   { href: '/', label: 'Inicio' },
   ...principal,
-  { href: '/pildoras', label: 'Píldoras' },
+  { href: '/contacto', label: 'Contacto' },
   { href: '/asistente', label: 'Asistente LexGub' },
 ];
 
-/** Material complementario, en pastillas al pie del cajón. */
+const conocimiento = [
+  { href: '/normativa', label: 'Biblioteca jurídica' },
+  { href: '/jurisprudencia', label: 'Jurisprudencia' },
+  { href: '/radar', label: 'Radar normativo' },
+  { href: '/pildoras', label: 'Píldoras' },
+  { href: '/columna', label: 'Columna' },
+  { href: '/criterios', label: 'Criterios' },
+];
+
 const complementario = [
   { href: '/control-gubernamental', label: 'Control gubernamental' },
-  { href: '/criterios', label: 'Criterios' },
-  { href: '/columna', label: 'Columna' },
   { href: '/guias', label: 'Guías' },
   { href: '/glosario', label: 'Glosario' },
   { href: '/tribunales', label: 'Tribunales y precedentes' },
@@ -51,9 +48,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     document.documentElement.classList.toggle('navOpen', open);
@@ -61,7 +56,13 @@ export default function Navbar() {
   }, [open]);
 
   function isActive(href: string) {
-    return href === '/' ? pathname === '/' : pathname.startsWith(href);
+    if (href === '/') return pathname === '/';
+    if (href === '/conocimiento') {
+      return ['/conocimiento', '/normativa', '/jurisprudencia', '/radar', '/pildoras', '/columna', '/criterios', '/fuentes', '/tribunales'].some(
+        (route) => pathname.startsWith(route),
+      );
+    }
+    return pathname.startsWith(href);
   }
 
   function navLink(link: { href: string; label: string }, inDrawer = false) {
@@ -87,9 +88,7 @@ export default function Navbar() {
           <LexGubBrand compact tone="dark" />
         </Link>
 
-        <div className="navlinks">
-          {principal.map((link) => navLink(link))}
-        </div>
+        <div className="navlinks">{principal.map((link) => navLink(link))}</div>
 
         <div className="navActions">
           <GlobalSearchButton />
@@ -109,18 +108,21 @@ export default function Navbar() {
 
       <div id="mobile-nav" className="navDrawer" data-state={open ? 'open' : 'closed'} aria-hidden={!open}>
         <div className="navDrawerInner">
-        <div className="navDrawerLinks">
-          {enCajon.map((link) => navLink(link, true))}
-        </div>
-        <div className="navDrawerGroup">
-          <span>Consulta y análisis</span>
-          <div className="navDrawerChips">
-            {complementario.map((link) => navLink(link, true))}
+          <div className="navDrawerLinks">{enCajon.map((link) => navLink(link, true))}</div>
+
+          <div className="navDrawerGroup">
+            <span>Conocimiento</span>
+            <div className="navDrawerChips">{conocimiento.map((link) => navLink(link, true))}</div>
           </div>
-        </div>
-        <p className="navDrawerNote">
-          LexGub Perú · conocimiento jurídico y asesoría especializada en control gubernamental.
-        </p>
+
+          <div className="navDrawerGroup">
+            <span>Recursos especializados</span>
+            <div className="navDrawerChips">{complementario.map((link) => navLink(link, true))}</div>
+          </div>
+
+          <p className="navDrawerNote">
+            LexGub Perú · conocimiento jurídico y asesoría especializada en control gubernamental y derecho público.
+          </p>
         </div>
       </div>
 

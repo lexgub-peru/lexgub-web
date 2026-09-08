@@ -7,6 +7,7 @@ const staticRoutes = [
   '/',
   '/auditores',
   '/autoridades',
+  '/conocimiento',
   '/lexgub',
   '/control-gubernamental',
   '/normativa',
@@ -45,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : ['/auditores', '/autoridades'].includes(route)
           ? 0.95
-          : ['/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
+          : ['/conocimiento', '/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
             ? 0.9
             : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio' || route === '/herramientas/validez-control'
               ? 0.75
