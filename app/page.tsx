@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import {
-  IconAlert,
   IconArrowRight,
   IconBook,
   IconChecklist,
@@ -18,96 +17,41 @@ const busquedasFrecuentes: [string, string][] = [
   ['Auditoría de cumplimiento', 'auditoría de cumplimiento'],
   ['SCE', 'control específico'],
   ['AOP', 'acción de oficio posterior'],
-  ['Contrataciones públicas', 'contrataciones'],
-  ['Responsabilidad administrativa', 'responsabilidad administrativa'],
-  ['SERVIR', 'SERVIR'],
+  ['Contrataciones', 'contrataciones públicas'],
 ];
 
-const modulos = [
-  { titulo: 'Biblioteca jurídica', texto: 'Normas, directivas, manuales y documentos clave.', href: '/normativa', icon: IconBook },
-  { titulo: 'Jurisprudencia LexGub', texto: 'Resoluciones, precedentes y criterios relevantes.', href: '/jurisprudencia', icon: IconScale },
-  { titulo: 'Criterios', texto: 'Razonamiento jurídico aplicado a problemas de control.', href: '/criterios', icon: IconEvidence },
-  { titulo: 'Píldoras LexGub', texto: 'Explicaciones claras en formato breve.', href: '/pildoras', icon: IconAlert },
-  { titulo: 'Herramientas', texto: 'Formatos, matrices y recursos prácticos.', href: '/herramientas', icon: IconChecklist },
-  { titulo: 'Asistente LexGub', texto: 'Apoyo para ubicar fuentes y ordenar la consulta.', href: '/asistente', icon: IconSearch },
+const resolver = [
+  { title: 'Buscar una norma', text: 'Vigencia, modificatorias y fuente oficial.', href: '/normativa', icon: IconBook },
+  { title: 'Revisar jurisprudencia', text: 'Criterios, precedentes y utilidad práctica.', href: '/jurisprudencia', icon: IconScale },
+  { title: 'Entender un informe de control', text: 'Hecho, criterio, recomendación y respuesta.', href: '/autoridades', icon: IconDocument },
+  { title: 'Responder un requerimiento OCI/CGR', text: 'Ordena información, plazos y sustento.', href: '/autoridades', icon: IconEvidence },
+  { title: 'Usar una herramienta', text: 'Selectores, mapas de revisión y checklists.', href: '/herramientas', icon: IconChecklist },
+  { title: 'Solicitar asesoría', text: 'Acompañamiento técnico y jurídico especializado.', href: '/servicios', icon: IconLandmark },
 ];
 
-const temas = [
-  {
-    etiqueta: 'ACTUALIDAD',
-    titulo: 'Excepción al informe previo en Obras por Impuestos',
-    texto: 'La medida no elimina el control: desplaza el énfasis hacia la entidad y los controles simultáneo y posterior.',
-    href: '/columna/oxi-informe-previo-el-nino-2026',
-    audiencia: 'ambos',
-  },
-  {
-    etiqueta: 'GUÍA PRÁCTICA',
-    titulo: 'Qué hacer ante una solicitud del OCI',
-    texto: 'Qué se pide, en qué plazo y cómo responder de forma completa y verificable.',
-    href: '/autoridades',
-    audiencia: 'autoridades',
-  },
-  {
-    etiqueta: 'ANÁLISIS',
-    titulo: 'Cómo leer un informe de control',
-    texto: 'Distinguir hecho descrito, criterio invocado y recomendación formulada.',
-    href: '/autoridades',
-    audiencia: 'autoridades',
-  },
-  {
-    etiqueta: 'ARTÍCULO',
-    titulo: 'Prueba suficiente y apropiada',
-    texto: 'Suficiencia es cantidad; apropiación es pertinencia y fiabilidad. No son intercambiables.',
-    href: '/auditores',
-    audiencia: 'auditores',
-  },
-];
-
-const servicios = [
-  'Asesoría en procedimientos y actuaciones de control',
-  'Revisión jurídica de informes y documentación',
-  'Contrataciones públicas',
-  'Responsabilidad administrativa',
-  'Revisión crítica de casos complejos',
-  'Capacitación y talleres especializados',
-];
-
-const fuentes: [string, string][] = [
-  ['El Peruano', 'https://elperuano.pe/'],
-  ['SPIJ', 'https://spij.minjus.gob.pe/'],
-  ['Contraloría', 'https://www.gob.pe/contraloria'],
-  ['SERVIR', 'https://www.gob.pe/servir'],
-  ['OECE', 'https://www.gob.pe/oece'],
-  ['Poder Judicial', 'https://www.pj.gob.pe/'],
-  ['Tribunal Constitucional', 'https://www.tc.gob.pe/'],
+const actualidad = [
+  { eyebrow: 'RADAR', title: 'Cambios normativos con trazabilidad', href: '/radar' },
+  { eyebrow: 'PÍLDORAS', title: 'Claves breves para el trabajo diario', href: '/pildoras' },
+  { eyebrow: 'COLUMNA', title: 'Análisis jurídico de problemas actuales', href: '/columna' },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* ---------- Hero: el buscador es el protagonista ---------- */}
-      <section className="v5Hero">
+      <section className="v5Hero v6Hero">
         <div className="v5HeroInner">
           <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
           <h1>
-            Conocimiento jurídico y asesoría estratégica para <em>decidir con criterio.</em>
+            Conocimiento jurídico y asesoría especializada para <em>decidir con criterio.</em>
           </h1>
           <p className="v5HeroDek">
-            Trabajamos con auditores, autoridades y gestores públicos sobre normas, evidencia, informes y fuentes
-            oficiales, para sustentar mejor cada decisión frente al control gubernamental.
+            LexGub conecta fuente oficial, temporalidad, evidencia y análisis para auditores, autoridades y gestores públicos.
           </p>
 
           <form className="v5Search" action="/buscar" method="get" role="search">
             <label className="srOnly" htmlFor="hero-q">Buscar en LexGub Perú</label>
             <IconSearch className="v5SearchIcon" />
-            <input
-              id="hero-q"
-              name="q"
-              type="search"
-              placeholder="Buscar norma, criterio o resolución…"
-              title="Buscar norma, criterio, resolución, precedente o tema"
-              autoComplete="off"
-            />
+            <input id="hero-q" name="q" type="search" placeholder="Buscar norma, criterio o resolución…" autoComplete="off" />
             <button type="submit">Buscar</button>
           </form>
 
@@ -120,138 +64,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Dos rutas de entrada ---------- */}
-      <section className="v5Rutas" aria-label="Rutas de entrada">
+      <section className="v5Rutas v6Rutas" aria-label="Elige tu ruta">
         <Link className="v5Ruta v5Ruta--auditores" href="/auditores">
           <span className="v5RutaIcono"><IconShield /></span>
           <div className="v5RutaCuerpo">
-            <h2>Para auditores</h2>
-            <p>Herramientas y conocimiento para un control más efectivo.</p>
-            <ul>
-              <li>Normativa aplicable</li>
-              <li>Jurisprudencia útil</li>
-              <li>Herramientas y matrices</li>
-              <li>Píldoras de control</li>
-            </ul>
+            <h2>Soy auditor</h2>
+            <p>Normas, evidencia, criterios y herramientas para el trabajo de control.</p>
           </div>
-          <span className="v5RutaCta">Entrar para auditores <IconArrowRight /></span>
+          <span className="v5RutaCta">Entrar <IconArrowRight /></span>
         </Link>
-
         <Link className="v5Ruta v5Ruta--autoridades" href="/autoridades">
           <span className="v5RutaIcono"><IconLandmark /></span>
           <div className="v5RutaCuerpo">
-            <h2>Para autoridades y gestores públicos</h2>
-            <p>Asesoría, conocimiento y guía para una respuesta técnica, oportuna y segura.</p>
-            <ul>
-              <li>Cómo responder a un requerimiento</li>
-              <li>Cómo leer un informe de control</li>
-              <li>Riesgos frecuentes</li>
-              <li>Asesoría especializada</li>
-            </ul>
+            <h2>Soy autoridad o gestor</h2>
+            <p>Comprende requerimientos, informes, riesgos y opciones de respuesta técnica.</p>
           </div>
-          <span className="v5RutaCta">Entrar para autoridades <IconArrowRight /></span>
+          <span className="v5RutaCta">Entrar <IconArrowRight /></span>
         </Link>
       </section>
 
-      {/* ---------- Módulos + fundador ---------- */}
-      <section className="v5Split">
-        <div className="v5SplitMain">
-          <div className="v5SectionHead">
-            <h2>Qué puedes hacer en LexGub</h2>
-            <span>TODO EN UN SOLO LUGAR, PARA UNA MEJOR GESTIÓN PÚBLICA</span>
-          </div>
-          <div className="v5Modulos">
-            {modulos.map((m) => (
-              <Link className="v5Modulo" key={m.titulo} href={m.href}>
-                <span className="v5ModuloIcono"><m.icon /></span>
-                <h3>{m.titulo}</h3>
-                <p>{m.texto}</p>
-                <span className="v5ModuloFlecha" aria-hidden="true"><IconArrowRight /></span>
-              </Link>
-            ))}
+      <section className="section v6ResolveSection">
+        <div className="sectionHeading">
+          <span>¿QUÉ NECESITAS RESOLVER?</span>
+          <h2>Empieza por tu problema, no por el menú.</h2>
+        </div>
+        <div className="v6ResolveGrid">
+          {resolver.map((item) => (
+            <Link className="v6ResolveCard" href={item.href} key={item.title}>
+              <span className="cardIcon"><item.icon /></span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+              <IconArrowRight />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section softSection v6CurrentSection">
+        <div className="sectionHeading splitHeading">
+          <div><span>CONOCIMIENTO</span><h2>Lo esencial, sin saturarte.</h2></div>
+          <Link className="cardLink" href="/conocimiento">Ver centro de conocimiento <IconArrowRight /></Link>
+        </div>
+        <div className="v6CurrentGrid">
+          {actualidad.map((item) => (
+            <Link className="v6CurrentCard" href={item.href} key={item.title}>
+              <span>{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <strong className="cardLink">Abrir <IconArrowRight /></strong>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section v6BottomGrid">
+        <div className="v6ToolPanel">
+          <span className="sectionKicker">HERRAMIENTAS</span>
+          <h2>Ordena el análisis antes de concluir.</h2>
+          <p>Usa el selector de servicio, el mapa de validez y los checklists como apoyo de revisión, sin sustituir el juicio profesional.</p>
+          <div className="heroActions">
+            <Link className="primaryButton" href="/herramientas">Ver herramientas</Link>
+            <Link className="authorOutlineButton" href="/asistente">Asistente LexGub</Link>
           </div>
         </div>
 
-        <aside className="v5Fundador" aria-label="Fundador">
-          <span className="v5FundadorTitulo">Fundador</span>
-          <div className="v5FundadorMarco">
-            <img
-              src="/marvyn-gallo-retrato.webp"
-              alt="Marvyn Enrique Gallo Rojas"
-              width={168}
-              height={195}
-              className="v5FundadorFoto"
-            />
+        <aside className="v6Founder" aria-label="Fundador de LexGub Perú">
+          <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="360" height="360" />
+          <div>
+            <span>FUNDADOR</span>
+            <h2>Marvyn Enrique Gallo Rojas</h2>
+            <p className="v6FounderRole">Abogado · Fundador de LexGub Perú</p>
+            <p>Control gubernamental, auditoría, contrataciones públicas y derecho administrativo, con enfoque en evidencia y fuente oficial.</p>
+            <Link className="cardLink" href="/lexgub">Conocer LexGub <IconArrowRight /></Link>
           </div>
-          <h3>Marvyn Enrique Gallo Rojas</h3>
-          <p className="v5FundadorRol">Abogado · Fundador de LexGub Perú</p>
-          <p className="v5FundadorBio">
-            Especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo, con
-            enfoque en evidencia, fuente oficial, temporalidad normativa y análisis jurídico riguroso.
-          </p>
-          <p className="v5FundadorBio">Fundador y director de la línea jurídica y editorial de LexGub Perú.</p>
-          <blockquote className="v5FundadorCita">Instituciones más fuertes para un país más justo.</blockquote>
-          <Link className="cardLink" href="/lexgub">Conocer LexGub <IconArrowRight /></Link>
         </aside>
       </section>
 
-      {/* ---------- Temas clave + servicios ---------- */}
-      <section className="v5Split v5Split--soft">
-        <div className="v5SplitMain">
-          <div className="v5SectionHead">
-            <h2>Temas clave para el día a día</h2>
-            <span>GUÍAS Y ANÁLISIS PARA MEJORES DECISIONES</span>
-          </div>
-          <div className="v5Temas">
-            {temas.map((t) => (
-              <Link className={`v5Tema v5Tema--${t.audiencia}`} key={t.titulo} href={t.href}>
-                <span className="v5TemaEtiqueta">{t.etiqueta}</span>
-                <h3>{t.titulo}</h3>
-                <p>{t.texto}</p>
-              </Link>
-            ))}
-          </div>
+      <section className="v6ServiceBand">
+        <div>
+          <span>ASESORÍA Y CONSULTORÍA</span>
+          <h2>Cuando el problema requiere análisis aplicado al caso.</h2>
+          <p>Revisión jurídica, procedimientos de control, contrataciones, responsabilidad administrativa y capacitación especializada.</p>
         </div>
-
-        <aside className="v5Servicios" aria-label="Nuestros servicios">
-          <div className="v5SectionHead">
-            <h2>Nuestros servicios</h2>
-            <span>ASESORÍA ESPECIALIZADA</span>
-          </div>
-          <ul className="v5ServiciosLista">
-            {servicios.map((s) => (
-              <li key={s}><IconDocument />{s}</li>
-            ))}
-          </ul>
-          <div className="v5ServiciosCta">
-            <Link className="wineButton" href="/contacto">Solicitar asesoría <IconArrowRight /></Link>
-            <Link className="ghostButton" href="/servicios">Ver todos los servicios</Link>
-          </div>
-          <p className="v5ServiciosNota">
-            El acompañamiento es técnico y jurídico. No garantizamos resultados en procedimientos de control.
-          </p>
-        </aside>
-      </section>
-
-      {/* ---------- Franja de fuentes ---------- */}
-      <section className="v5Fuentes" aria-label="Fuentes oficiales">
-        <div className="v5FuentesInner">
-          <p className="v5FuentesTitulo">
-            <IconShield />
-            FUENTES OFICIALES QUE RESPALDAN NUESTRO CONTENIDO
-          </p>
-          <ul>
-            {fuentes.map(([label, href]) => (
-              <li key={label}>
-                <a href={href} target="_blank" rel="noreferrer">{label}</a>
-              </li>
-            ))}
-          </ul>
+        <div className="heroActions">
+          <Link className="wineButton" href="/contacto">Solicitar asesoría <IconArrowRight /></Link>
+          <Link className="ghostButton" href="/servicios">Ver servicios</Link>
         </div>
-        <p className="v5FuentesNota">
-          LexGub es una iniciativa privada e independiente y no representa a dichas entidades. Verifique siempre la
-          vigencia y la fuente oficial de la normativa aplicable.
-        </p>
       </section>
     </>
   );
