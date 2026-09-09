@@ -12,12 +12,12 @@ import { siteConfig } from '../lib/site';
 import styles from './LexGub.module.css';
 
 export const metadata: Metadata = {
-  title: 'LexGub Perú | Misión, visión, historia y fundador',
+  title: 'LexGub Perú | Misión, visión, historia e identidad institucional',
   description:
-    'Conoce LexGub Perú, empresa de asesoría, consultoría y conocimiento jurídico especializado en control gubernamental y derecho público, fundada por Marvyn Enrique Gallo Rojas.',
+    'Conoce LexGub Perú, empresa de asesoría, consultoría y conocimiento jurídico especializado en control gubernamental y derecho público.',
   openGraph: {
     title: 'LexGub Perú | Asesoría, consultoría y conocimiento jurídico especializado',
-    description: 'Misión, visión, historia, principios y fundador de LexGub Perú.',
+    description: 'Misión, visión, historia, principios e identidad institucional de LexGub Perú.',
     url: `${siteConfig.url}/lexgub`,
     type: 'website',
   },
@@ -79,13 +79,9 @@ const professionalServiceJsonLd = {
   '@type': 'ProfessionalService',
   name: siteConfig.name,
   url: `${siteConfig.url}/lexgub`,
+  email: 'lexgub.peru@gmail.com',
   description:
     'Empresa peruana de asesoría, consultoría y conocimiento jurídico especializado en control gubernamental, auditoría, contrataciones públicas, derecho administrativo y gestión pública.',
-  founder: {
-    '@type': 'Person',
-    name: 'Marvyn Enrique Gallo Rojas',
-    jobTitle: 'Abogado · Fundador de LexGub Perú',
-  },
   areaServed: {
     '@type': 'Country',
     name: 'Perú',
@@ -174,32 +170,20 @@ export default function LexGubPage() {
         </div>
       </section>
 
-      <section className={styles.founderSection}>
-        <div className={styles.portraitWrap}>
-          <img
-            src="/marvyn-gallo-retrato.webp"
-            alt="Marvyn Enrique Gallo Rojas, fundador de LexGub Perú"
-            width="640"
-            height="800"
-          />
-        </div>
-        <div className={styles.founderCopy}>
-          <span>FUNDADOR</span>
-          <h2>Marvyn Enrique Gallo Rojas</h2>
-          <strong>Abogado · Fundador de LexGub Perú</strong>
+      <section className={styles.institutionSection}>
+        <div className={styles.institutionMark} aria-hidden="true">L</div>
+        <div className={styles.institutionCopy}>
+          <span>IDENTIDAD INSTITUCIONAL</span>
+          <h2>Una marca jurídica construida para que el contenido sea el protagonista.</h2>
           <p>
-            Abogado especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo. Su
-            experiencia profesional y académica orienta el desarrollo de LexGub hacia el análisis de problemas reales, con especial
-            atención a evidencia, temporalidad normativa, motivación jurídica y responsabilidad funcional.
+            LexGub se presenta públicamente como una plataforma y firma especializada. La arquitectura editorial privilegia la trazabilidad de las fuentes, la claridad metodológica y la utilidad profesional por encima de la exposición de identidades personales.
           </p>
           <p>
-            Como fundador, dirige la línea jurídica y editorial de LexGub y promueve una forma de trabajo basada en fuentes
-            verificables, pensamiento crítico, prudencia profesional y aplicación práctica.
+            Para consultas, coordinación institucional o servicios profesionales, el canal público de contacto es el correo de LexGub Perú.
           </p>
-          <div className={styles.founderLinks}>
-            <Link href="/columna">Leer publicaciones <IconArrowRight /></Link>
-            <Link href="/servicios">Perfil y servicios <IconArrowRight /></Link>
-          </div>
+          <a className={styles.contactMail} href="mailto:lexgub.peru@gmail.com?subject=Contacto%20LexGub%20Per%C3%BA">
+            lexgub.peru@gmail.com <IconArrowRight />
+          </a>
         </div>
       </section>
 
