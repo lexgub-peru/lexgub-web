@@ -6,25 +6,14 @@ type AuthorCardProps = {
 
 export default function AuthorCard({ compact = false }: AuthorCardProps) {
   return (
-    <aside className={`authorCard ${compact ? 'authorCard--compact' : ''}`.trim()} aria-label="Sobre el fundador y autor">
-      <div className="authorCardKicker">FUNDADOR · AUTOR</div>
-      <div className="authorCardTop">
-        <img
-          src="/marvyn-gallo-retrato.webp"
-          alt="Marvyn Enrique Gallo Rojas"
-          width="640"
-          height="800"
-          loading="lazy"
-          className="authorCardPhoto"
-        />
-        <div className="authorCardIdentity">
-          <h2>Marvyn Enrique Gallo Rojas</h2>
-          <span>Abogado · Fundador de LexGub Perú</span>
-        </div>
+    <aside className={`authorCard ${compact ? 'authorCard--compact' : ''}`.trim()} aria-label="Sobre LexGub Perú">
+      <div className="authorCardKicker">EQUIPO EDITORIAL</div>
+      <div className="authorCardIdentity">
+        <h2>LexGub Perú</h2>
+        <span>Derecho público · Control gubernamental · Gestión pública</span>
       </div>
       <p>
-        Especializado en control gubernamental, auditoría, contrataciones públicas y derecho administrativo,
-        con enfoque en evidencia, fuente oficial, temporalidad normativa y análisis jurídico riguroso.
+        Contenido jurídico especializado elaborado con enfoque en fuente oficial, evidencia, temporalidad normativa y análisis crítico.
       </p>
       <div className="authorCardTags" aria-label="Áreas de especialidad">
         <span>Control gubernamental</span>
@@ -32,7 +21,8 @@ export default function AuthorCard({ compact = false }: AuthorCardProps) {
         <span>Contrataciones públicas</span>
         <span>Derecho administrativo</span>
       </div>
-      <Link className="authorCardLink" href="/lexgub">Conocer fundador y LexGub <span aria-hidden="true">→</span></Link>
+      <a className="authorCardLink" href="mailto:lexgub.peru@gmail.com?subject=Contacto%20LexGub%20Per%C3%BA">lexgub.peru@gmail.com <span aria-hidden="true">→</span></a>
+      {!compact && <Link className="authorCardLink" href="/lexgub">Conocer LexGub <span aria-hidden="true">→</span></Link>}
     </aside>
   );
 }
