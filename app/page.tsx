@@ -38,7 +38,7 @@ const actualidad = [
 export default function Home() {
   return (
     <>
-      <section className="v5Hero v6Hero">
+      <section className="v5Hero v6Hero v7Hero">
         <div className="v5HeroInner">
           <p className="v5HeroKicker">DERECHO PÚBLICO PARA UN MEJOR ESTADO</p>
           <h1>
@@ -62,6 +62,16 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="v7TrustStrip" aria-label="Principios LexGub">
+        <span>FUENTE OFICIAL</span>
+        <i>·</i>
+        <span>TEMPORALIDAD NORMATIVA</span>
+        <i>·</i>
+        <span>EVIDENCIA</span>
+        <i>·</i>
+        <span>ANÁLISIS JURÍDICO</span>
       </section>
 
       <section className="v5Rutas v6Rutas" aria-label="Elige tu ruta">
@@ -119,7 +129,7 @@ export default function Home() {
       </section>
 
       <section className="section v6BottomGrid">
-        <div className="v6ToolPanel">
+        <div className="v6ToolPanel v7ToolPanel">
           <span className="sectionKicker">HERRAMIENTAS</span>
           <h2>Ordena el análisis antes de concluir.</h2>
           <p>Usa el selector de servicio, el mapa de validez y los checklists como apoyo de revisión, sin sustituir el juicio profesional.</p>
@@ -129,19 +139,18 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="v6Founder" aria-label="Fundador de LexGub Perú">
-          <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="360" height="360" />
-          <div>
-            <span>FUNDADOR</span>
-            <h2>Marvyn Enrique Gallo Rojas</h2>
-            <p className="v6FounderRole">Abogado · Fundador de LexGub Perú</p>
-            <p>Control gubernamental, auditoría, contrataciones públicas y derecho administrativo, con enfoque en evidencia y fuente oficial.</p>
-            <Link className="cardLink" href="/lexgub">Conocer LexGub <IconArrowRight /></Link>
-          </div>
+        <aside className="v7InstitutionalCard" aria-label="Contacto institucional LexGub Perú">
+          <span>CONTACTO INSTITUCIONAL</span>
+          <h2>Una identidad jurídica sobria, independiente y verificable.</h2>
+          <p>
+            LexGub Perú desarrolla conocimiento, herramientas y servicios especializados en derecho público con una metodología basada en fuente oficial, evidencia y trazabilidad.
+          </p>
+          <a className="v7Email" href="mailto:lexgub.peru@gmail.com?subject=Contacto%20LexGub%20Per%C3%BA">lexgub.peru@gmail.com</a>
+          <Link className="cardLink" href="/lexgub">Conocer LexGub <IconArrowRight /></Link>
         </aside>
       </section>
 
-      <section className="v6ServiceBand">
+      <section className="v6ServiceBand v7ServiceBand">
         <div>
           <span>ASESORÍA Y CONSULTORÍA</span>
           <h2>Cuando el problema requiere análisis aplicado al caso.</h2>
