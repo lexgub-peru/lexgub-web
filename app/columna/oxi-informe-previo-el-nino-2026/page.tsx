@@ -3,7 +3,7 @@ import AuthorCard from '../../components/AuthorCard';
 export const metadata = {
   title: 'OxI ante El Niño: excepción al informe previo de Contraloría',
   description: 'Análisis del Decreto de Urgencia N.° 010-2026 y la excepción temporal al informe previo de la Contraloría en determinadas intervenciones mediante Obras por Impuestos.',
-  authors: [{ name: 'Marvyn Enrique Gallo Rojas' }],
+  authors: [{ name: 'LexGub Perú' }],
 };
 
 export default function ArticlePage() {
@@ -34,11 +34,10 @@ export default function ArticlePage() {
               <span>Control previo · Obras por Impuestos</span>
               <span>Lectura: 6 min</span>
             </div>
-            <div className="articleMobileAuthor" aria-label="Autor del artículo">
-              <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="800" />
+            <div className="articleMobileAuthor" aria-label="Equipo editorial">
               <div>
-                <strong>Marvyn Enrique Gallo Rojas</strong>
-                <span>Abogado · Fundador de LexGub Perú</span>
+                <strong>LexGub Perú</strong>
+                <span>Equipo editorial · Análisis jurídico independiente</span>
               </div>
             </div>
           </header>
@@ -60,7 +59,7 @@ export default function ArticlePage() {
 
             <blockquote>
               <span>“El control no desaparece: cambia el momento en que actúa.”</span>
-              <cite>Marvyn Enrique Gallo Rojas</cite>
+              <cite>LexGub Perú</cite>
             </blockquote>
 
             <h2>2. ¿Qué cambia en términos prácticos?</h2>
