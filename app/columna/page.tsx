@@ -29,11 +29,11 @@ export default function ColumnaPage() {
               <Link className="secondaryButton" href="/autoridades">Contenido para autoridades</Link>
             </div>
           </div>
-          <div className="columnEditorialSignature">
-            <img src="/marvyn-gallo-retrato.webp" alt="Marvyn Enrique Gallo Rojas" width="640" height="800" />
+          <div className="columnEditorialSignature columnEditorialSignature--institutional">
             <div>
-              <strong>Marvyn Enrique Gallo Rojas</strong>
-              <span>Abogado · Fundador de LexGub Perú</span>
+              <strong>LexGub Perú</strong>
+              <span>Equipo editorial · Análisis jurídico independiente</span>
+              <a href="mailto:lexgub.peru@gmail.com?subject=Contacto%20editorial%20LexGub">lexgub.peru@gmail.com</a>
             </div>
           </div>
         </div>
