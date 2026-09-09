@@ -1,9 +1,37 @@
-/* LEXGUB V6 — simplificación de arquitectura y jerarquía visual. */
+/* LEXGUB V7 — evolución institucional, sobria y centrada en contenido. */
 
 .v6Hero .v5HeroInner { max-width: 980px; }
 .v6Hero .v5HeroDek { max-width: 760px; }
 .v6Rutas .v5Ruta { min-height: 0; }
 .v6Rutas .v5RutaCuerpo ul { display: none; }
+
+.v7Hero { position: relative; overflow: hidden; }
+.v7Hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -160px -220px auto;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(109,31,49,.12), transparent 68%);
+  pointer-events: none;
+}
+.v7TrustStrip {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 14px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  border-block: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.v7TrustStrip i { color: var(--wine); font-style: normal; }
 
 .v6ResolveSection { max-width: var(--wide); margin: 0 auto; }
 .v6ResolveGrid {
@@ -26,11 +54,11 @@
   box-shadow: 0 10px 28px rgba(8, 22, 35, .045);
   transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.v6ResolveCard:hover { transform: translateY(-2px); border-color: #ccb98f; box-shadow: var(--shadow-card); }
+.v6ResolveCard:hover { transform: translateY(-2px); border-color: rgba(109,31,49,.34); box-shadow: var(--shadow-card); }
 .v6ResolveCard .cardIcon { margin: 0; }
 .v6ResolveCard h3 { margin: 0 0 5px; font-family: var(--font-serif); font-size: 1.05rem; }
 .v6ResolveCard p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
-.v6ResolveCard > svg { width: 17px; height: 17px; color: var(--gold-dark); }
+.v6ResolveCard > svg { width: 17px; height: 17px; color: var(--wine); }
 
 .v6CurrentSection { border-block: 1px solid var(--line); }
 .v6CurrentGrid {
@@ -45,8 +73,10 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
+  transition: transform .18s ease, border-color .18s ease;
 }
-.v6CurrentCard > span { color: var(--gold-dark); font-size: .69rem; font-weight: 800; letter-spacing: .13em; }
+.v6CurrentCard:hover { transform: translateY(-2px); border-color: rgba(109,31,49,.3); }
+.v6CurrentCard > span { color: var(--wine); font-size: .69rem; font-weight: 800; letter-spacing: .13em; }
 .v6CurrentCard h3 { margin: 10px 0 22px; font-family: var(--font-serif); font-size: 1.2rem; }
 
 .v6BottomGrid {
@@ -57,34 +87,48 @@
   gap: 22px;
 }
 .v6ToolPanel,
-.v6Founder {
+.v7InstitutionalCard {
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface);
 }
+.v7ToolPanel { background: linear-gradient(145deg, #fff, #fbf8f6); }
 .v6ToolPanel h2,
-.v6Founder h2 { margin: 8px 0 12px; font-size: clamp(1.45rem, 2.5vw, 2.15rem); }
+.v7InstitutionalCard h2 { margin: 8px 0 12px; font-size: clamp(1.45rem, 2.5vw, 2.15rem); }
 .v6ToolPanel p,
-.v6Founder p { color: var(--muted); }
-
-.v6Founder {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  align-items: center;
-  gap: 24px;
+.v7InstitutionalCard p { color: var(--muted); }
+.v7InstitutionalCard {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #111d2c, #231520 78%);
+  color: #fff;
+  border-color: rgba(201,163,95,.24);
 }
-.v6Founder img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 16px;
-  border: 1px solid rgba(200, 163, 93, .85);
-  box-shadow: 0 14px 32px rgba(7, 27, 45, .12);
+.v7InstitutionalCard::after {
+  content: 'LEXGUB';
+  position: absolute;
+  right: -6px;
+  bottom: -12px;
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  line-height: 1;
+  color: rgba(255,255,255,.035);
+  letter-spacing: -.06em;
+  pointer-events: none;
 }
-.v6Founder > div > span { color: var(--gold-dark); font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
-.v6FounderRole { color: var(--ink-soft) !important; font-weight: 600; }
+.v7InstitutionalCard > span { color: var(--gold-light); font-size: .7rem; font-weight: 800; letter-spacing: .14em; }
+.v7InstitutionalCard p { color: #d6dee5; max-width: 640px; }
+.v7InstitutionalCard .cardLink { position: relative; z-index: 1; color: #f5dfb7; }
+.v7Email {
+  display: inline-flex;
+  margin: 10px 0 22px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(245,223,183,.45);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
 
 .v6ServiceBand {
   max-width: var(--wide);
@@ -98,6 +142,7 @@
   color: #fff;
   border-radius: 18px;
 }
+.v7ServiceBand { box-shadow: 0 24px 64px rgba(17,29,44,.12); }
 .v6ServiceBand > div:first-child { max-width: 760px; }
 .v6ServiceBand span { color: var(--gold-light); font-size: .72rem; font-weight: 800; letter-spacing: .14em; }
 .v6ServiceBand h2 { margin: 8px 0; font-size: clamp(1.5rem, 2.6vw, 2.25rem); }
@@ -121,13 +166,6 @@
 .v6KnowledgeCard h3 { margin: 0 0 8px; font-family: var(--font-serif); font-size: 1.15rem; }
 .v6KnowledgeCard p { color: var(--muted); font-size: .9rem; }
 
-/* V6: el retrato deja de presentarse como óvalo. */
-.v5FundadorMarco { width: 168px; padding: 0; border-radius: 16px; overflow: hidden; }
-.v5FundadorFoto { width: 168px; height: 168px; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
-.authorCardPhoto,
-.columnEditorialSignature img,
-.articleMobileAuthor img { border-radius: 12px !important; object-fit: cover; aspect-ratio: 1; }
-
 @media (max-width: 980px) {
   .v6ResolveGrid,
   .v6KnowledgeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -138,14 +176,11 @@
 @media (max-width: 620px) {
   .v6Hero .v5HeroInner { padding-top: 38px; padding-bottom: 42px; }
   .v6Hero h1 { font-size: clamp(2rem, 10.2vw, 2.55rem); line-height: 1.04; }
+  .v7TrustStrip { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; }
   .v6ResolveGrid,
   .v6CurrentGrid,
   .v6KnowledgeGrid { grid-template-columns: 1fr; }
   .v6ResolveCard { min-height: 0; }
-  .v6Founder { grid-template-columns: 104px 1fr; gap: 16px; padding: 20px; }
-  .v6Founder img { width: 104px; height: 104px; border-radius: 12px; }
-  .v6Founder h2 { font-size: 1.25rem; }
-  .v6Founder p:not(.v6FounderRole) { grid-column: 1 / -1; }
   .v6ServiceBand { margin: 0 16px 40px; padding: 26px 22px; align-items: flex-start; flex-direction: column; }
   .v6ServiceBand .heroActions { width: 100%; }
   .v6ServiceBand .heroActions a { flex: 1 1 160px; }
