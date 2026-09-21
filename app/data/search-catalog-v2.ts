@@ -72,6 +72,16 @@ const centers: SearchItem[] = [
     featured: true,
     verified: true,
   },
+  {
+    id: 'herramienta-opiniones-oece',
+    kind: 'Herramienta',
+    title: 'Opiniones Técnicas OECE',
+    subtitle: 'Explorador por casuística, tema y régimen para llegar a la opinión oficial y contrastarla con la normativa aplicable.',
+    href: '/herramientas/opiniones-oece',
+    keywords: ['oece', 'opiniones técnicas', 'dtn', 'contrataciones públicas', 'ley 32069', 'ley 30225', 'obras', 'consorcios', 'impedimentos', 'resolución de contrato', 'adicionales'],
+    featured: true,
+    verified: true,
+  },
 ];
 
 const sourceItems: SearchItem[] = officialResources.map((resource) => ({

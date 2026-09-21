@@ -126,6 +126,13 @@ export default function HerramientasPage() {
             <p>Separa fecha del hecho y actuación, ubica la versión aplicable y ordena los puntos que deben revisarse antes de sostener un vicio procedimental.</p>
             <strong className="cardLink">Abrir mapa →</strong>
           </a>
+          <a className="moduleCard areaCard" href="/herramientas/opiniones-oece">
+            <span className="cardIcon"><IconContract /></span>
+            <span className="cardTag">NUEVO</span>
+            <h3>Opiniones Técnicas OECE</h3>
+            <p>Busca criterios por casuística, tema y régimen normativo, y abre la publicación oficial antes de usarla en tu análisis.</p>
+            <strong className="cardLink">Explorar opiniones →</strong>
+          </a>
           <a className="moduleCard areaCard" href="/asistente">
             <span className="cardIcon"><IconEvidence /></span>
             <span className="cardTag">PRIVACY-FIRST</span>

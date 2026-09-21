@@ -22,6 +22,7 @@ const staticRoutes = [
   '/herramientas',
   '/herramientas/selector-servicio',
   '/herramientas/validez-control',
+  '/herramientas/opiniones-oece',
   '/glosario',
   '/pildoras',
   '/asistente',
@@ -48,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? 0.95
           : ['/conocimiento', '/lexgub', '/normativa', '/jurisprudencia', '/radar', '/fuentes', '/tribunales', '/columna', '/criterios'].includes(route)
             ? 0.9
-            : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio' || route === '/herramientas/validez-control'
+            : route === '/asistente' || route === '/pildoras' || route === '/herramientas/selector-servicio' || route === '/herramientas/validez-control' || route === '/herramientas/opiniones-oece'
               ? 0.75
               : 0.7,
   }));
