@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="LexGub">
+  <rect width="1000" height="1000" fill="#0B1016"/>
+  <path d="M250 195V750H805V540H600" fill="none" stroke="#F1F3EE" stroke-width="110" stroke-linejoin="miter"/>
+  <path d="M360 250H805" fill="none" stroke="#2FD89B" stroke-width="110"/>
+</svg>

@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../brand/src/tokens.css"><style>
+body{width:1080px;height:1920px;position:relative;background:var(--ink)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.45}
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .25s}
+.scene.on{opacity:1}
+.sub{position:absolute;left:80px;right:80px;bottom:330px;font:700 52px/1.18 'Inter Tight';text-align:center}
+.sub em{font-style:normal;color:var(--signal)}
+.src{position:absolute;left:80px;bottom:200px;font:500 26px 'IBM Plex Mono';color:var(--muted)}
+.brand{position:absolute;left:80px;top:120px;display:flex;gap:16px;align-items:center;font:700 34px 'Inter Tight';letter-spacing:.08em}
+.brand svg{width:52px;height:52px}
+.draft{position:absolute;right:60px;top:128px;font:600 22px 'IBM Plex Mono';color:var(--alert);border:2px solid var(--alert);padding:6px 12px}
+.doc{position:absolute;left:190px;top:420px;width:700px;height:860px;background:var(--paper);border-radius:8px;padding:60px 56px;transform:rotate(-2deg)}
+.doc i{display:block;height:18px;background:#C9CEC6;margin-bottom:24px;border-radius:3px}
+.doc .w{font:800 64px 'Inter Tight';color:var(--ink);margin:30px 0}
+.doc .w span{background:linear-gradient(var(--signal),var(--signal)) no-repeat 0 100%/0% 40%;transition:background-size .8s .3s}
+.on .doc .w span{background-size:100% 40%}
+.flow{position:absolute;left:80px;right:80px;top:420px;display:flex;flex-direction:column;gap:34px}
+.box{border:3px solid var(--line);background:var(--ink-2);border-radius:12px;padding:34px 40px;font:700 58px 'Inter Tight';transform:translateX(-40px);opacity:0;transition:all .4s}
+.box small{display:block;font:500 26px 'IBM Plex Mono';color:var(--signal);letter-spacing:.1em;margin-bottom:8px}
+.on .box{transform:none;opacity:1}
+.on .box:nth-child(2){transition-delay:.9s}.on .box:nth-child(3){transition-delay:1.8s}.on .box:nth-child(4){transition-delay:2.7s}
+.tl{position:absolute;left:120px;top:400px;height:560px;width:6px;background:var(--line)}
+.tl b{position:absolute;left:0;top:0;width:6px;height:0;background:var(--signal);transition:height 6s linear}
+.on .tl b{height:100%}
+.steps{position:absolute;left:170px;top:380px;display:flex;flex-direction:column;gap:120px;font:700 54px 'Inter Tight'}
+.steps div::before{content:'';position:absolute;left:-60px;width:26px;height:26px;background:var(--signal);margin-top:16px}
+.steps div{position:relative}
+.routes{position:absolute;left:80px;right:80px;top:1080px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.routes div{border:3px solid var(--signal);border-radius:10px;padding:20px;font:700 34px 'Inter Tight';text-align:center}
+.routes small{display:block;font:500 22px 'IBM Plex Mono';color:var(--muted);margin-top:6px}
+.ojo{position:absolute;left:80px;top:430px;font:800 220px 'Inter Tight';color:var(--alert)}
+.ojo+p{position:absolute;left:80px;right:80px;top:720px;font:700 70px/1.1 'Inter Tight'}
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;text-align:center}
+.end h2{font:800 96px/1 'Inter Tight'} .end h2 em{font-style:normal;color:var(--signal)}
+.end svg{width:220px;height:220px}
+</style></head><body>
+<div class="grid"></div>
+<div class="brand"><svg viewBox="0 0 1000 1000"><path d="M250 195V750H805V540H600" fill="none" stroke="#F1F3EE" stroke-width="110"/><path d="M360 250H805" fill="none" stroke="#2FD89B" stroke-width="110"/></svg>LEXGUB</div>
+<div class="draft">BORRADOR · SIN VOZ</div>
+
+<div class="scene" data-t="0"><div class="doc"><i style="width:55%"></i><i></i><i></i><div class="w">Responsabilidad <span>presunta</span></div><i></i><i style="width:80%"></i><i></i><i style="width:60%"></i></div></div>
+<div class="scene" data-t="3"><div class="flow"><div class="box"><small>01</small>Hechos</div><div class="box"><small>02</small>Evidencia</div><div class="box"><small>03</small>Norma incumplida</div><div class="box"><small>04</small>Responsabilidad <span style="color:var(--signal)">presunta</span></div></div></div>
+<div class="scene" data-t="15"><div class="tl"><b></b></div><div class="steps"><div>Informe</div><div>Imputación</div><div>Descargos</div><div>Decisión</div></div>
+ <div class="routes"><div>PAS<small>Contraloría</small></div><div>PAD<small>Entidad</small></div><div>Penal<small>Fiscalía · Juez</small></div></div></div>
+<div class="scene" data-t="38"><div class="ojo">OJO</div><p>El informe es el sustento con el que <span style="color:var(--signal)">se inicia</span> el procedimiento.</p></div>
+<div class="scene" data-t="50"><div class="end"><svg viewBox="0 0 1000 1000"><path d="M250 195V750H805V540H600" fill="none" stroke="#F1F3EE" stroke-width="110"/><path d="M360 250H805" fill="none" stroke="#2FD89B" stroke-width="110"/></svg><h2>Informe<br>no es <em>sanción</em>.</h2></div></div>
+
+<div class="sub" id="sub"></div>
+<div class="src" id="src">Ley N.° 27785 · RC N.° 166-2021-CG</div>
+<script>
+const subs=[[0,'Que un informe de control te mencione<br>no significa que <em>ya seas responsable</em>.'],
+[3,'El informe describe hechos, evidencia<br>y la norma que se habría incumplido.'],
+[9,'Y puede señalar una responsabilidad <em>presunta</em>.'],
+[15,'Esa responsabilidad se determina después,<br><em>en un procedimiento</em>.'],
+[21,'La administrativa: PAS de la Contraloría o PAD de la entidad, según corresponda.'],
+[28,'Imputación, descargos, prueba<br>y una <em>decisión motivada</em>.'],
+[34,'La penal, en sede fiscal y judicial.'],
+[38,'Pero el informe no es un papel sin valor.'],
+[43,'Lo que respondiste durante el control, <em>pesa</em>.'],
+[50,'Informe no es sanción.<br>Tampoco es un trámite.']];
+const scenes=[...document.querySelectorAll('.scene')];
+const t0=performance.now();
+function tick(){const t=(performance.now()-t0)/1000;
+ let cur=null;for(const s of scenes){if(t>=+s.dataset.t)cur=s}
+ scenes.forEach(s=>s.classList.toggle('on',s===cur));
+ let st='';for(const [a,b] of subs){if(t>=a)st=b}
+ const el=document.getElementById('sub');if(el.innerHTML!==st)el.innerHTML=st;
+ requestAnimationFrame(tick)}
+document.fonts.ready.then(tick);
+</script></body></html>

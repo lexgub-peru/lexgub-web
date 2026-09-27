@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="LexGub">
+  <!-- L + cuenco de la G (trazo principal) -->
+  <path d="M250 195V750H805V540H600" fill="none" stroke="#F1F3EE" stroke-width="110" stroke-linejoin="miter"/>
+  <!-- Línea de control (acento) -->
+  <path d="M360 250H805" fill="none" stroke="#2FD89B" stroke-width="110"/>
+</svg>

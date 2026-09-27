@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="tokens.css"><style>
+body{width:1280px;height:720px;position:relative;background:var(--ink)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.5}
+.doc{position:absolute;right:70px;top:90px;width:380px;height:520px;background:#F1F3EE;transform:rotate(4deg);border-radius:6px;padding:40px 34px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.doc i{display:block;height:14px;background:#C9CEC6;margin:0 0 18px;border-radius:2px}
+.doc i.hl{background:#2FD89B}
+.doc .stamp{position:absolute;left:28px;bottom:36px;font:600 22px 'IBM Plex Mono';color:#0B1016;border:3px solid #0B1016;padding:6px 12px;letter-spacing:.08em}
+.txt{position:absolute;left:70px;top:0;bottom:0;width:760px;display:flex;flex-direction:column;justify-content:center}
+.kicker{font:600 26px 'IBM Plex Mono';color:var(--signal);letter-spacing:.12em;margin-bottom:22px}
+h1{font-weight:800;font-size:112px;line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--signal)}
+.sym{position:absolute;left:70px;bottom:44px;display:flex;align-items:center;gap:14px;font:700 26px 'Inter Tight';letter-spacing:.08em}
+.sym svg{width:40px;height:40px}
+</style></head><body>
+<div class="grid"></div>
+<div class="doc" id="doc"><i style="width:60%"></i><i></i><i></i><i class="hl" style="width:85%"></i><i class="hl" style="width:70%"></i><i></i><i style="width:80%"></i><i></i><i style="width:50%"></i><div class="stamp" id="stamp"></div></div>
+<div class="txt"><div class="kicker" id="k"></div><h1 id="t"></h1></div>
+<div class="sym"><svg viewBox="0 0 1000 1000"><path d="M250 195V750H805V540H600" fill="none" stroke="#F1F3EE" stroke-width="110"/><path d="M360 250H805" fill="none" stroke="#2FD89B" stroke-width="110"/></svg>LEXGUB</div>
+<script>
+const q=new URLSearchParams(location.search);
+document.getElementById('k').textContent=q.get('k')||'';
+document.getElementById('t').innerHTML=q.get('t')||'';
+document.getElementById('stamp').textContent=q.get('s')||'';if(q.get('fs'))document.getElementById('t').style.fontSize=q.get('fs')+'px';
+if(!q.get('s')) document.getElementById('stamp').remove();
+</script></body></html>

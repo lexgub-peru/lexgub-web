@@ -1,0 +1,19 @@
+@font-face{font-family:'Inter Tight';font-weight:500;src:url(../fonts/inter-tight-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:600;src:url(../fonts/inter-tight-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:700;src:url(../fonts/inter-tight-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:800;src:url(../fonts/inter-tight-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;src:url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;src:url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;src:url(../fonts/ibm-plex-mono-latin-600-normal.woff2) format('woff2')}
+:root{
+  --ink:#0B1016;      /* grafito: fondo principal */
+  --ink-2:#141B24;    /* superficie */
+  --line:#1F2A36;     /* retícula */
+  --paper:#F1F3EE;    /* texto / trazo */
+  --muted:#8C97A5;    /* texto secundario */
+  --signal:#2FD89B;   /* acento: verificación */
+  --alert:#FFB547;    /* solo para "ojo / excepción" en vídeos */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--paper);font-family:'Inter Tight',sans-serif;overflow:hidden}
+.mono{font-family:'IBM Plex Mono',monospace}
