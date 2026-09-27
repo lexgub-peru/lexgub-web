@@ -5,7 +5,7 @@ nada se ha publicado.
 
 | Fase | Estado | Archivo |
 | --- | --- | --- |
-| 1. Crear canal | ⏸ Requiere tu sesión de Google (sin navegador vinculado en esta sesión) | `01-canal.md §6` |
+| 1. Crear canal | ✅ Creado por el titular · ID `UCnavsUA_Mt40kHEw783G1HQ` | [Studio](https://studio.youtube.com/channel/UCnavsUA_Mt40kHEw783G1HQ/editing/profile) |
 | 2. Nombre, identificador, descripción | ✅ Redactados y listos para pegar (985/1000 caracteres) | `01-canal.md` |
 | 3. Identidad visual | ✅ Concepto «Línea de control», paleta, tipografía | `02-identidad-visual.md` |
 | 4. Avatar y banner | ✅ PNG finales | `brand/png/` |
@@ -18,7 +18,7 @@ nada se ha publicado.
 
 ## Lo que falta y quién lo desbloquea
 
-1. **Tú:** crear el canal y cargar datos (≈10 min, `01-canal.md §6`).
+1. **Tú:** cargar perfil y configuración en el canal ya creado (≈7 min, `01-canal.md §6`, pasos 4–6).
 2. **Tú:** habilitar en el entorno el acceso a los dominios oficiales, o pegarme
    los textos de los artículos listados en `04-guiones.md §5`.
 3. **Claude:** cerrar la matriz de verificación y ajustar guiones.
