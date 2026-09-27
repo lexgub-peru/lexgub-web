@@ -12,7 +12,7 @@ las ejecutes tú siguiendo la sección 6 (≈ 10 minutos, todo copiar/pegar).
 | Campo | Valor |
 | --- | --- |
 | Nombre del canal | **LexGub** |
-| Identificador | **@LexGub** → si no está disponible: **@LexGubPeru** → **@LexGubPE** |
+| Identificador | **@LexGub** (asignado) · https://www.youtube.com/@LexGub |
 
 No se ha podido comprobar la disponibilidad de los identificadores: YouTube solo
 la muestra con sesión iniciada. La verás en tiempo real en el paso 6.4.
